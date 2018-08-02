@@ -1,0 +1,20 @@
+/* stylelint-disable selector-pseudo-class-no-unknown */
+
+@import './var';
+
+html,
+body {
+    display: block;
+}
+
+:global .app-wrapper {
+    display: block;
+}
+
+body {
+    color: $main-text-color;
+    font-family: $main-font-family;
+    font-size: $main-font-size;
+    line-height: $main-line-height;
+    overflow-y: scroll;
+}
