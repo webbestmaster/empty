@@ -14,11 +14,19 @@ type PropsType = {|
     onResize: (width: number, height: number) => void
 |};
 
-type StateType = {||};
+type StateType = null;
 
 class System extends Component<PropsType, StateType> {
     props: PropsType;
     state: StateType;
+
+    constructor(props: PropsType) {
+        super(props);
+
+        const view = this;
+
+        view.state = null;
+    }
 
     componentDidMount() {
         const view = this;

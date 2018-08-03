@@ -1,13 +1,5 @@
 // @flow
 
-/*
-import app from './components/app/reducer';
-import clubsCatalog from './components/clubs-catalog/reducer';
-import subscriptionsCatalog from './components/subscriptions-catalog/reducer';
-import trainingsCatalog from './components/trainings-catalog/reducer';
-import auth from './components/auth/reducer';
-*/
-
 import type {SystemType} from './components/system/reducer';
 import system from './components/system/reducer';
 
