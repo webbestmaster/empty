@@ -11,7 +11,7 @@ import Home from '../page/home';
 
 import routes from './routes';
 
-export default (): Node[] => [
+export default (): Array<Node> => [
     <Auth key="auth"/>,
     <System key="system"/>,
     <Switch key="switch">
