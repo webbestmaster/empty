@@ -69,7 +69,7 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
         const {props, state} = view;
 
         const screenProps = props.system.screen;
-        const ltThenList = screenProps.ltThen;
+        const littleThenList = screenProps.littleThen;
         const localeName = props.locale.name;
 
         return classnames({
@@ -78,8 +78,8 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
             [style.desktop]: screenProps.name === screenNameReference.desktop,
             [style.tablet]: screenProps.name === screenNameReference.tablet,
             [style.mobile]: screenProps.name === screenNameReference.mobile,
-            [style.lt_desktop_width]: ltThenList.includes(screenNameReference.desktop),
-            [style.lt_tablet_width]: ltThenList.includes(screenNameReference.tablet),
+            [style.lt_desktop_width]: littleThenList.includes(screenNameReference.desktop),
+            [style.lt_tablet_width]: littleThenList.includes(screenNameReference.tablet),
             [style.locale__en_us]: localeName === localeNameReference.enUs,
             [style.locale__ru_ru]: localeName === localeNameReference.ruRu
         });

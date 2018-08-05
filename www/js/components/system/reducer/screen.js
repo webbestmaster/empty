@@ -23,7 +23,7 @@ export type ScreenType = {|
     width: number,
     height: number,
     name: ScreenWidthNameType,
-    ltThen: Array<ScreenWidthNameType>,
+    littleThen: Array<ScreenWidthNameType>,
     isLandscape: boolean,
     isPortrait: boolean
 |};
@@ -45,16 +45,16 @@ function getScreenName(screenWidth: number): ScreenWidthNameType {
     return screenName;
 }
 
-function getLtThen(screenWidth: number): Array<ScreenWidthNameType> {
-    const ltThenList = [];
+function getLittleThen(screenWidth: number): Array<ScreenWidthNameType> {
+    const littleThenList = [];
 
     Object.keys(screenMinWidth).forEach((screenName: ScreenWidthNameType) => {
         if (screenWidth < screenMinWidth[screenName]) {
-            ltThenList.push(screenName);
+            littleThenList.push(screenName);
         }
     });
 
-    return ltThenList;
+    return littleThenList;
 }
 
 function getScreenState(width: number, height: number): ScreenType {
@@ -64,7 +64,7 @@ function getScreenState(width: number, height: number): ScreenType {
         width,
         height,
         name: getScreenName(width),
-        ltThen: getLtThen(width),
+        littleThen: getLittleThen(width),
         isLandscape,
         isPortrait: !isLandscape
     };
