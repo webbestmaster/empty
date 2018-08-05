@@ -13,8 +13,9 @@ import routes from './routes';
 
 export default (): Array<Node> => [
     <Auth key="auth"/>,
-    <System key="system"/>,
-    <Switch key="switch">
-        <Route component={Home} path={routes.index} exact/>
-    </Switch>
+    <System key="system">
+        <Switch key="switch">
+            <Route component={Home} path={routes.index} exact/>
+        </Switch>
+    </System>
 ];

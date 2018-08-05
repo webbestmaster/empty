@@ -3,6 +3,8 @@
 import {combineReducers} from 'redux';
 import type {SetUserType} from './action';
 import {authConst} from './const';
+import type {ActionDataType} from '../../app-reducer-type';
+import {isUndefined} from '../../lib/is';
 
 export type UserType = {|
     +id: string
@@ -18,11 +20,15 @@ export type AuthType = {|
 |};
 
 export default combineReducers({
-    user: (userState: UserType = defaultUserState, {type, payload}: SetUserType): UserType => {
-        if (type !== authConst.action.type.setUserState) {
+    user: (userState: UserType = defaultUserState, actionData: ActionDataType): UserType => {
+        if (actionData.type !== authConst.action.type.setUserState) {
             return userState;
         }
 
-        return payload;
+        if (typeof actionData.payload === 'undefined') {
+            return userState;
+        }
+
+        return actionData.payload;
     }
 });

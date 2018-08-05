@@ -2,8 +2,8 @@
 
 /* global window */
 
-import type {OnResizeType} from '../action';
 import {systemConst} from '../const';
+import type {ActionDataType} from '../../../app-reducer-type';
 
 type ScreenWidthNameType = 'desktop' | 'tablet' | 'mobile';
 
@@ -11,6 +11,12 @@ const screenMinWidth: {[key: ScreenWidthNameType]: number} = {
     desktop: 1280,
     tablet: 768,
     mobile: 320
+};
+
+export const screenNameReference: {[key: ScreenWidthNameType]: ScreenWidthNameType} = {
+    desktop: 'desktop',
+    tablet: 'tablet',
+    mobile: 'mobile'
 };
 
 export type ScreenType = {|
@@ -68,12 +74,16 @@ const {clientWidth, clientHeight} = window.document.documentElement;
 
 const defaultScreenState = getScreenState(clientWidth, clientHeight);
 
-export default (screenState: ScreenType = defaultScreenState, {type, payload}: OnResizeType): ScreenType => {
-    if (type !== systemConst.action.type.resize) {
+export default (screenState: ScreenType = defaultScreenState, actionData: ActionDataType): ScreenType => {
+    if (actionData.type !== systemConst.action.type.resize) {
         return screenState;
     }
 
-    const {width, height} = payload;
+    if (typeof actionData.payload === 'undefined') {
+        return screenState;
+    }
+
+    const {width, height} = actionData.payload;
 
     if (screenState.width === width && screenState.height === height) {
         return screenState;
