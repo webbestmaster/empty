@@ -26,6 +26,10 @@ type ReduxActionType = {|
     +onResize: (width: number, height: number) => OnResizeType
 |};
 
+const reduxAction: ReduxActionType = {
+    onResize // imported from actions
+};
+
 type PassedPropsType = {|
     // +passedProp: string
 |};
@@ -92,10 +96,6 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
         return <div className={view.getClassName()}>{props.children}</div>;
     }
 }
-
-const reduxAction: ReduxActionType = {
-    onResize // imported from actions
-};
 
 export default connect(
     (state: GlobalStateType): ReduxPropsType => ({
