@@ -80,8 +80,8 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
             [style.mobile]: screenProps.name === screenNameReference.mobile,
             [style.lt_desktop_width]: ltThenList.includes(screenNameReference.desktop),
             [style.lt_tablet_width]: ltThenList.includes(screenNameReference.tablet),
-            [style.locale_en_us]: localeName === localeNameReference.enUs,
-            [style.locale_ru_ru]: localeName === localeNameReference.ruRu
+            [style.locale__en_us]: localeName === localeNameReference.enUs,
+            [style.locale__ru_ru]: localeName === localeNameReference.ruRu
         });
     }
 
