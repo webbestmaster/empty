@@ -1,13 +1,13 @@
 // @flow
 
-import type {AuthType} from './components/auth/reducer';
-import auth from './components/auth/reducer';
+import type {AuthType} from './component/auth/reducer';
+import auth from './component/auth/reducer';
 
-import type {LocaleType} from './components/locale/reducer';
-import locale from './components/locale/reducer';
+import type {LocaleType} from './component/locale/reducer';
+import locale from './component/locale/reducer';
 
-import type {SystemType} from './components/system/reducer';
-import system from './components/system/reducer';
+import type {SystemType} from './component/system/reducer';
+import system from './component/system/reducer';
 
 export {auth, locale, system};
 
