@@ -75,9 +75,9 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
         return classnames({
             [style.landscape]: screenProps.isLandscape,
             [style.portrait]: screenProps.isPortrait,
-            [style.desktop]: screenProps.name === screenNameReference.desktop,
-            [style.tablet]: screenProps.name === screenNameReference.tablet,
-            [style.mobile]: screenProps.name === screenNameReference.mobile,
+            [style.desktop]: screenProps.isDesktop,
+            [style.tablet]: screenProps.isTablet,
+            [style.mobile]: screenProps.isMobile,
             [style.lt_desktop_width]: littleThenList.includes(screenNameReference.desktop),
             [style.lt_tablet_width]: littleThenList.includes(screenNameReference.tablet),
             [style.locale__en_us]: localeName === localeNameReference.enUs,

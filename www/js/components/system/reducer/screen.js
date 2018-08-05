@@ -23,6 +23,9 @@ export type ScreenType = {|
     width: number,
     height: number,
     name: ScreenWidthNameType,
+    isDesktop: boolean,
+    isTablet: boolean,
+    isMobile: boolean,
     littleThen: Array<ScreenWidthNameType>,
     isLandscape: boolean,
     isPortrait: boolean
@@ -59,12 +62,16 @@ function getLittleThen(screenWidth: number): Array<ScreenWidthNameType> {
 
 function getScreenState(width: number, height: number): ScreenType {
     const isLandscape = width > height; // use >, do not use >=, if width === height it is portrait
+    const screenName = getScreenName(width);
 
     return {
         width,
         height,
-        name: getScreenName(width),
+        name: screenName,
         littleThen: getLittleThen(width),
+        isDesktop: screenName === screenNameReference.desktop,
+        isTablet: screenName === screenNameReference.tablet,
+        isMobile: screenName === screenNameReference.mobile,
         isLandscape,
         isPortrait: !isLandscape
     };

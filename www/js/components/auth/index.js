@@ -22,7 +22,7 @@ type ReduxActionType = {|
 
 type PassedPropsType = {||};
 
-type StateType = void;
+type StateType = null;
 
 class Auth extends Component<ReduxPropsType, PassedPropsType, StateType> {
     // eslint-disable-next-line id-match
