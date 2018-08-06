@@ -1,5 +1,3 @@
-# empty project
-
 ## Installation:
 
 ### Install libpng-dev for pngquant:
