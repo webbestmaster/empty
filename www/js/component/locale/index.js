@@ -12,7 +12,7 @@ import type {LocaleType} from './reducer';
 import {allLocales} from './const';
 import type {LangKeyType} from './translation/type';
 
-type StateType = void;
+type StateType = null;
 
 type ReduxPropsType = {|
     +locale: LocaleType
