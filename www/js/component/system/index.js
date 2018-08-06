@@ -12,7 +12,7 @@ import {onResize} from './action';
 import type {GlobalStateType} from '../../app-reducer';
 import type {SystemType} from './reducer';
 import classnames from 'classnames';
-import style from './style.scss';
+import style from './style.css';
 import {screenNameReference} from './reducer/screen';
 import type {LocaleType} from '../locale/reducer';
 import {localeNameReference} from '../locale/const';
