@@ -3,16 +3,47 @@
 /* global window */
 
 import {combineReducers} from 'redux';
-import {localeConst} from './const';
+import {localeConst, localeNameReference} from './const';
 import type {LocaleNameType} from './const';
 import type {ActionDataType} from '../../app-reducer-type';
 
+function defineLocaleByUrl(): LocaleNameType | null {
+    const localeName = window.location.pathname
+        .replace(/^\/|\/$/g, '')
+        .split('/')
+        .shift();
+
+    let locale = null;
+
+    switch (localeName) {
+        case 'en':
+            locale = localeNameReference.enUs;
+            break;
+        case 'su':
+            locale = localeNameReference.ruRu;
+            break;
+        case 'zh':
+            locale = localeNameReference.zhCn;
+            break;
+        case 'tw':
+            locale = localeNameReference.zhTw;
+            break;
+
+        default:
+            console.log('---> can not detect locale');
+    }
+
+    return locale;
+}
+
 function getLocaleName(): LocaleNameType {
+    const localeByUrl = defineLocaleByUrl();
     const savedLocaleName = window.localStorage.getItem(localeConst.key.localStorage.localeName);
+    const localeFromAll = localeByUrl || savedLocaleName;
     const localeNameList: Array<LocaleNameType> = localeConst.localeNameList;
 
-    if (localeNameList.includes(savedLocaleName)) {
-        return savedLocaleName;
+    if (localeNameList.includes(localeFromAll)) {
+        return localeFromAll;
     }
 
     const navigatorLanguages = window.navigator.languages;
