@@ -4,11 +4,7 @@
 
 html,
 body {
-    display: block;
-}
-
-:global .app-wrapper {
-    display: block;
+    height: 100%;
 }
 
 body {
@@ -17,4 +13,8 @@ body {
     font-size: $main-font-size;
     line-height: $main-line-height;
     overflow-y: scroll;
+}
+
+:global .app-wrapper {
+    min-height: 100%;
 }
