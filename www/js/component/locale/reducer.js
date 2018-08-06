@@ -39,6 +39,8 @@ function getLocaleName(): LocaleNameType {
 
 const initialLocaleName = getLocaleName();
 
+window.localStorage.setItem(localeConst.key.localStorage.localeName, initialLocaleName);
+
 export type LocaleType = {|
     +name: LocaleNameType
 |};
