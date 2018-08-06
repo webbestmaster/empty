@@ -3,7 +3,7 @@
 /* global window */
 
 import {combineReducers} from 'redux';
-import {localeConst, localeNameReference} from './const';
+import {localeConst, localeNameReference, allLangCodes} from './const';
 import type {LocaleNameType} from './const';
 import type {ActionDataType} from '../../app-reducer-type';
 
@@ -16,16 +16,16 @@ function defineLocaleByUrl(): LocaleNameType | null {
     let locale = null;
 
     switch (localeName) {
-        case 'en':
+        case allLangCodes[localeNameReference.enUs]:
             locale = localeNameReference.enUs;
             break;
-        case 'su':
+        case allLangCodes[localeNameReference.ruRu]:
             locale = localeNameReference.ruRu;
             break;
-        case 'zh':
+        case allLangCodes[localeNameReference.zhCn]:
             locale = localeNameReference.zhCn;
             break;
-        case 'tw':
+        case allLangCodes[localeNameReference.zhTw]:
             locale = localeNameReference.zhTw;
             break;
 

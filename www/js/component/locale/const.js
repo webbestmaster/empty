@@ -44,3 +44,10 @@ export const allLocales = {
     'zh-CN': zhCn,
     'zh-TW': zhTw
 };
+
+export const allLangCodes = {
+    'en-US': 'en',
+    'ru-RU': 'su',
+    'zh-CN': 'zh',
+    'zh-TW': 'tw'
+};
