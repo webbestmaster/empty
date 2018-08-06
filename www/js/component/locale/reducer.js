@@ -4,13 +4,8 @@
 
 import {combineReducers} from 'redux';
 import {localeConst} from './const';
-import type {LocaleNameType, SetLocaleType} from './action';
+import type {LocaleNameType} from './const';
 import type {ActionDataType} from '../../app-reducer-type';
-
-export const localeNameReference: {[key: string]: LocaleNameType} = {
-    enUs: 'en-US',
-    ruRu: 'ru-RU'
-};
 
 function getLocaleName(): LocaleNameType {
     const savedLocaleName = window.localStorage.getItem(localeConst.key.localStorage.localeName);
@@ -20,7 +15,26 @@ function getLocaleName(): LocaleNameType {
         return savedLocaleName;
     }
 
-    return localeConst.defaults.localeName;
+    const navigatorLanguages = window.navigator.languages;
+
+    if (!Array.isArray(navigatorLanguages)) {
+        return localeConst.defaults.localeName;
+    }
+
+    let localeName = localeConst.defaults.localeName;
+
+    navigatorLanguages.every(
+        (deviceLocaleName: string): boolean => {
+            if (localeNameList.includes(deviceLocaleName)) {
+                localeName = deviceLocaleName;
+                return false;
+            }
+
+            return true;
+        }
+    );
+
+    return localeName;
 }
 
 const initialLocaleName = getLocaleName();

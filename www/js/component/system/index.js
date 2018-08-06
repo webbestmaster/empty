@@ -15,7 +15,7 @@ import classnames from 'classnames';
 import style from './style.scss';
 import {screenNameReference} from './reducer/screen';
 import type {LocaleType} from '../locale/reducer';
-import {localeNameReference} from '../locale/reducer';
+import {localeNameReference} from '../locale/const';
 
 type ReduxPropsType = {|
     +system: SystemType,
@@ -85,7 +85,9 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
             [style.lt_desktop_width]: littleThenList.includes(screenNameReference.desktop),
             [style.lt_tablet_width]: littleThenList.includes(screenNameReference.tablet),
             [style.locale__en_us]: localeName === localeNameReference.enUs,
-            [style.locale__ru_ru]: localeName === localeNameReference.ruRu
+            [style.locale__ru_ru]: localeName === localeNameReference.ruRu,
+            [style.locale__zh_ch]: localeName === localeNameReference.zhCN,
+            [style.locale__zh_tw]: localeName === localeNameReference.zhTW
         });
     }
 
