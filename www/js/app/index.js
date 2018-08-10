@@ -16,10 +16,6 @@ export default (): Array<Node> => [
     <System key="system">
         <Switch key="switch">
             <Route component={Home} path={routes.index} exact/>
-            <Route component={Home} path={routes.indexEn} exact/>
-            <Route component={Home} path={routes.indexRu} exact/>
-            <Route component={Home} path={routes.indexZhCn} exact/>
-            <Route component={Home} path={routes.indexZhTw} exact/>
         </Switch>
     </System>
 ];
