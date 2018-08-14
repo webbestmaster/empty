@@ -24,12 +24,21 @@ export default class Home extends Component<void, null> {
     componentDidMount() {
         const newModel: MainModel<'prop', number> = new MainModel();
 
-        newModel.onChange('prop', (oldValue: number | void, newValue: number | void) => {
+        const onChangeProps = (oldValue: number | void, newValue: number | void) => {
             console.log('newModel.attr');
+            console.log(oldValue, newValue);
             console.log(newModel.attr);
-        });
+        };
 
-        newModel.set('prop', 11);
+        newModel.onChange('prop', onChangeProps);
+
+        newModel.trigger('prop');
+        newModel.trigger('prop');
+        newModel.trigger('prop');
+
+        newModel.offChange('prop', onChangeProps);
+
+        // newModel.set({prop: 11});
         newModel.set('prop', 12);
         newModel.set('prop', 13);
 
