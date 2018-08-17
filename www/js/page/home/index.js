@@ -7,8 +7,11 @@
 import type {Node} from 'react';
 import React, {Component} from 'react';
 import MainModel from '../../lib/main-model';
+import type {ContextRouter} from 'react-router-dom';
 
-type RuterPropsType = {};
+type PropsType = {
+    ...$Exact<ContextRouter>
+};
 
 class Mega<S, N: number> {
     constructor(str: S) {
@@ -18,7 +21,7 @@ class Mega<S, N: number> {
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Home extends Component<void, null> {
-    props: RuterPropsType;
+    props: PropsType;
     state: null;
 
     componentDidMount() {
@@ -47,6 +50,8 @@ export default class Home extends Component<void, null> {
         const mega = new Mega(1);
 
         console.log(mega);
+
+        console.log(this.props.match);
     }
 
     render(): Node {
