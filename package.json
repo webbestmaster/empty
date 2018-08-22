@@ -26,6 +26,8 @@
     "stylelint:fix": "stylelint ./**/*.scss --fix",
     "flow": "flow stop; flow;",
     "prettier": "prettier --write \"./www/**/*.js\"",
+    "mdlint": "eslint --ext md .",
+    "mdlint:fix": "eslint --ext md . --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -59,6 +61,7 @@
     "eslint-plugin-flowtype": "^2.49.3",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-lodash": "^2.7.0",
+    "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-no-loops": "^0.3.0",
     "eslint-plugin-no-use-extend-native": "^0.3.12",
     "eslint-plugin-optimize-regex": "^1.1.5",
