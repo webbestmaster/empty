@@ -4,9 +4,10 @@ import type {Node} from 'react';
 import React from 'react';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
+import BrowserRouter from 'react-router-dom/BrowserRouter';
+
 import System from '../component/system';
 import Auth from '../component/auth';
-
 import Home from '../page/home';
 
 import routes from './routes';
@@ -14,8 +15,10 @@ import routes from './routes';
 export default (): Array<Node> => [
     <Auth key="auth"/>,
     <System key="system">
-        <Switch key="switch">
-            <Route component={Home} path={routes.index} exact/>
-        </Switch>
+        <BrowserRouter>
+            <Switch key="switch">
+                <Route component={Home} path={routes.index} exact/>
+            </Switch>
+        </BrowserRouter>
     </System>
 ];
