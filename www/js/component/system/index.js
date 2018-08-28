@@ -11,7 +11,7 @@ import type {OnResizeType} from './action';
 import {onResize} from './action';
 import type {GlobalStateType} from '../../app-reducer';
 import type {SystemType} from './reducer';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import style from './style.css';
 import {screenNameReference} from './reducer/screen';
 import type {LocaleType} from '../locale/reducer';
@@ -90,7 +90,7 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
         const littleThenList = screenProps.littleThen;
         const localeName = props.locale.name;
 
-        return classnames({
+        return classNames({
             [style.landscape]: screenProps.isLandscape,
             [style.portrait]: screenProps.isPortrait,
             [style.desktop]: screenProps.isDesktop,
