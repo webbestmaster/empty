@@ -35,8 +35,12 @@ type PassedPropsType = {|
     // +passedProp: string
 |};
 
-// eslint-disable-next-line id-match
-type PropsType = $Exact<{...PassedPropsType, ...ReduxPropsType, ...ReduxActionType, +children: Node}>;
+type PropsType = $ReadOnly<$Exact<{
+        ...$Exact<PassedPropsType>,
+        ...$Exact<ReduxPropsType>,
+        ...$Exact<ReduxActionType>,
+        +children: Node
+    }>>;
 
 type StateType = null;
 
