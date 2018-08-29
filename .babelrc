@@ -18,10 +18,13 @@
                         "legacy": true
                     }
                 ],
-                ["babel-plugin-flow-runtime", {
-                    "assert": true,
-                    "annotate": true
-                }]
+                [
+                    "babel-plugin-flow-runtime",
+                    {
+                        "assert": true,
+                        "annotate": true
+                    }
+                ]
             ]
         }
     }
