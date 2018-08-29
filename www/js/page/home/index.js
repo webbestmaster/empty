@@ -7,10 +7,10 @@
 import type {Node} from 'react';
 import React, {Component} from 'react';
 import MainModel from '../../lib/main-model';
-import type {ContextRouter} from 'react-router-dom';
+import type {ContextRouterType} from '../../type/react-router-dom-v4';
 
 type PropsType = {
-    ...$Exact<ContextRouter>
+    ...$Exact<ContextRouterType>
 };
 
 class Mega<S, N: number> {
