@@ -5,17 +5,24 @@
         "@babel/preset-flow"
     ],
     "plugins": [
+        "babel-plugin-transform-class-properties",
         "@babel/plugin-proposal-export-namespace-from",
         "@babel/plugin-proposal-throw-expressions"
-//        "transform-runtime"
-    ]
-//    "env": {
-//        "development": {
-//            "plugins": [
-//                "transform-runtime",
-//                "flow-runtime",
-//                "transform-decorators-legacy"
-//            ]
-//        }
-//    }
+    ],
+    "env": {
+        "development": {
+            "plugins": [
+                [
+                    "@babel/plugin-proposal-decorators",
+                    {
+                        "legacy": true
+                    }
+                ],
+                ["babel-plugin-flow-runtime", {
+                    "assert": true,
+                    "annotate": true
+                }]
+            ]
+        }
+    }
 }
