@@ -64,8 +64,8 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
             'resize',
             () => {
                 const {documentElement} = window.document;
-                const width: number = documentElement.clientWidth;
-                const height: number = documentElement.clientHeight;
+                const width = documentElement.clientWidth;
+                const height = documentElement.clientHeight;
 
                 props.onResize(width, height);
             },

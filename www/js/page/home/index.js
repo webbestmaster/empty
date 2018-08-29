@@ -25,7 +25,7 @@ export default class Home extends Component<void, null> {
     state: null;
 
     componentDidMount() {
-        const newModel: MainModel<'prop', number> = new MainModel();
+        const newModel = new MainModel<'prop', number>('prop', 1);
 
         const onChangeProps = (oldValue: number | void, newValue: number | void) => {
             console.log('newModel.attr');
