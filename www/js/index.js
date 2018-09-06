@@ -1,5 +1,5 @@
 // @flow
-/* global window, BUILD_DATE */
+/* global window */
 
 import React from 'react';
 import {render} from 'react-dom';
