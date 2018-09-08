@@ -4,7 +4,7 @@ import type {LangDataType} from '../type';
 
 export const ruRu: LangDataType = {
     /* eslint-disable id-match, id-length */
-    LANGUAGE_NAME: 'Русский',
+    META__LANGUAGE_NAME: 'Русский',
 
     HEADER__TOP_LINE: 'Попробуйте новые игры "Лото"',
     HEADER__BOTTOM_LINE: 'и выиграйте джек-пот',

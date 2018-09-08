@@ -4,7 +4,7 @@ import type {LangDataType} from '../type';
 
 export const enUs: LangDataType = {
     /* eslint-disable id-match, id-length */
-    LANGUAGE_NAME: 'English',
+    META__LANGUAGE_NAME: 'English',
 
     HEADER__TOP_LINE: 'Try our new lotto games',
     HEADER__BOTTOM_LINE: 'And win the jackpot',

@@ -2,7 +2,7 @@
 
 export type LangDataType = {|
     /* eslint-disable id-match, id-length */
-    +LANGUAGE_NAME: string,
+    +META__LANGUAGE_NAME: string,
 
     +HEADER__TOP_LINE: string,
     +HEADER__BOTTOM_LINE: string,

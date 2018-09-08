@@ -4,7 +4,7 @@ import type {LangDataType} from '../type';
 
 export const zhTw: LangDataType = {
     /* eslint-disable id-match, id-length */
-    LANGUAGE_NAME: '繁體中文',
+    META__LANGUAGE_NAME: '繁體中文',
 
     HEADER__TOP_LINE: 'Try our new lotto games',
     HEADER__BOTTOM_LINE: 'And win the jackpot',
