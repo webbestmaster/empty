@@ -25,6 +25,8 @@ export default class Home extends Component<void, null> {
     state: null;
 
     componentDidMount() {
+
+        /*
         const newModel = new MainModel<'prop', number>('prop', 1);
 
         const onChangeProps = (oldValue: number | void, newValue: number | void) => {
@@ -52,6 +54,7 @@ export default class Home extends Component<void, null> {
         console.log(mega);
 
         console.log(this.props.match);
+        */
     }
 
     render(): Node {

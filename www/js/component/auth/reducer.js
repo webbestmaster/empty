@@ -27,7 +27,7 @@ const defaultPopupMapState: PopupMapStateType = {
 
 type ReducerType = {|
     +user: (UserType, ActionDataType) => UserType,
-    +popup: (PopupMapStateType, actionData: ActionDataType) => PopupMapStateType
+    +popup: (PopupMapStateType, ActionDataType) => PopupMapStateType
 |};
 
 export type AuthType = {|
