@@ -1,6 +1,6 @@
 ## Installation:
 
-### Install libpng-dev for pngquant:
+### Install libpng-dev for pngquant (need for webpack):
 > $ [sudo] apt-get install --no-install-recommends gcc make libpng-dev
 
 ### Install other npm modules:
