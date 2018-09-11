@@ -6,11 +6,11 @@ import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 
-import ReduxStoreProvider from '../app-provider';
+import ReduxStoreProvider from '../../app/provider';
 
-import System from '../component/system/c-system';
-import Auth from '../component/auth/c-auth';
-import Home from '../page/home/c-home';
+import System from '../system/c-system';
+import Auth from '../auth/c-auth';
+import Home from '../../page/home/c-home';
 
 import routes from './routes';
 
