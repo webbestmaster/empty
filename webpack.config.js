@@ -37,7 +37,7 @@ const fileRegExp = /\.(png|jpg|jpeg|gif|svg|wof{2}|wof{2}2)(\?[\d&.=a-z]+)?$/;
 const webpackConfig = {
     entry: [
         './www/css/root.scss',
-        './www/js/index.js'
+        './www/js/enter-point'
     ],
     output: {
         path: path.join(CWD, '/dist'),

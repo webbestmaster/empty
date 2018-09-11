@@ -8,9 +8,9 @@ import BrowserRouter from 'react-router-dom/BrowserRouter';
 
 import ReduxStoreProvider from '../app-provider';
 
-import System from '../component/system';
-import Auth from '../component/auth';
-import Home from '../page/home';
+import System from '../component/system/c-system';
+import Auth from '../component/auth/c-auth';
+import Home from '../page/home/c-home';
 
 import routes from './routes';
 
