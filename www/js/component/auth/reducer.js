@@ -31,8 +31,8 @@ type ReducerType = {|
 |};
 
 export type AuthType = {|
-    +user: $Call<$PropertyType<ReducerType, 'user'>>,
-    +popup: $Call<$PropertyType<ReducerType, 'popup'>>
+    +user: UserType,
+    +popup: PopupMapStateType
 |};
 
 const reducer: ReducerType = {
