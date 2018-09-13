@@ -6,6 +6,9 @@
 ### Install other npm modules:
 > $ npm i
 
+### Build app:
+> $ npm run build
+
 ### Other
 
 ### weinre - WEb INspector REmote.
