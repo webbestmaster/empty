@@ -124,9 +124,10 @@ input[type='submit'], input[type='button'], button {
 a,
 select,
 button,
-input[type='submit'],
 input[type='button'],
-input[type='file'] {
+input[type='file'],
+input[type='reset'],
+input[type='submit'] {
     cursor: pointer;
 }
 
