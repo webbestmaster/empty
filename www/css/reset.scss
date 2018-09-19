@@ -121,6 +121,15 @@ input[type='submit'], input[type='button'], button {
 }
 */
 
+a,
+select,
+button,
+input[type='submit'],
+input[type='button'],
+input[type='file'] {
+    cursor: pointer;
+}
+
 input, select, a img {
     vertical-align: middle;
 }
