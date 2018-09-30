@@ -12,7 +12,7 @@ import System from '../system/c-system';
 import Auth from '../auth/c-auth';
 import Home from '../../page/home/c-home';
 
-import routes from './routes';
+import {routes} from './routes';
 
 export default function App(): Node {
     return (

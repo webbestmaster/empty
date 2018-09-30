@@ -1,7 +1,5 @@
 // @flow
 
-const routes = {
+export const routes = {
     index: '/'
 };
-
-export default routes;
