@@ -3,7 +3,7 @@
 import {combineReducers} from 'redux';
 import type {PopupStateType} from './action';
 import {authConst} from './const';
-import type {ActionDataType} from '../../app/type';
+import type {ActionDataType} from '../../redux-store-provider/type';
 
 export type UserType = {|
     +id: string

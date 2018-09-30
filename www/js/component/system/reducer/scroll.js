@@ -3,7 +3,7 @@
 /* global window */
 
 import {systemConst} from '../const';
-import type {ActionDataType} from '../../../app/type';
+import type {ActionDataType} from '../../../redux-store-provider/type';
 
 export type ScrollType = {|
     +isEnable: boolean,
