@@ -132,6 +132,10 @@ input {
     user-select: auto;
 }
 
+input[type='text'] {
+    cursor: auto;
+}
+
 input, select, a img {
     vertical-align: middle;
 }
