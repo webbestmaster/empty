@@ -121,15 +121,6 @@
         "react/no-unused-prop-types": 0,
         "react/sort-comp": 0,
         "react/jsx-sort-props": 0,
-        "react/jsx-no-bind": [
-            1,
-            {
-                "ignoreRefs": true,
-                "allowArrowFunctions": true,
-                "allowFunctions": false,
-                "allowBind": false
-            }
-        ],
         "react/jsx-closing-bracket-location": [
             1,
             "line-aligned"
@@ -276,7 +267,7 @@
             }
         ],
         "no-implied-eval": 1,
-        "no-invalid-this": 1,
+        "no-invalid-this": 0,
         "no-iterator": 1,
         "no-labels": 1,
         "no-lone-blocks": 1,

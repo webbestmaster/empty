@@ -57,12 +57,25 @@ export default class Home extends Component<void, null> {
         */
     }
 
+    handleMouseOver = () => {
+        const view = this;
+
+        console.log(view.state);
+    };
+
     render(): Node {
         const view = this;
         const {props, state} = view;
 
         console.log(props, state);
 
-        return <div>home page</div>;
+        return (
+            <div>
+                <button type="button" onKeyPress={view.handleMouseOver} onClick={view.handleMouseOver}>
+                    the button
+                </button>
+                <span>home page</span>
+            </div>
+        );
     }
 }
