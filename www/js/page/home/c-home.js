@@ -72,8 +72,9 @@ export default class Home extends Component<void, null> {
         return (
             <div>
                 <button type="button" onKeyPress={view.handleMouseOver} onClick={view.handleMouseOver}>
-                    the button
+                    | the button |
                 </button>
+                <br/>
                 <span>home page</span>
             </div>
         );
