@@ -1,5 +1,7 @@
 # dist
 /dist
+
+# report
 /flow-coverage
 
 # npm
