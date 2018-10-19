@@ -1,5 +1,6 @@
 # dist
 /dist
+/flow-coverage
 
 # npm
 node_modules

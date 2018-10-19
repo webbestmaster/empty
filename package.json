@@ -28,6 +28,7 @@
     "prettier": "prettier --write \"./www/**/*.js\"",
     "mdlint": "eslint --ext md .",
     "mdlint:fix": "eslint --ext md . --fix",
+    "flow-coverage": "flow-coverage-report --config ./flow-coverage-config.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
