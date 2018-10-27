@@ -113,10 +113,12 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
     }
 }
 
-export default connect(
+const component = connect(
     (state: GlobalStateType): ReduxPropsType => ({
         system: state.system,
         locale: state.locale
     }),
     reduxAction
 )(System);
+
+export {component as System};

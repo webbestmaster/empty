@@ -45,9 +45,11 @@ const reduxAction: ReduxActionType = {
     setUser
 };
 
-export default connect(
+const component = connect(
     (state: GlobalStateType, props: PassedPropsType): ReduxPropsType => ({
         auth: state.auth
     }),
     reduxAction
 )(Auth);
+
+export {component as Auth};

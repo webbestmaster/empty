@@ -5,8 +5,10 @@
 /* eslint consistent-this: ["error", "view"] */
 
 import type {Node} from 'react';
+
 import React, {Component} from 'react';
-import MainModel from '../../lib/main-model';
+
+// import MainModel from '../../lib/main-model';
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
 
 type PropsType = {
@@ -20,7 +22,7 @@ class Mega<S, N: number> {
 }
 
 // eslint-disable-next-line react/prefer-stateless-function
-export default class Home extends Component<void, null> {
+export class Home extends Component<void, null> {
     props: PropsType;
     state: null;
 

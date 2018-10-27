@@ -45,7 +45,7 @@ export type LocaleType = {|
     +name: LocaleNameType
 |};
 
-export default combineReducers({
+const locale = combineReducers({
     name: (localeName: LocaleNameType = initialLocaleName, actionData: ActionDataType): LocaleNameType => {
         if (actionData.type !== localeConst.action.type.setLocale) {
             return localeName;
@@ -58,3 +58,5 @@ export default combineReducers({
         return actionData.payload.localeName;
     }
 });
+
+export {locale};

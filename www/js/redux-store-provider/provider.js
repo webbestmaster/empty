@@ -22,7 +22,7 @@ const composeEnhancers = composeWithDevTools({
 
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
-export default function ReduxStoreProvider(props: PassedPropsType): Node {
+export function ReduxStoreProvider(props: PassedPropsType): Node {
     const {children} = props;
 
     return <Provider store={store}>{children}</Provider>;

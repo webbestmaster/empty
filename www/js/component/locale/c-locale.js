@@ -53,7 +53,7 @@ class Locale extends Component<ReduxPropsType, PassedPropsType, StateType> {
     }
 }
 
-export default connect(
+const component = connect(
     (state: GlobalStateType, props: PassedPropsType): ReduxPropsType => ({
         locale: state.locale
     }),
@@ -61,3 +61,5 @@ export default connect(
         // setUser
     }
 )(Locale);
+
+export {component as Locale};
