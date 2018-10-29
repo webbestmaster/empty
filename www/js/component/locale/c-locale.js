@@ -15,15 +15,34 @@ import type {LangKeyType} from './translation/type';
 
 type StateType = null;
 
+type ValueMapType = {
+    [key: string]: string | number
+};
+
 type ReduxPropsType = {|
     +locale: LocaleType
 |};
 
 type PassedPropsType = {|
-    +stringKey: LangKeyType
+    +stringKey: LangKeyType,
+    +valueMap?: ValueMapType
 |};
 
-export function getLocalizedString(stringKey: LangKeyType, localeName: LocaleNameType): string {
+function replacePlaceholderMap(rawString: string, valueMap: ValueMapType): string {
+    let resultString = rawString;
+
+    Object.keys(valueMap).forEach((valueKey: string) => {
+        resultString = resultString.replace(`{${valueKey}}`, String(valueMap[valueKey]));
+    });
+
+    return resultString;
+}
+
+export function getLocalizedString(
+    stringKey: LangKeyType,
+    localeName: LocaleNameType,
+    valueMap?: ValueMapType
+): string {
     // eslint-disable-next-line id-match
     if (!IS_PRODUCTION) {
         if (!stringKey) {
@@ -37,7 +56,9 @@ export function getLocalizedString(stringKey: LangKeyType, localeName: LocaleNam
         }
     }
 
-    return allLocales[localeName][stringKey];
+    const resultString = allLocales[localeName][stringKey];
+
+    return valueMap ? replacePlaceholderMap(resultString, valueMap) : resultString;
 }
 
 class Locale extends Component<ReduxPropsType, PassedPropsType, StateType> {
@@ -48,8 +69,9 @@ class Locale extends Component<ReduxPropsType, PassedPropsType, StateType> {
     render(): string {
         const view = this;
         const {props} = view;
+        const {stringKey, locale, valueMap} = props;
 
-        return getLocalizedString(props.stringKey, props.locale.name);
+        return getLocalizedString(stringKey, locale.name, valueMap);
     }
 }
 
