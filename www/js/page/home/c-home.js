@@ -5,9 +5,7 @@
 /* eslint consistent-this: ["error", "view"] */
 
 import type {Node} from 'react';
-
 import React, {Component} from 'react';
-
 // import MainModel from '../../lib/main-model';
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
 

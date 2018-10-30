@@ -4,7 +4,7 @@
 
 /* eslint consistent-this: ["error", "view"] */
 
-import type {Node} from 'react';
+import type {ComponentType, Node} from 'react';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import type {OnResizeType} from './action';
@@ -32,6 +32,7 @@ const reduxAction: ReduxActionType = {
 };
 
 type PassedPropsType = {|
+    children: Node
     // +passedProp: string
 |};
 
@@ -113,7 +114,7 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
     }
 }
 
-const ConnectedComponent = connect(
+const ConnectedComponent = connect<ComponentType<System>, PassedPropsType, ReduxPropsType, ReduxActionType>(
     (state: GlobalStateType): ReduxPropsType => ({
         system: state.system,
         locale: state.locale

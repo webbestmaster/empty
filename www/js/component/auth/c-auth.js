@@ -3,8 +3,7 @@
 /* global window */
 
 /* eslint consistent-this: ["error", "view"] */
-
-import type {Node} from 'react';
+import type {ComponentType, Node} from 'react';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import type {SetUserType} from './action';
@@ -45,8 +44,8 @@ const reduxAction: ReduxActionType = {
     setUser
 };
 
-const ConnectedComponent = connect(
-    (state: GlobalStateType, props: PassedPropsType): ReduxPropsType => ({
+const ConnectedComponent = connect<ComponentType<Auth>, PassedPropsType, ReduxPropsType, ReduxActionType>(
+    (state: GlobalStateType): ReduxPropsType => ({
         auth: state.auth
     }),
     reduxAction

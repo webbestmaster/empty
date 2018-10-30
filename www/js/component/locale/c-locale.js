@@ -4,7 +4,7 @@
 
 /* eslint consistent-this: ["error", "view"] */
 
-import type {Node} from 'react';
+import type {ComponentType, Node} from 'react';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import type {GlobalStateType} from '../../redux-store-provider/reducer';
@@ -75,8 +75,8 @@ class Locale extends Component<ReduxPropsType, PassedPropsType, StateType> {
     }
 }
 
-const ConnectedComponent = connect(
-    (state: GlobalStateType, props: PassedPropsType): ReduxPropsType => ({
+const ConnectedComponent = connect<ComponentType<Locale>, PassedPropsType, ReduxPropsType, {}>(
+    (state: GlobalStateType): ReduxPropsType => ({
         locale: state.locale
     }),
     {

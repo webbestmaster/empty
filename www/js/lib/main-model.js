@@ -6,7 +6,7 @@
 
 /* eslint consistent-this: ["error", "model"] */
 
-import {isNotFunction, isNotString, isNotUndefined, isNumber, isString} from './is';
+import {isNotFunction, isNotString, isNotUndefined, isNumber} from './is';
 
 type ActionType<ValueType> = (newValue: ValueType | void, oldValue: ValueType | void) => mixed;
 
