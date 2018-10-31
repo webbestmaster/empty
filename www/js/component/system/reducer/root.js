@@ -12,10 +12,10 @@ export type SystemType = {|
     +scroll: ScrollType
 |};
 
-type ReduceMapType = {
-    screen: (screenState: ScreenType, actionData: ActionDataType) => ScreenType,
-    scroll: (scrollState: ScrollType, actionData: ActionDataType) => ScrollType
-};
+type ReduceMapType = {|
+    +screen: (screenState: ScreenType, actionData: ActionDataType) => ScreenType,
+    +scroll: (scrollState: ScrollType, actionData: ActionDataType) => ScrollType
+|};
 
 const system = combineReducers<ReduceMapType, SystemType>({
     screen,
