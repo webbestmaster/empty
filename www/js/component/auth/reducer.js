@@ -7,11 +7,9 @@ import type {ActionDataType} from '../../redux-store-provider/type';
 
 export type UserType = {|
     +id: string
-|};
+|} | null;
 
-const defaultUserState: UserType = {
-    id: ''
-};
+const defaultUserState: UserType = null;
 
 export type PopupNameType = 'login';
 
