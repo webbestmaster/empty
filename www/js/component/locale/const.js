@@ -34,7 +34,7 @@ export const localeConst = {
         }
     },
     defaults: {
-        localeName: 'en-US'
+        localeName: localeNameReference.enUs
     },
     key: {
         localStorage: {
