@@ -101,8 +101,8 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
             [style.lt_tablet_width]: littleThenList.includes(screenNameReference.tablet),
             [style.locale__en_us]: localeName === localeNameReference.enUs,
             [style.locale__ru_ru]: localeName === localeNameReference.ruRu,
-            [style.locale__zh_ch]: localeName === localeNameReference.zhCN,
-            [style.locale__zh_tw]: localeName === localeNameReference.zhTW
+            [style.locale__zh_ch]: localeName === localeNameReference.zhCn,
+            [style.locale__zh_tw]: localeName === localeNameReference.zhTw
         });
     }
 

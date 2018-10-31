@@ -12,8 +12,8 @@ import {zhTw} from './translation/zh-tw/data';
 export const localeNameReference: {[key: string]: LocaleNameType} = {
     enUs: 'en-US',
     ruRu: 'ru-RU',
-    zhCN: 'zh-CN',
-    zhTW: 'zh-TW'
+    zhCn: 'zh-CN',
+    zhTw: 'zh-TW'
 };
 
 export const allLocales = {
