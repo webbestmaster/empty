@@ -13,7 +13,7 @@ type PassedPropsType = $Exact<{
 }>;
 
 const reducer = combineReducers({
-    ...reducers
+    ...reducers,
 });
 
 const composeEnhancers = composeWithDevTools({

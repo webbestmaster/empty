@@ -28,7 +28,7 @@ type ReduxActionType = {|
 |};
 
 const reduxAction: ReduxActionType = {
-    onResize // imported from actions
+    onResize, // imported from actions
 };
 
 type PassedPropsType = {|
@@ -102,7 +102,7 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
             [style.locale__en_us]: localeName === localeNameReference.enUs,
             [style.locale__ru_ru]: localeName === localeNameReference.ruRu,
             [style.locale__zh_ch]: localeName === localeNameReference.zhCn,
-            [style.locale__zh_tw]: localeName === localeNameReference.zhTw
+            [style.locale__zh_tw]: localeName === localeNameReference.zhTw,
         });
     }
 
@@ -117,7 +117,7 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
 const ConnectedComponent = connect<ComponentType<System>, PassedPropsType, ReduxPropsType, ReduxActionType>(
     (state: GlobalStateType): ReduxPropsType => ({
         system: state.system,
-        locale: state.locale
+        locale: state.locale,
     }),
     reduxAction
 )(System);

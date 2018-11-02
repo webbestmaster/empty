@@ -6,6 +6,6 @@ const {hostname, origin} = window.location;
 export const appConst = {
     api: {
         // eslint-disable-next-line id-match
-        url: IS_PRODUCTION ? origin : 'http://my-best-site.com'
-    }
+        url: IS_PRODUCTION ? origin : 'http://my-best-site.com',
+    },
 };

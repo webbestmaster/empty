@@ -60,7 +60,7 @@ const locale = combineReducers<ReduceMapType, LocaleType>({
         }
 
         return actionData.payload.localeName;
-    }
+    },
 });
 
 export {locale};

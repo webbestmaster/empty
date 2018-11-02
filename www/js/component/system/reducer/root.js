@@ -19,7 +19,7 @@ type ReduceMapType = {|
 
 const system = combineReducers<ReduceMapType, SystemType>({
     screen,
-    scroll
+    scroll,
 });
 
 export {system};

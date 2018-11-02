@@ -14,6 +14,6 @@ export const ruRu: LangDataType = {
     LOGIN_POPUP__LINK_LOST_PASSWORD: 'Забыли пароль?',
 
     // spec symbols
-    SPACE: ' '
+    SPACE: ' ',
     /* eslint-enable id-match, id-length */
 };

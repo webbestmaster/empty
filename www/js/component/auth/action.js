@@ -11,7 +11,7 @@ export type SetUserType = {|
 export function setUser(userState: UserType): SetUserType {
     return {
         type: authConst.action.type.setUserState,
-        payload: userState
+        payload: userState,
     };
 }
 
@@ -30,7 +30,7 @@ export type SetPopupStateType = {|
 function setPopupState(popupName: PopupNameType, state: PopupStateType): SetPopupStateType {
     return {
         type: authConst.action.type.setPopupState,
-        payload: {popupName, state}
+        payload: {popupName, state},
     };
 }
 

@@ -10,13 +10,13 @@ type ScreenWidthNameType = 'desktop' | 'tablet' | 'mobile';
 const screenMinWidth: {[key: ScreenWidthNameType]: number} = {
     desktop: 1280,
     tablet: 768,
-    mobile: 320
+    mobile: 320,
 };
 
 export const screenNameReference: {[key: ScreenWidthNameType]: ScreenWidthNameType} = {
     desktop: 'desktop',
     tablet: 'tablet',
-    mobile: 'mobile'
+    mobile: 'mobile',
 };
 
 export type ScreenType = {|
@@ -73,7 +73,7 @@ function getScreenState(width: number, height: number): ScreenType {
         isTablet: screenName === screenNameReference.tablet,
         isMobile: screenName === screenNameReference.mobile,
         isLandscape,
-        isPortrait: !isLandscape
+        isPortrait: !isLandscape,
     };
 }
 

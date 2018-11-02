@@ -13,14 +13,14 @@ export const localeNameReference: {[key: string]: LocaleNameType} = {
     enUs: 'en-US',
     ruRu: 'ru-RU',
     zhCn: 'zh-CN',
-    zhTw: 'zh-TW'
+    zhTw: 'zh-TW',
 };
 
 export const allLocales = {
     'en-US': enUs,
     'ru-RU': ruRu,
     'zh-CN': zhCn,
-    'zh-TW': zhTw
+    'zh-TW': zhTw,
 };
 
 const localeNameList: Array<LocaleNameType> = Object.keys(localeNameReference).map(
@@ -30,17 +30,17 @@ const localeNameList: Array<LocaleNameType> = Object.keys(localeNameReference).m
 export const localeConst = {
     action: {
         type: {
-            setLocale: 'locale__set-locale'
-        }
+            setLocale: 'locale__set-locale',
+        },
     },
     defaults: {
-        localeName: localeNameReference.enUs
+        localeName: localeNameReference.enUs,
     },
     key: {
         localStorage: {
             // eslint-disable-next-line id-match
-            localeName: PROJECT_ID + '-locale-name-v.1.0'
-        }
+            localeName: PROJECT_ID + '-locale-name-v.1.0',
+        },
     },
-    localeNameList
+    localeNameList,
 };

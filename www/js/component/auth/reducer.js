@@ -19,8 +19,8 @@ export type PopupMapStateType = {|
 
 const defaultPopupMapState: PopupMapStateType = {
     [authConst.popupName.login]: {
-        isOpen: false
-    }
+        isOpen: false,
+    },
 };
 
 export type AuthType = {|
@@ -59,7 +59,7 @@ const auth = combineReducers<ReduceMapType, AuthType>({
         const newState = {...popupMapState[popupName], ...state};
 
         return {...popupMapState, [popupName]: newState};
-    }
+    },
 });
 
 export {auth};

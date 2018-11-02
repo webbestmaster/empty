@@ -12,7 +12,7 @@ export type ScrollType = {|
 
 const defaultScrollState: ScrollType = {
     isEnable: true,
-    disableIdList: []
+    disableIdList: [],
 };
 
 function isScrollEnable(disableIdList: Array<string>): boolean {
