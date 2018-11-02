@@ -16,16 +16,16 @@ import type {LangKeyType} from './translation/type';
 type StateType = null;
 
 type ValueMapType = {
-    [key: string]: string | number
+    [key: string]: string | number,
 };
 
 type ReduxPropsType = {|
-    +locale: LocaleType
+    +locale: LocaleType,
 |};
 
 type PassedPropsType = {|
     +stringKey: LangKeyType,
-    +valueMap?: ValueMapType
+    +valueMap?: ValueMapType,
 |};
 
 function replacePlaceholderMap(rawString: string, valueMap: ValueMapType): string {

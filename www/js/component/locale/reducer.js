@@ -42,11 +42,11 @@ const initialLocaleName = getLocaleName();
 window.localStorage.setItem(localeConst.key.localStorage.localeName, initialLocaleName);
 
 export type LocaleType = {|
-    +name: LocaleNameType
+    +name: LocaleNameType,
 |};
 
 type ReduceMapType = {|
-    +name: (localeName: LocaleNameType, actionData: ActionDataType) => LocaleNameType
+    +name: (localeName: LocaleNameType, actionData: ActionDataType) => LocaleNameType,
 |};
 
 const locale = combineReducers<ReduceMapType, LocaleType>({

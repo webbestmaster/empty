@@ -7,7 +7,7 @@ import type {ActionDataType} from '../../../redux-store-provider/type';
 
 export type ScrollType = {|
     +isEnable: boolean,
-    +disableIdList: Array<string>
+    +disableIdList: Array<string>,
 |};
 
 const defaultScrollState: ScrollType = {

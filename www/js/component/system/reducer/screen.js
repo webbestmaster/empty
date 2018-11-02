@@ -28,7 +28,7 @@ export type ScreenType = {|
     +isMobile: boolean,
     +littleThen: Array<ScreenWidthNameType>,
     +isLandscape: boolean,
-    +isPortrait: boolean
+    +isPortrait: boolean,
 |};
 
 function getScreenName(screenWidth: number): ScreenWidthNameType {

@@ -6,7 +6,7 @@ import {authConst} from './const';
 import type {ActionDataType} from '../../redux-store-provider/type';
 
 export type UserType = {|
-    +id: string
+    +id: string,
 |} | null;
 
 const defaultUserState: UserType = null;
@@ -14,7 +14,7 @@ const defaultUserState: UserType = null;
 export type PopupNameType = 'login';
 
 export type PopupMapStateType = {|
-    +login: PopupStateType
+    +login: PopupStateType,
 |};
 
 const defaultPopupMapState: PopupMapStateType = {
@@ -25,12 +25,12 @@ const defaultPopupMapState: PopupMapStateType = {
 
 export type AuthType = {|
     +user: UserType,
-    +popup: PopupMapStateType
+    +popup: PopupMapStateType,
 |};
 
 type ReduceMapType = {|
     +user: (userState: UserType, actionData: ActionDataType) => UserType,
-    +popup: (popupMapState: PopupMapStateType, actionData: ActionDataType) => PopupMapStateType
+    +popup: (popupMapState: PopupMapStateType, actionData: ActionDataType) => PopupMapStateType,
 |};
 
 const auth = combineReducers<ReduceMapType, AuthType>({

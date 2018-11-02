@@ -2,7 +2,7 @@
 
 type WavesAuthDataType = {
     +name: string,
-    +data: string
+    +data: string,
 };
 
 type WavesAuthResultType = {
@@ -12,11 +12,11 @@ type WavesAuthResultType = {
     +name: string,
     +prefix: string,
     +publicKey: string,
-    +signature: string
+    +signature: string,
 };
 
 type WavesType = {
-    auth(WavesAuthDataType):Promise<WavesAuthResultType | Error>
+    auth(WavesAuthDataType):Promise<WavesAuthResultType | Error>,
 };
 
 declare var Waves: WavesType;

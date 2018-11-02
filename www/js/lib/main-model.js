@@ -13,7 +13,7 @@ type ActionType<ValueType> = (newValue: ValueType | void, oldValue: ValueType | 
 type ListenersItemType<ValueType> = [ActionType<ValueType>, {}];
 
 type ListenersType<KeyNameType, ValueType> = {
-    [key: KeyNameType]: Array<ListenersItemType<ValueType>>
+    [key: KeyNameType]: Array<ListenersItemType<ValueType>>,
 };
 
 type ListeningItemType<LIModel, LIKeyName, LIAction, LIContext> = [LIModel, LIKeyName, LIAction, LIContext];

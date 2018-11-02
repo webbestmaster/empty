@@ -14,5 +14,5 @@ export {auth, locale, system};
 export type GlobalStateType = {|
     +auth: AuthType,
     +locale: LocaleType,
-    +system: SystemType
+    +system: SystemType,
 |};

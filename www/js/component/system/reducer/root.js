@@ -9,12 +9,12 @@ import type {ActionDataType} from '../../../redux-store-provider/type';
 
 export type SystemType = {|
     +screen: ScreenType,
-    +scroll: ScrollType
+    +scroll: ScrollType,
 |};
 
 type ReduceMapType = {|
     +screen: (screenState: ScreenType, actionData: ActionDataType) => ScreenType,
-    +scroll: (scrollState: ScrollType, actionData: ActionDataType) => ScrollType
+    +scroll: (scrollState: ScrollType, actionData: ActionDataType) => ScrollType,
 |};
 
 const system = combineReducers<ReduceMapType, SystemType>({

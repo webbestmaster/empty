@@ -12,11 +12,11 @@ import type {AuthType, UserType} from './reducer';
 import type {GlobalStateType} from '../../redux-store-provider/reducer';
 
 type ReduxPropsType = {|
-    +auth: AuthType
+    +auth: AuthType,
 |};
 
 type ReduxActionType = {|
-    +setUser: (userState: UserType) => SetUserType
+    +setUser: (userState: UserType) => SetUserType,
 |};
 
 const reduxAction: ReduxActionType = {

@@ -8,20 +8,20 @@ type SwiperOptionsType = {|
     +watchOverflow?: boolean,
     +scrollbar?: {|
         +el: string, // eslint-disable-line id-length
-        +hide?: boolean
+        +hide?: boolean,
     |},
     +pagination?: {|
         // eslint-disable-next-line id-length
-        +el: '.swiper-pagination'
+        +el: '.swiper-pagination',
     |},
     +mousewheel?: boolean,
     +autoplay?: {|
-        +delay?: number
-    |}
+        +delay?: number,
+    |},
 |};
 
 declare module 'swiper' {
     declare export default class Swiper {
-        constructor(node: HTMLElement, options: SwiperOptionsType): Swiper
+        constructor(node: HTMLElement, options: SwiperOptionsType): Swiper,
     }
 }

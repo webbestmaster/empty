@@ -5,7 +5,7 @@ import {authConst} from './const';
 
 export type SetUserType = {|
     +type: 'auth__set-user-state',
-    +payload: UserType
+    +payload: UserType,
 |};
 
 export function setUser(userState: UserType): SetUserType {
@@ -16,15 +16,15 @@ export function setUser(userState: UserType): SetUserType {
 }
 
 export type PopupStateType = {|
-    +isOpen: boolean
+    +isOpen: boolean,
 |};
 
 export type SetPopupStateType = {|
     +type: 'auth__set-popup-state',
     +payload: {|
         +popupName: PopupNameType,
-        +state: PopupStateType
-    |}
+        +state: PopupStateType,
+    |},
 |};
 
 function setPopupState(popupName: PopupNameType, state: PopupStateType): SetPopupStateType {

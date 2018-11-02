@@ -20,11 +20,11 @@ import {setIsGlobalScrollEnable} from './helper';
 
 type ReduxPropsType = {|
     +system: SystemType,
-    +locale: LocaleType
+    +locale: LocaleType,
 |};
 
 type ReduxActionType = {|
-    +onResize: (width: number, height: number) => OnResizeType
+    +onResize: (width: number, height: number) => OnResizeType,
 |};
 
 const reduxAction: ReduxActionType = {
@@ -32,7 +32,7 @@ const reduxAction: ReduxActionType = {
 };
 
 type PassedPropsType = {|
-    children: Node
+    children: Node,
     // +passedProp: string
 |};
 
@@ -40,7 +40,7 @@ type PropsType = $Exact<{
     ...$Exact<PassedPropsType>,
     ...$Exact<ReduxPropsType>,
     ...$Exact<ReduxActionType>,
-    +children: Node
+    +children: Node,
 }>;
 
 type StateType = null;

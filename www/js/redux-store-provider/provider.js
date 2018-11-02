@@ -9,7 +9,7 @@ import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly';
 import * as reducers from './reducer';
 
 type PassedPropsType = $Exact<{
-    +children: Node
+    +children: Node,
 }>;
 
 const reducer = combineReducers({
