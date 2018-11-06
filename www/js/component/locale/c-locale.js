@@ -19,6 +19,8 @@ type ValueMapType = {
     [key: string]: string | number,
 };
 
+type ReduxActionType = {};
+
 type ReduxPropsType = {|
     +locale: LocaleType,
 |};
@@ -75,7 +77,7 @@ class Locale extends Component<ReduxPropsType, PassedPropsType, StateType> {
     }
 }
 
-const ConnectedComponent = connect<ComponentType<Locale>, PassedPropsType, ReduxPropsType, {}>(
+const ConnectedComponent = connect<ComponentType<Locale>, PassedPropsType, ReduxPropsType, ReduxActionType>(
     (state: GlobalStateType): ReduxPropsType => ({
         locale: state.locale,
     }),
