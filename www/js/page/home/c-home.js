@@ -8,6 +8,7 @@ import type {Node} from 'react';
 import React, {Component} from 'react';
 // import MainModel from '../../lib/main-model';
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
+import {LoadComponent} from '../../lib/c-load-component';
 
 type PropsType = {
     ...$Exact<ContextRouterType>,
@@ -63,6 +64,14 @@ export class Home extends Component<void, null> {
         console.log(view.state);
     };
 
+    loadAsyncLoadTestComponent = async (): Promise<Node> => {
+        const {
+            AsyncLoadTest,
+        } = await import(/* webpackChunkName: 'async-load-test' */ './../../component/test/c-async-load-test');
+
+        return <AsyncLoadTest/>;
+    };
+
     render(): Node {
         const view = this;
         const {props, state} = view;
@@ -76,6 +85,8 @@ export class Home extends Component<void, null> {
                 </button>
                 <br/>
                 <span>home page</span>
+                <hr/>
+                <LoadComponent load={view.loadAsyncLoadTestComponent}/>
             </div>
         );
     }
