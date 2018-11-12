@@ -34,13 +34,15 @@ const definePluginParams = {
 
 const fileRegExp = /\.(png|jpg|jpeg|gif|svg|woff2?)$/;
 
+const pathToDist = '/dist';
+
 const webpackConfig = {
     entry: [
         './www/css/root.scss',
         './www/js/root.js',
     ],
     output: {
-        path: path.join(CWD, '/dist'),
+        path: path.join(CWD, pathToDist),
         publicPath: '/',
         filename: IS_DEVELOPMENT ? '[name].js' : '[name].[hash:6].js',
         chunkFilename: IS_DEVELOPMENT ? '[name].async-import.js' : '[name].[hash:6].async-import.js',
@@ -235,7 +237,7 @@ const webpackConfig = {
     },
     plugins: [
         new DuplicatePackageCheckerPlugin(),
-        new CleanWebpackPlugin(['./dist']),
+        new CleanWebpackPlugin([`.${pathToDist}`]),
         new webpack.DefinePlugin(definePluginParams),
         new HtmlWebpackPlugin({
             template: './www/index.html',
