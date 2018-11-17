@@ -1,5 +1,7 @@
 /* global process, __dirname */
+
 /* eslint no-process-env: 0, id-match: 0, optimize-regex/optimize-regex: 0 */
+
 const path = require('path');
 
 const webpack = require('webpack');

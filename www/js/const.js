@@ -1,4 +1,5 @@
 // @flow
+
 /* global window, BUILD_DATE, BRANCH_NAME, IS_PRODUCTION, PROJECT_ID, BUILD_DATE_H */
 
 const {hostname, origin} = window.location;
