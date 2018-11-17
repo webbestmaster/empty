@@ -13,6 +13,9 @@ import {Auth} from '../auth/c-auth';
 import {Home} from '../../page/home/c-home';
 
 import {routes} from './routes';
+import {appConst} from '../../const';
+
+console.log(appConst);
 
 export function App(): Node {
     return (
