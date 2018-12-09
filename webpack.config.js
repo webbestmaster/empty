@@ -183,7 +183,6 @@ const webpackConfig = {
                             sourceMap: IS_DEVELOPMENT,
                             modules: true,
                             localIdentName: IS_DEVELOPMENT ? '[local]----[hash:6]' : '[hash:6]', // '[local]----[path]--[name]--[hash:6]'
-                            minimize: IS_PRODUCTION,
                         },
                     },
                     {
@@ -220,7 +219,6 @@ const webpackConfig = {
                             sourceMap: IS_DEVELOPMENT,
                             modules: true,
                             localIdentName: '[local]',
-                            minimize: IS_PRODUCTION,
                         },
                     },
                     {
