@@ -17,10 +17,10 @@ export const localeNameReference: {[key: string]: LocaleNameType} = {
 };
 
 export const allLocales = {
-    'en-US': enUs,
-    'ru-RU': ruRu,
-    'zh-CN': zhCn,
-    'zh-TW': zhTw,
+    [localeNameReference.enUs]: enUs,
+    [localeNameReference.ruRu]: ruRu,
+    [localeNameReference.zhCn]: zhCn,
+    [localeNameReference.zhTw]: zhTw,
 };
 
 const localeNameList: Array<LocaleNameType> = Object.keys(localeNameReference).map(
