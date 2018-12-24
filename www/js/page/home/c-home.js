@@ -9,6 +9,7 @@ import React, {Component} from 'react';
 // import MainModel from '../../lib/main-model';
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
 import {LoadComponent} from '../../lib/c-load-component';
+import homeStyle from './home.style.scss';
 
 type PropsType = {
     ...$Exact<ContextRouterType>,
@@ -79,7 +80,7 @@ export class Home extends Component<void, null> {
         console.log(props, state);
 
         return (
-            <div>
+            <div className={homeStyle.home__wrapper}>
                 <button type="button" onKeyPress={view.handleMouseOver} onClick={view.handleMouseOver}>
                     | the button |
                 </button>

@@ -269,6 +269,7 @@ const webpackConfig = {
 
     /*
         devServer: {
+            disableHostCheck: true,
             proxy: {
                 '/proxi-api': {
                     target: 'https://www.the-external-server.com/',
