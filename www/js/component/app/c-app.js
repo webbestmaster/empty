@@ -14,6 +14,8 @@ import {Home} from '../../page/home/c-home';
 
 import {routes} from './routes';
 import {appConst} from '../../const';
+import {Login} from '../../page/login/c-login';
+import {userIsAuthenticated, userIsNotAuthenticated} from '../auth/auth-helper';
 
 console.log(appConst);
 
@@ -27,7 +29,9 @@ export function App(): Node {
                 <System key="system">
                     <BrowserRouter>
                         <Switch key="switch">
-                            <Route component={Home} path={routes.index} exact/>
+                            <Route component={userIsNotAuthenticated(Login)} path={routes.login} exact/>
+
+                            <Route component={userIsAuthenticated(Home)} path={routes.index} exact/>
                         </Switch>
                     </BrowserRouter>
                 </System>

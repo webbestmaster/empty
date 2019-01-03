@@ -1,6 +1,6 @@
 // @flow
 
-/* global window */
+/* global window, setTimeout */
 
 /* eslint consistent-this: ["error", "view"] */
 import type {ComponentType, Node} from 'react';
@@ -25,18 +25,22 @@ const reduxAction: ReduxActionType = {
 
 type PassedPropsType = {||};
 
+type PropsType = $Exact<{...PassedPropsType, ...ReduxPropsType, ...ReduxActionType}>;
+
 type StateType = null;
 
 class Auth extends Component<ReduxPropsType, PassedPropsType, StateType> {
     // eslint-disable-next-line id-match
-    props: $Exact<{...PassedPropsType, ...ReduxPropsType, ...ReduxActionType}>;
+    props: PropsType;
     state: StateType;
 
     componentDidMount() {
         const view = this;
         const {props} = view;
 
-        props.setUser({id: 'default-user-id'});
+        setTimeout(() => {
+            props.setUser({id: 'default-user-id'});
+        }, 3e3);
     }
 
     render(): Node {

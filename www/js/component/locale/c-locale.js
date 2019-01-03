@@ -30,6 +30,8 @@ type PassedPropsType = {|
     +valueMap?: ValueMapType,
 |};
 
+type PropsType = $Exact<{...ReduxPropsType, ...PassedPropsType}>;
+
 function replacePlaceholderMap(rawString: string, valueMap: ValueMapType): string {
     let resultString = rawString;
 
@@ -65,7 +67,7 @@ export function getLocalizedString(
 
 class Locale extends Component<ReduxPropsType, PassedPropsType, StateType> {
     // eslint-disable-next-line id-match
-    props: $Exact<{...ReduxPropsType, ...PassedPropsType}>;
+    props: PropsType;
     state: StateType;
 
     render(): string {
