@@ -237,8 +237,10 @@ const webpackConfig = {
     // resolve module warning, see DuplicatePackageCheckerPlugin
     resolve: {
         alias: {
-            warning: path.resolve(__dirname, 'node_modules/warning'),
             '@babel/runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
+            warning: path.resolve(__dirname, 'node_modules/warning'),
+            invariant: path.resolve(__dirname, 'node_modules/invariant'),
+            'hoist-non-react-statics': path.resolve(__dirname, 'node_modules/hoist-non-react-statics'),
         },
     },
     plugins: [
