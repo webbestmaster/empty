@@ -16,6 +16,7 @@ import {routes} from './routes';
 import {appConst} from '../../const';
 import {Login} from '../../page/login/c-login';
 import {userIsAuthenticated, userIsNotAuthenticated} from '../auth/auth-helper';
+import {PageNotFound} from '../../page/page-not-found/c-page-not-found';
 
 console.log(appConst);
 
@@ -24,7 +25,7 @@ export function App(): Node {
         /* eslint-disable react/jsx-max-depth */
         // you can replace the extra <div> with any react component
         <ReduxStoreProvider>
-            <div>
+            <>
                 <Auth key="auth"/>
                 <System key="system">
                     <BrowserRouter>
@@ -32,10 +33,12 @@ export function App(): Node {
                             <Route component={userIsNotAuthenticated(Login)} path={routes.login} exact/>
 
                             <Route component={userIsAuthenticated(Home)} path={routes.index} exact/>
+
+                            <Route component={PageNotFound}/>
                         </Switch>
                     </BrowserRouter>
                 </System>
-            </div>
+            </>
         </ReduxStoreProvider>
         /* eslint-enable react/jsx-max-depth */
     );
