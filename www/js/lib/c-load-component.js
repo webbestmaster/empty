@@ -35,7 +35,7 @@ export class LoadComponent extends Component<PropsType, StateType> {
         };
     }
 
-    async load(): Promise<void> {
+    async load() {
         const view = this;
         const {props} = view;
 
@@ -51,7 +51,7 @@ export class LoadComponent extends Component<PropsType, StateType> {
     }
 
     componentDidMount() {
-        (async (): Promise<void> => {
+        (async () => {
             const view = this;
 
             await view.load();
