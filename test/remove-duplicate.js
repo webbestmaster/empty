@@ -1,7 +1,8 @@
 const readline = require('readline');
 
 const rl = readline.createInterface({
-    input: process.stdin
+    input: process.stdin,
+    historySize: 0
 });
 
 let tempSymbol = '';
@@ -20,6 +21,5 @@ rl
 
         tempSymbol = symbol;
 
-        process.stdout.write(symbol);
-        process.stdout.write('\n');
+        process.stdout.write(symbol + '\n');
     });
