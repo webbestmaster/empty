@@ -6,7 +6,6 @@ const rl = readline.createInterface({
 
 let tempSymbol = '';
 let isFirst = true;
-const result = [];
 
 rl
     .on('line', symbol => {
@@ -21,8 +20,6 @@ rl
 
         tempSymbol = symbol;
 
-        result.push(symbol);
-    })
-    .on('close', () => {
-        process.stdout.write(result.join('\n'));
+        process.stdout.write(symbol);
+        process.stdout.write('\n');
     });
