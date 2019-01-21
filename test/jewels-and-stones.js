@@ -5,9 +5,6 @@ const rl = readline.createInterface({
 });
 
 let lines = [];
-const timeStampName = 'duration';
-
-console.time(timeStampName);
 
 rl
     .on('line', (line) => {
@@ -27,7 +24,4 @@ rl
         }
 
         process.stdout.write(result.toString());
-        process.stdout.write('\n');
-
-        console.timeEnd(timeStampName);
     });
