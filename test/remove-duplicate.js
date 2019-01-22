@@ -6,12 +6,11 @@ const rl = readline.createInterface({
 });
 
 let tempSymbol = '';
-let isFirst = true;
 
 rl
     .on('line', symbol => {
-        if (isFirst) {
-            isFirst = false;
+        if (!tempSymbol) {
+            tempSymbol = ' ';
             return;
         }
 
