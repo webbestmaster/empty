@@ -10,10 +10,10 @@ let result = [];
 
 rl
     .on('line', line => {
-        if (isFirst) {
-            isFirst = false;
-            return;
-        }
+        // if (isFirst) {
+        //     isFirst = false;
+        //     return;
+        // }
 
         const array = line.split(' '); //.map(a => parseInt(a, 10));
 
