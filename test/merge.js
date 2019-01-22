@@ -15,7 +15,7 @@ rl
             return;
         }
 
-        const array = line.split(' ');
+        const array = line.split(' ').map(a => parseInt(a, 10));
 
         array.shift();
 
