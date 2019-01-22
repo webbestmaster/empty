@@ -46,12 +46,9 @@ function getBeginEnd(numberOfPair) {
 function isNeededLine(line) {
     let counter = 0;
     const lineLength = line.length;
-    let char = '';
 
     for (let index = 0; index < lineLength; index += 1) {
-        char = line[index];
-
-        if (char === openBracket) {
+        if (line[index] === openBracket) {
             counter += 1;
         } else {
             counter -= 1;
