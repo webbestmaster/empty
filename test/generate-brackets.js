@@ -9,9 +9,16 @@ const rl = readline.createInterface({
 
 rl
     .on('line', count => {
+        if (count === '0') {
+            return;
+        }
+
+        if (count === '1') {
+            process.stdout.write('()');
+            return;
+        }
+
         generate(parseInt(count, 10));
-    })
-    .on('close', () => {
     });
 
 function generate(numberOfPair) {
@@ -23,11 +30,9 @@ function generate(numberOfPair) {
         const testLine = iterator.toString(2);
 
         if (isNeededLine(testLine)) {
-            console.log(getLineAsBrackets(testLine));
+            process.stdout.write(getLineAsBrackets(testLine) + '\n');
         }
     }
-
-    console.log(begin, end);
 }
 
 function getBeginEnd(numberOfPair) {
@@ -41,19 +46,19 @@ function getBeginEnd(numberOfPair) {
 function isNeededLine(line) {
     let counter = 0;
     const lineLength = line.length;
+    let char = '';
 
     for (let index = 0; index < lineLength; index += 1) {
-        const char = line[index];
+        char = line[index];
 
         if (char === openBracket) {
             counter += 1;
-            continue;
-        }
+        } else {
+            counter -= 1;
 
-        counter -= 1;
-
-        if (counter < 0) {
-            return false;
+            if (counter < 0) {
+                return false;
+            }
         }
     }
 
