@@ -69,7 +69,7 @@ export class Home extends Component<void, null> {
     loadAsyncLoadTestComponent = async (): Promise<Node> => {
         const {
             AsyncLoadTest,
-        } = await import(/* webpackChunkName: 'async-load-test' */ './../../component/test/c-async-load-test');
+        } = await import(/* webpackChunkName: 'async-load-test' */ '../../component/test/c-async-load-test');
 
         return <AsyncLoadTest/>;
     };
