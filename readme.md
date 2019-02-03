@@ -68,11 +68,11 @@ $ ncu [-u|-a]
 ## Setup environment for Ubuntu
 At first install nodejs (if needed).
 
-```
-sudo apt-get clean
-sudo apt-get update
-sudo apt-get install nasm
-sudo apt-get install build-essential
-sudo apt-get install gcc
-sudo apt-get install --no-install-recommends -y gcc make libpng-dev
+```bash
+$ sudo apt-get clean
+$ sudo apt-get update
+$ sudo apt-get install nasm
+$ sudo apt-get install build-essential
+$ sudo apt-get install gcc
+$ sudo apt-get install --no-install-recommends -y gcc make libpng-dev
 ```
