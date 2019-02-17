@@ -329,6 +329,7 @@ export class MainModel<KeyNameType: string, ValueType> {
         const argsLength = arguments.length;
 
         let oldValueArg = null;
+
         let newValueArg = null;
 
         if (argsLength === 1) {
