@@ -5,7 +5,9 @@
 import type {ComponentType, Node} from 'react';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+
 import type {GlobalStateType} from '../../redux-store-provider/reducer';
+
 import type {LocaleType} from './reducer';
 import type {LangKeyType} from './translation/type';
 import {getLocalizedString} from './locale-helper';

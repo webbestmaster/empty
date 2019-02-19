@@ -12,11 +12,12 @@ import {System} from '../system/c-system';
 import {Auth} from '../auth/c-auth';
 import {Home} from '../../page/home/c-home';
 
-import {routes} from './routes';
 import {appConst} from '../../const';
 import {Login} from '../../page/login/c-login';
 import {userIsAuthenticated, userIsNotAuthenticated} from '../auth/auth-helper';
 import {PageNotFound} from '../../page/page-not-found/c-page-not-found';
+
+import {routes} from './routes';
 
 console.log(appConst);
 

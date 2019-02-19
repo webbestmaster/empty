@@ -3,9 +3,11 @@
 /* global localStorage, navigator */
 
 import {combineReducers} from 'redux';
+
+import type {ActionDataType} from '../../redux-store-provider/type';
+
 import type {LocaleNameType} from './const';
 import {localeConst} from './const';
-import type {ActionDataType} from '../../redux-store-provider/type';
 
 // eslint-disable-next-line complexity
 function getLocaleName(): LocaleNameType {

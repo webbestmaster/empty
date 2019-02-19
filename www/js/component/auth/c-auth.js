@@ -6,10 +6,12 @@
 import type {ComponentType, Node} from 'react';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+
+import type {GlobalStateType} from '../../redux-store-provider/reducer';
+
 import type {SetUserType} from './action';
 import {setUser} from './action';
 import type {AuthType, UserType} from './reducer';
-import type {GlobalStateType} from '../../redux-store-provider/reducer';
 
 type ReduxPropsType = {|
     +auth: AuthType,

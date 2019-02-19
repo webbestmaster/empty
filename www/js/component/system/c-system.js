@@ -7,15 +7,20 @@
 import type {ComponentType, Node} from 'react';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+
+import classNames from 'classnames';
+
+import type {GlobalStateType} from '../../redux-store-provider/reducer';
+
+import type {LocaleType} from '../locale/reducer';
+
+import {localeNameReference} from '../locale/const';
+
 import type {OnResizeType} from './action';
 import {onResize} from './action';
-import type {GlobalStateType} from '../../redux-store-provider/reducer';
 import type {SystemType} from './reducer/root';
-import classNames from 'classnames';
 import style from './style.css';
 import {screenNameReference} from './reducer/screen';
-import type {LocaleType} from '../locale/reducer';
-import {localeNameReference} from '../locale/const';
 import {setIsGlobalScrollEnable} from './helper';
 
 type ReduxPropsType = {|

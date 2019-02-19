@@ -1,7 +1,9 @@
 // @flow
 
 import {connectedRouterRedirect} from 'redux-auth-wrapper/history4/redirect';
+
 import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
+
 import {routes} from '../app/routes';
 import type {GlobalStateType} from '../../redux-store-provider/reducer';
 

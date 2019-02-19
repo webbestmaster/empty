@@ -6,11 +6,14 @@
 
 import type {Node} from 'react';
 import React, {Component} from 'react';
+
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
 import {LoadComponent} from '../../lib/c-load-component';
-import homeStyle from './home.style.scss';
+
 import {Locale} from '../../component/locale/c-locale';
 import {getLocalizedString} from '../../component/locale/locale-helper';
+
+import homeStyle from './home.style.scss';
 
 type PropsType = {
     ...$Exact<ContextRouterType>,
