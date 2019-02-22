@@ -32,9 +32,8 @@ type PassedPropsType = {|
 type PropsType = $Exact<{...ReduxPropsType, ...PassedPropsType}>;
 
 class Locale extends Component<ReduxPropsType, PassedPropsType, StateType> {
-    // eslint-disable-next-line id-match
-    props: PropsType;
     state: StateType;
+    props: PropsType;
 
     render(): string {
         const view = this;

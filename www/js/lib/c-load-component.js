@@ -22,9 +22,6 @@ type StateType = {|
 |};
 
 export class LoadComponent extends Component<PropsType, StateType> {
-    props: PropsType;
-    state: StateType;
-
     constructor(props: PropsType) {
         super(props);
 
@@ -34,6 +31,16 @@ export class LoadComponent extends Component<PropsType, StateType> {
             component: null,
         };
     }
+
+    state: StateType;
+
+    async componentDidMount() {
+        const view = this;
+
+        await view.load();
+    }
+
+    props: PropsType;
 
     async load() {
         const view = this;
@@ -48,14 +55,6 @@ export class LoadComponent extends Component<PropsType, StateType> {
         }
 
         view.setState({component: loadComponentResult});
-    }
-
-    componentDidMount() {
-        (async () => {
-            const view = this;
-
-            await view.load();
-        })();
     }
 
     render(): Node | Array<Node> {

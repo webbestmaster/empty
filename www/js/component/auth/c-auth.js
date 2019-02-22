@@ -3,6 +3,7 @@
 /* global window, setTimeout */
 
 /* eslint consistent-this: ["error", "view"] */
+
 import type {ComponentType, Node} from 'react';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
@@ -32,8 +33,6 @@ type PropsType = $Exact<{...PassedPropsType, ...ReduxPropsType, ...ReduxActionTy
 type StateType = null;
 
 class Auth extends Component<ReduxPropsType, PassedPropsType, StateType> {
-    // eslint-disable-next-line id-match
-    props: PropsType;
     state: StateType;
 
     componentDidMount() {
@@ -44,6 +43,8 @@ class Auth extends Component<ReduxPropsType, PassedPropsType, StateType> {
             props.setUser({id: 'default-user-id'});
         }, 3e3);
     }
+
+    props: PropsType;
 
     render(): Node {
         return null;

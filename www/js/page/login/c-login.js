@@ -13,8 +13,8 @@ type PropsType = {
 
 // eslint-disable-next-line react/prefer-stateless-function
 export class Login extends Component<void, null> {
-    props: PropsType;
     state: null;
+    props: PropsType;
 
     render(): Node {
         return <h1>Login page</h1>;

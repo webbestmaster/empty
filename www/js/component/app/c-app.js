@@ -7,11 +7,9 @@ import Switch from 'react-router-dom/Switch';
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 
 import {ReduxStoreProvider} from '../../redux-store-provider/provider';
-
 import {System} from '../system/c-system';
 import {Auth} from '../auth/c-auth';
 import {Home} from '../../page/home/c-home';
-
 import {appConst} from '../../const';
 import {Login} from '../../page/login/c-login';
 import {userIsAuthenticated, userIsNotAuthenticated} from '../auth/auth-helper';

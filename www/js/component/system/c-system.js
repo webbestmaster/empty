@@ -7,13 +7,10 @@
 import type {ComponentType, Node} from 'react';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
 import classNames from 'classnames';
 
 import type {GlobalStateType} from '../../redux-store-provider/reducer';
-
 import type {LocaleType} from '../locale/reducer';
-
 import {localeNameReference} from '../locale/const';
 
 import type {OnResizeType} from './action';
@@ -51,9 +48,6 @@ type PropsType = $Exact<{
 type StateType = null;
 
 class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
-    props: PropsType;
-    state: StateType;
-
     constructor(props: PropsType) {
         super(props);
 
@@ -61,6 +55,8 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
 
         view.state = null;
     }
+
+    state: StateType;
 
     componentDidMount() {
         const view = this;
@@ -85,6 +81,8 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
             setIsGlobalScrollEnable(props.system.scroll.isEnable);
         }
     }
+
+    props: PropsType;
 
     getClassName(): string {
         const view = this;
