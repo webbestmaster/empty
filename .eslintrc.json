@@ -147,8 +147,17 @@
             }
         ],
         "react/no-unused-prop-types": 0,
-        "react/sort-comp": 0,
-        "react/jsx-sort-props": 0,
+        "react/sort-comp": 1,
+        "react/jsx-sort-props": [
+            2,
+            {
+                "reservedFirst": false,
+                "shorthandLast": false,
+                "ignoreCase": false,
+                "callbacksLast": false,
+                "noSortAlphabetically": false
+            }
+        ],
         "react/jsx-closing-bracket-location": [
             1,
             "line-aligned"

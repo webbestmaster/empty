@@ -85,7 +85,7 @@ export class Home extends Component<void, null> {
 
         return (
             <div className={homeStyle.home__wrapper}>
-                <button type="button" onKeyPress={view.handleMouseOver} onClick={view.handleMouseOver}>
+                <button onClick={view.handleMouseOver} onKeyPress={view.handleMouseOver} type="button">
                     | the button |
                 </button>
                 <br/>

@@ -31,9 +31,9 @@ export function App(): Node {
                 <System key="system">
                     <BrowserRouter>
                         <Switch key="switch">
-                            <Route component={userIsNotAuthenticated(Login)} path={routes.login} exact/>
+                            <Route component={userIsNotAuthenticated(Login)} exact path={routes.login}/>
 
-                            <Route component={userIsAuthenticated(Home)} path={routes.index} exact/>
+                            <Route component={userIsAuthenticated(Home)} exact path={routes.index}/>
 
                             <Route component={PageNotFound}/>
                         </Switch>
