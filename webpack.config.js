@@ -245,7 +245,7 @@ const webpackConfig = {
     },
     plugins: [
         new DuplicatePackageCheckerPlugin(),
-        new CleanWebpackPlugin([`.${pathToDist}`]),
+        new CleanWebpackPlugin(),
         new webpack.DefinePlugin(definePluginParams),
         new HtmlWebpackPlugin({
             template: './www/index.html',
