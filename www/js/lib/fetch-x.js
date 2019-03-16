@@ -19,7 +19,7 @@ export function fetchX<ExpectedResponseType>(
     url: string,
     options?: OptionsType
 ): Promise<ExpectedResponseType | Error> {
-    const cacheProperty = url + ' - ' + JSON.stringify(options);
+    const cacheProperty = url + ' - ' + (JSON.stringify(options) || '');
 
     if (promiseCache.hasOwnProperty(cacheProperty)) {
         console.log(`fetchX - url: ${url}, options: ${JSON.stringify(options || {})} - get from cache`);

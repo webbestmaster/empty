@@ -2,9 +2,7 @@
 
 import type {Node} from 'react';
 import React from 'react';
-import Route from 'react-router-dom/Route';
-import Switch from 'react-router-dom/Switch';
-import BrowserRouter from 'react-router-dom/BrowserRouter';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import {ReduxStoreProvider} from '../../redux-store-provider/provider';
 import {System} from '../system/c-system';

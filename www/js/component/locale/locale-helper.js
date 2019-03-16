@@ -2,8 +2,8 @@
 
 /* global IS_PRODUCTION */
 
-import {allLocales, localeConst} from './const';
 import type {LocaleNameType} from './const';
+import {allLocales, localeConst} from './const';
 import type {LangKeyType} from './translation/type';
 import type {ValueMapType} from './c-locale';
 
