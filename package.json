@@ -29,6 +29,7 @@
     "mdlint": "eslint --ext md .",
     "mdlint:fix": "eslint --ext md . --fix",
     "flow-coverage": "flow-coverage-report --config ./flow-coverage-config.json",
+    "zip": "zip -9 --exclude=*node_modules* -r bo-`git symbolic-ref --short HEAD`-`date +%Y-%m-%d-%H-%M-%S` ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
