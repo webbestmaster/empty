@@ -16,8 +16,8 @@
   "scripts": {
     "start": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` webpack-dev-server --progress --no-inline",
     "start-hot": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` webpack-dev-server --progress --hot",
-    "build": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` NODE_ENV=production webpack --mode production --progress",
-    "webpack": "webpack --mode development --progress",
+    "build": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` NODE_ENV=production webpack --mode=production --progress",
+    "webpack": "webpack --mode=development --progress",
     "check": "npm run eslint; npm run stylelint; npm run flow;",
     "check:fix": "npm run prettier; npm run eslint:fix; npm run stylelint:fix; npm run flow;",
     "eslint": "eslint .",
