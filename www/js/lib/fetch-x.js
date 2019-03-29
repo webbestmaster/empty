@@ -1,5 +1,6 @@
 // @flow
-/* global window, fetch, setTimeout */
+
+/* global window, fetch */
 
 const promiseCache = {};
 

@@ -135,7 +135,7 @@ export class MainModel<KeyNameType: string, ValueType> {
     // eslint-disable-next-line sonarjs/cognitive-complexity, max-statements
     offChange(key?: KeyNameType, action?: ActionType<ValueType>, context?: {} = this): this {
         const model = this;
-        const argsLength = arguments.length;
+        const argumentLength = arguments.length;
 
         // key did not passed
         if (isNotString(key)) {
@@ -146,7 +146,7 @@ export class MainModel<KeyNameType: string, ValueType> {
         const allListeners = model.getAllListeners();
 
         // action did not passed
-        if (argsLength === 1) {
+        if (argumentLength === 1) {
             allListeners[key] = [];
             return model;
         }
@@ -157,7 +157,7 @@ export class MainModel<KeyNameType: string, ValueType> {
 
         const listenersByKey = model.getListenersByKey(key);
 
-        if (argsLength === 2) {
+        if (argumentLength === 2) {
             allListeners[key] = listenersByKey.filter(
                 <ActionValueType: ValueType>(listenerData: ListenersItemType<ActionValueType>): boolean => {
                     return listenerData[0] !== action;
@@ -166,7 +166,7 @@ export class MainModel<KeyNameType: string, ValueType> {
             return model;
         }
 
-        if (argsLength === 3) {
+        if (argumentLength === 3) {
             allListeners[key] = listenersByKey.filter(
                 <ActionValueType: ValueType>(listenerData: ListenersItemType<ActionValueType>): boolean => {
                     return listenerData[0] !== action || listenerData[1] !== context;
@@ -217,10 +217,10 @@ export class MainModel<KeyNameType: string, ValueType> {
         context?: {} = this
     ): this {
         const model = this;
-        const argsLength = arguments.length;
+        const argumentLength = arguments.length;
         const listening = model.getListening();
 
-        if (argsLength === 0) {
+        if (argumentLength === 0) {
             listening.forEach(
                 (
                     listeningItem: ListeningItemType<MainModel<KeyNameType, ValueType>,
@@ -236,7 +236,7 @@ export class MainModel<KeyNameType: string, ValueType> {
             return model;
         }
 
-        if (argsLength === 1) {
+        if (argumentLength === 1) {
             listening.forEach(
                 (
                     listeningItem: ListeningItemType<MainModel<KeyNameType, ValueType>,
@@ -254,7 +254,7 @@ export class MainModel<KeyNameType: string, ValueType> {
             return model;
         }
 
-        if (argsLength === 2) {
+        if (argumentLength === 2) {
             listening.forEach(
                 (
                     listeningItem: ListeningItemType<MainModel<KeyNameType, ValueType>,
@@ -272,7 +272,7 @@ export class MainModel<KeyNameType: string, ValueType> {
             return model;
         }
 
-        if (argsLength === 3) {
+        if (argumentLength === 3) {
             listening.forEach(
                 (
                     listeningItem: ListeningItemType<MainModel<KeyNameType, ValueType>,
@@ -326,23 +326,23 @@ export class MainModel<KeyNameType: string, ValueType> {
     trigger(key: KeyNameType, newValue: ValueType | void, oldValue: ValueType | void): this {
         const model = this;
         const listeners = model.getListenersByKey(key);
-        const argsLength = arguments.length;
+        const argumentLength = arguments.length;
 
         let oldValueArg = null;
 
         let newValueArg = null;
 
-        if (argsLength === 1) {
+        if (argumentLength === 1) {
             oldValueArg = model.get(key);
             newValueArg = oldValueArg;
         }
 
-        if (argsLength === 2) {
+        if (argumentLength === 2) {
             oldValueArg = model.get(key);
             newValueArg = newValue;
         }
 
-        if (argsLength === 3) {
+        if (argumentLength === 3) {
             oldValueArg = oldValue;
             newValueArg = newValue;
         }
@@ -375,11 +375,11 @@ export class MainModel<KeyNameType: string, ValueType> {
         model.onChange(
             key,
             (newValue: ValueType | void, oldValue: ValueType | void): void => {
-                const args = [newValue, oldValue];
+                const argumentList = [newValue, oldValue];
 
-                return Reflect.apply(test, context, args) ?
-                    Reflect.apply(onValid, context, args) :
-                    Reflect.apply(onInvalid, context, args);
+                return Reflect.apply(test, context, argumentList) ?
+                    Reflect.apply(onValid, context, argumentList) :
+                    Reflect.apply(onInvalid, context, argumentList);
             },
             context
         );

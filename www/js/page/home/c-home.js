@@ -19,8 +19,8 @@ type PropsType = {
 };
 
 class Mega<S, N: number> {
-    constructor(str: S) {
-        console.log(str);
+    constructor(message: S) {
+        console.log(message);
     }
 }
 

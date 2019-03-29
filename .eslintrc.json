@@ -47,6 +47,15 @@
         }
     },
     "rules": {
+        "unicorn/prevent-abbreviations": [2, {
+            "replacements": {
+                "attr": false,
+                "attrs": false,
+                "arg": false,
+                "props": false,
+                "prev": false
+            }
+        }],
         "babel/new-cap": 1,
         "babel/no-invalid-this": 1,
         "babel/object-curly-spacing": 1,
