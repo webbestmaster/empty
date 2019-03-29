@@ -269,17 +269,26 @@ const webpackConfig = {
         new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
     ],
 
-    /*
-        devServer: {
+    devServer: {
+        contentBase: path.join(CWD, pathToDist),
+        host: '0.0.0.0',
+        port: 8080,
+        historyApiFallback: {
+            disableDotRule: true,
+        },
+        // inline: false,
+        // hot: true,
+        // hotOnly: false,
+        /*
             disableHostCheck: true,
             proxy: {
                 '/proxi-api': {
                     target: 'https://www.the-external-server.com/',
-                    changeOrigin: true // for this option only: see documentations here https://github.com/chimurai/http-proxy-middleware#http-proxy-middleware-options
-                }
-            }
-        }
-    */
+                    changeOrigin: true, // for this option only: see documentations here https://github.com/chimurai/http-proxy-middleware#http-proxy-middleware-options
+                },
+            },
+        */
+    },
 };
 
 // webpackConfig.plugins.push(new BundleAnalyzerPlugin());

@@ -53,7 +53,8 @@
                 "attrs": false,
                 "arg": false,
                 "props": false,
-                "prev": false
+                "prev": false,
+                "dev": false
             }
         }],
         "babel/new-cap": 1,
