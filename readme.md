@@ -62,7 +62,7 @@ Note: the watches limit is per-account setting. If there are other programs runn
 You can use npm-check-updates
 ```bash
 $ [sudo] npm i -g npm-check-updates
-$ ncu [-u|-a]
+$ ncu [-u]
 ```
 
 ## Setup environment for Ubuntu
