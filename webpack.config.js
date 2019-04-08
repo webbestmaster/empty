@@ -60,8 +60,8 @@ const webpackConfig = {
 
     optimization: Object.assign(
         {},
-        IS_DEVELOPMENT ?
-            {
+        IS_DEVELOPMENT
+            ? {
                 splitChunks: {
                     cacheGroups: {
                         main: {
@@ -91,8 +91,8 @@ const webpackConfig = {
                         },
                     },
                 },
-            } :
-            {
+            }
+            : {
                 minimizer: [
                     new TerserPlugin({
                         terserOptions: {
@@ -164,9 +164,9 @@ const webpackConfig = {
             {
                 test: /\.scss$/,
                 use: [
-                    IS_PRODUCTION ?
-                        MiniCssExtractPlugin.loader :
-                        {
+                    IS_PRODUCTION
+                        ? MiniCssExtractPlugin.loader
+                        : {
                             loader: 'style-loader',
                             options: {
                                 sourceMap: IS_DEVELOPMENT,
@@ -200,9 +200,9 @@ const webpackConfig = {
             {
                 test: /\.css$/,
                 use: [
-                    IS_PRODUCTION ?
-                        MiniCssExtractPlugin.loader :
-                        {
+                    IS_PRODUCTION
+                        ? MiniCssExtractPlugin.loader
+                        : {
                             loader: 'style-loader',
                             options: {
                                 sourceMap: IS_DEVELOPMENT,

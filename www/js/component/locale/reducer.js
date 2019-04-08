@@ -15,10 +15,10 @@ function getLocaleName(): LocaleNameType {
     const localeNameList: Array<LocaleNameType> = localeConst.localeNameList;
 
     if (
-        savedLocaleName === 'en-US' ||
-        savedLocaleName === 'ru-RU' ||
-        savedLocaleName === 'zh-CN' ||
-        savedLocaleName === 'zh-TW'
+        savedLocaleName === 'en-US'
+        || savedLocaleName === 'ru-RU'
+        || savedLocaleName === 'zh-CN'
+        || savedLocaleName === 'zh-TW'
     ) {
         return savedLocaleName;
     }

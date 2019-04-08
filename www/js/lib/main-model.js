@@ -300,11 +300,11 @@ export class MainModel<KeyNameType: string, ValueType> {
                 const [listMainModel, listKey, listAction, listContext] = listeningItem;
 
                 if (
-                    mainModel &&
-                    listMainModel === mainModel &&
-                    listKey === key &&
-                    listAction === action &&
-                    listContext === context
+                    mainModel
+                    && listMainModel === mainModel
+                    && listKey === key
+                    && listAction === action
+                    && listContext === context
                 ) {
                     mainModel.offChange(listKey, listAction, listContext);
                     return false;
@@ -377,9 +377,9 @@ export class MainModel<KeyNameType: string, ValueType> {
             (newValue: ValueType | void, oldValue: ValueType | void): void => {
                 const argumentList = [newValue, oldValue];
 
-                return Reflect.apply(test, context, argumentList) ?
-                    Reflect.apply(onValid, context, argumentList) :
-                    Reflect.apply(onInvalid, context, argumentList);
+                return Reflect.apply(test, context, argumentList)
+                    ? Reflect.apply(onValid, context, argumentList)
+                    : Reflect.apply(onInvalid, context, argumentList);
             },
             context
         );
