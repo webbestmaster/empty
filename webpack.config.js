@@ -44,6 +44,17 @@ const fileRegExp = /\.(png|jpg|jpeg|gif|svg|woff2?)$/;
 
 const pathToDist = '/dist';
 
+const duplicateList = [
+    '/@babel/runtime',
+    'warning',
+    'invariant',
+    'hoist-non-react-statics',
+];
+
+const alias = duplicateList.reduce((accumulator, packageName) => {
+    return {...accumulator, [packageName]: path.resolve(CWD, `node_modules/${packageName}`)};
+}, {});
+
 const webpackConfig = {
     entry: [
         './www/css/root.scss',
@@ -234,14 +245,8 @@ const webpackConfig = {
             },
         ],
     },
-    // resolve module warning, see DuplicatePackageCheckerPlugin
     resolve: {
-        alias: {
-            '@babel/runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
-            warning: path.resolve(__dirname, 'node_modules/warning'),
-            invariant: path.resolve(__dirname, 'node_modules/invariant'),
-            'hoist-non-react-statics': path.resolve(__dirname, 'node_modules/hoist-non-react-statics'),
-        },
+        alias,
     },
     plugins: [
         new DuplicatePackageCheckerPlugin(),
