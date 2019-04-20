@@ -117,7 +117,7 @@ select {
     //-o-tap-highlight-color: transparent;
     //tap-highlight-color: transparent;
     text-decoration: none;
-    user-select: none;
+    //user-select: none;
     vertical-align: baseline;
 }
 
@@ -223,4 +223,12 @@ input,
 select,
 a img {
     vertical-align: middle;
+}
+
+a {
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
