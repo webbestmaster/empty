@@ -4,18 +4,12 @@
 
 import type {Node} from 'react';
 import React, {Component} from 'react';
-// import type {ContextRouterType} from '../../type/react-router-dom-v4';
-// import style from './style.scss';
 
 type PassedPropsType = {|
     +load: () => Promise<Node | Array<Node>>,
 |};
 
-type PropsType = {|
-    ...PassedPropsType,
-    // ...$Exact<ContextRouterType>
-    // +children: Node,
-|};
+type PropsType = PassedPropsType;
 
 type StateType = {|
     +component: Node | Array<Node>,

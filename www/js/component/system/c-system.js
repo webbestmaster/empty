@@ -38,12 +38,12 @@ type PassedPropsType = {|
     // +passedProp: string
 |};
 
-type PropsType = $Exact<{
-    ...$Exact<PassedPropsType>,
-    ...$Exact<ReduxPropsType>,
-    ...$Exact<ReduxActionType>,
+type PropsType = {
+    ...PassedPropsType,
+    ...ReduxPropsType,
+    ...ReduxActionType,
     +children: Node,
-}>;
+};
 
 type StateType = null;
 

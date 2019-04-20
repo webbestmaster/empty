@@ -29,7 +29,7 @@ type PassedPropsType = {|
     +valueMap?: ValueMapType,
 |};
 
-type PropsType = $Exact<{...ReduxPropsType, ...PassedPropsType}>;
+type PropsType = {...ReduxPropsType, ...PassedPropsType};
 
 class Locale extends Component<ReduxPropsType, PassedPropsType, StateType> {
     state: StateType;

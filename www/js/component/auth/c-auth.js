@@ -28,7 +28,7 @@ const reduxAction: ReduxActionType = {
 
 type PassedPropsType = {||};
 
-type PropsType = $Exact<{...PassedPropsType, ...ReduxPropsType, ...ReduxActionType}>;
+type PropsType = {...PassedPropsType, ...ReduxPropsType, ...ReduxActionType};
 
 type StateType = null;
 

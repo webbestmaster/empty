@@ -7,9 +7,7 @@ import React, {Component} from 'react';
 
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
 
-type PropsType = {
-    ...$Exact<ContextRouterType>,
-};
+type PropsType = ContextRouterType;
 
 // eslint-disable-next-line react/prefer-stateless-function
 export class PageNotFound extends Component<void, null> {

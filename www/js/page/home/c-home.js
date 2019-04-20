@@ -14,9 +14,7 @@ import {getLocalizedString} from '../../component/locale/locale-helper';
 
 import homeStyle from './home.style.scss';
 
-type PropsType = {
-    ...$Exact<ContextRouterType>,
-};
+type PropsType = ContextRouterType;
 
 class Mega<S, N: number> {
     constructor(message: S) {

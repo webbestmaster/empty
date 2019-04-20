@@ -9,9 +9,9 @@ import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly';
 
 import * as reducers from './reducer';
 
-type PassedPropsType = $Exact<{
+type PassedPropsType = {
     +children: Node,
-}>;
+};
 
 const reducer = combineReducers({
     ...reducers,
