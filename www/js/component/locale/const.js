@@ -2,6 +2,8 @@
 
 /* global window, PROJECT_ID */
 
+import type {LangDataType} from './translation/type';
+
 export type LocaleNameType = 'en-US' | 'ru-RU' | 'zh-CN' | 'zh-TW';
 import {enUs} from './translation/en-us/data';
 import {ruRu} from './translation/ru-ru/data';
@@ -15,7 +17,7 @@ export const localeNameReference: {[key: string]: LocaleNameType} = {
     zhTw: 'zh-TW',
 };
 
-export const allLocales = {
+export const allLocales: {[key: LocaleNameType]: LangDataType} = {
     [localeNameReference.enUs]: enUs,
     [localeNameReference.ruRu]: ruRu,
     [localeNameReference.zhCn]: zhCn,
