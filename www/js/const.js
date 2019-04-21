@@ -23,3 +23,7 @@ window.appData = {
     // eslint-disable-next-line id-match
     PROJECT_ID,
 };
+
+export const selector = {
+    appWrapper: '.js-app-wrapper',
+};
