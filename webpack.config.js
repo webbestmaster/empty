@@ -15,6 +15,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const {UnusedFilesWebpackPlugin} = require('unused-files-webpack-plugin');
 
 const DEVELOPMENT = 'development';
 const PRODUCTION = 'production';
@@ -271,6 +272,13 @@ const webpackConfig = {
         }),
         new ScriptExtHtmlWebpackPlugin({defaultAttribute: 'defer'}),
         new CopyWebpackPlugin([{from: './www/favicon.ico', to: './favicon.ico'}], {debug: false}),
+        new UnusedFilesWebpackPlugin({
+            patterns: ['www/**/*.*'],
+            globOptions: {
+                // TODO: remove 'www/js/lib/**/*.*' for prod version
+                ignore: ['www/**/*.scss.flow', 'www/**/*.css.flow', 'www/js/lib/**/*.*'],
+            },
+        }),
         new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
     ],
 
