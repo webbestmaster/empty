@@ -7,38 +7,45 @@ import {combineReducers} from 'redux';
 import type {ActionDataType} from '../../redux-store-provider/type';
 
 import type {LocaleNameType} from './const';
-import {localeConst} from './const';
+import {localeConst, localeNameList} from './const';
 
-// eslint-disable-next-line complexity
 function getLocaleName(): LocaleNameType {
     const savedLocaleName = localStorage.getItem(localeConst.key.localStorage.localeName);
-    const localeNameList: Array<LocaleNameType> = localeConst.localeNameList;
 
-    if (
-        savedLocaleName === 'en-US'
-        || savedLocaleName === 'ru-RU'
-        || savedLocaleName === 'zh-CN'
-        || savedLocaleName === 'zh-TW'
-    ) {
-        return savedLocaleName;
+    let localeName: LocaleNameType = localeConst.defaults.localeName;
+
+    const hasGotFromStorage = localeNameList.some(
+        (localeNameInList: LocaleNameType): boolean => {
+            if (localeNameInList === savedLocaleName) {
+                localeName = localeNameInList;
+                return true;
+            }
+
+            return false;
+        }
+    );
+
+    if (hasGotFromStorage) {
+        return localeName;
     }
 
     const navigatorLanguages = navigator.languages;
 
     if (!Array.isArray(navigatorLanguages)) {
-        return localeConst.defaults.localeName;
+        return localeName;
     }
 
-    let localeName = localeConst.defaults.localeName;
-
-    navigatorLanguages.every(
-        (deviceLocaleName: string): boolean => {
-            if (localeNameList.includes(deviceLocaleName)) {
-                localeName = deviceLocaleName;
-                return false;
-            }
-
-            return true;
+    navigatorLanguages.some(
+        (deviceLocaleName: mixed): boolean => {
+            return localeNameList.some(
+                (localeNameInList: LocaleNameType): boolean => {
+                    if (localeNameInList === deviceLocaleName) {
+                        localeName = localeNameInList;
+                        return true;
+                    }
+                    return false;
+                }
+            );
         }
     );
 
