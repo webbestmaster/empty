@@ -14,16 +14,14 @@ function getLocaleName(): LocaleNameType {
 
     let localeName: LocaleNameType = localeConst.defaults.localeName;
 
-    const hasGotFromStorage = localeNameList.some(
-        (localeNameInList: LocaleNameType): boolean => {
-            if (localeNameInList === savedLocaleName) {
-                localeName = localeNameInList;
-                return true;
-            }
-
-            return false;
+    const hasGotFromStorage = localeNameList.some((localeNameInList: LocaleNameType): boolean => {
+        if (localeNameInList === savedLocaleName) {
+            localeName = localeNameInList;
+            return true;
         }
-    );
+
+        return false;
+    });
 
     if (hasGotFromStorage) {
         return localeName;
@@ -35,19 +33,15 @@ function getLocaleName(): LocaleNameType {
         return localeName;
     }
 
-    navigatorLanguages.some(
-        (deviceLocaleName: mixed): boolean => {
-            return localeNameList.some(
-                (localeNameInList: LocaleNameType): boolean => {
-                    if (localeNameInList === deviceLocaleName) {
-                        localeName = localeNameInList;
-                        return true;
-                    }
-                    return false;
-                }
-            );
-        }
-    );
+    navigatorLanguages.some((deviceLocaleName: mixed): boolean => {
+        return localeNameList.some((localeNameInList: LocaleNameType): boolean => {
+            if (localeNameInList === deviceLocaleName) {
+                localeName = localeNameInList;
+                return true;
+            }
+            return false;
+        });
+    });
 
     return localeName;
 }
