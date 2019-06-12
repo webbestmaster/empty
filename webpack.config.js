@@ -185,8 +185,9 @@ const webpackConfig = {
                         loader: 'css-loader',
                         options: {
                             sourceMap: IS_DEVELOPMENT,
-                            modules: true,
-                            localIdentName: IS_DEVELOPMENT ? '[local]----[hash:6]' : '[hash:6]', // '[local]----[path]--[name]--[hash:6]'
+                            modules: {
+                                localIdentName: IS_DEVELOPMENT ? '[local]----[hash:6]' : '[hash:6]', // '[local]----[path]--[name]--[hash:6]'
+                            },
                         },
                     },
                     {
@@ -221,8 +222,9 @@ const webpackConfig = {
                         loader: 'css-loader',
                         options: {
                             sourceMap: IS_DEVELOPMENT,
-                            modules: true,
-                            localIdentName: '[local]',
+                            modules: {
+                                localIdentName: '[local]', // '[local]----[path]--[name]--[hash:6]'
+                            },
                         },
                     },
                     {
