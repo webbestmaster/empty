@@ -41,7 +41,7 @@ const definePluginParams = {
     // IS_DEVELOPMENT: JSON.stringify(IS_DEVELOPMENT)
 };
 
-const fileRegExp = /\.(png|jpg|jpeg|gif|svg|otf|woff2?)$/;
+const fileRegExp = /\.(png|jpg|jpeg|gif|svg|otf|ttf|woff2?)$/;
 
 const pathToDist = '/dist';
 
