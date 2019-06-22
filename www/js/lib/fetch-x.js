@@ -2,6 +2,8 @@
 
 /* global window, fetch */
 
+import {hasProperty} from './is';
+
 const promiseCache = {};
 
 type OptionsType = {|
@@ -22,7 +24,7 @@ export function fetchX<ExpectedResponseType>(
 ): Promise<ExpectedResponseType | Error> {
     const cacheProperty = url + ' - ' + (JSON.stringify(options) || '');
 
-    if (promiseCache.hasOwnProperty(cacheProperty)) {
+    if (hasProperty(promiseCache, cacheProperty)) {
         console.log(`fetchX - url: ${url}, options: ${JSON.stringify(options || {})} - get from cache`);
         return promiseCache[cacheProperty];
     }

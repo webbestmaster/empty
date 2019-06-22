@@ -1,5 +1,7 @@
 // @flow
 
+import {allLocales, localeConst} from '../component/locale/const';
+
 export function isNull(value: mixed): boolean %checks {
     return value === null;
 }
@@ -46,4 +48,8 @@ export function isFunction(value: mixed): boolean %checks {
 
 export function isNotFunction(value: mixed): boolean %checks {
     return typeof value !== 'function';
+}
+
+export function hasProperty(object: mixed, propertyName: string): boolean %checks {
+    return Reflect.apply(Object.prototype.hasOwnProperty, object, [propertyName]);
 }

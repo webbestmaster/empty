@@ -2,6 +2,8 @@
 
 /* global IS_PRODUCTION */
 
+import {hasProperty} from '../../lib/is';
+
 import type {LocaleNameType} from './const';
 import {allLocales, localeConst} from './const';
 import type {LangKeyType} from './translation/type';
@@ -29,7 +31,7 @@ export function getLocalizedString(
             return 'TEXT';
         }
 
-        if (!allLocales[localeConst.defaults.localeName].hasOwnProperty(stringKey)) {
+        if (!hasProperty(allLocales[localeConst.defaults.localeName], stringKey)) {
             console.error('has no key stringKey', stringKey);
             return stringKey;
         }
