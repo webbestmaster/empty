@@ -1,6 +1,6 @@
 // @flow
 
-/* global window, document */
+/* global window, document, requestAnimationFrame */
 
 /* eslint consistent-this: ["error", "view"] */
 
@@ -12,6 +12,7 @@ import classNames from 'classnames';
 import type {GlobalStateType} from '../../redux-store-provider/reducer';
 import type {LocaleType} from '../locale/reducer';
 import {localeNameReference} from '../locale/const';
+import {forceResize} from '../../lib/screen';
 
 import type {OnResizeType} from './action';
 import {onResize} from './action';
@@ -60,17 +61,8 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
 
     componentDidMount() {
         const view = this;
-        const {props, state} = view;
 
-        window.addEventListener(
-            'resize',
-            () => {
-                const {clientWidth, clientHeight} = document.documentElement || {clientWidth: 800, clientHeight: 600};
-
-                props.onResize(clientWidth, clientHeight);
-            },
-            false
-        );
+        window.addEventListener('resize', view.handleResize, false);
     }
 
     componentDidUpdate(prevProps: PropsType, prevState: StateType) {
@@ -83,6 +75,25 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
     }
 
     props: PropsType;
+
+    handleResize = () => {
+        const view = this;
+        const {props} = view;
+        const {system} = props;
+        const {screen} = system;
+        const {width, height} = screen;
+        const {clientWidth, clientHeight} = document.documentElement || {clientWidth: 800, clientHeight: 600};
+
+        if (clientWidth !== width || clientHeight !== height) {
+            props.onResize(clientWidth, clientHeight);
+            // need to update swipers
+            requestAnimationFrame(() => {
+                forceResize()
+                    .then((): void => console.log('resized'))
+                    .catch((): void => console.error('resized'));
+            });
+        }
+    };
 
     getClassName(): string {
         const view = this;
