@@ -1,7 +1,5 @@
 // @flow
 
-import {allLocales, localeConst} from '../component/locale/const';
-
 export function isNull(value: mixed): boolean %checks {
     return value === null;
 }
