@@ -133,7 +133,7 @@ const webpackConfig = {
                         // all query parameters are passed to it.
                         // - name - The name is a standard option.
                         query: {
-                            limit: IS_PRODUCTION ? 10e3 : 1, // 10k bytes for production
+                            limit: IS_PRODUCTION ? 1e3 : 1, // 1k bytes for production
                             name: 'asset/[name]-[hash:6].[ext]',
                         },
                     },
