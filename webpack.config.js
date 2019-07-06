@@ -50,11 +50,8 @@ const alias = duplicateList.reduce((accumulator, packageName) => {
     return {...accumulator, [packageName]: path.resolve(CWD, `node_modules/${packageName}`)};
 }, {});
 
-const baseEntryList = ['./www/css/root.scss', './www/js/root.js'];
-const entryList = IS_PRODUCTION ? ['babel-polyfill', 'whatwg-fetch', ...baseEntryList] : baseEntryList;
-
 const webpackConfig = {
-    entry: entryList,
+    entry: ['./www/css/root.scss', './www/js/root.js'],
     output: {
         path: path.join(CWD, pathToDist),
         publicPath: '/',
