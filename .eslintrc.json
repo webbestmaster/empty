@@ -50,21 +50,24 @@
         }
     },
     "rules": {
-        "unicorn/prevent-abbreviations": [2, {
-            "replacements": {
-                "attr": false,
-                "attrs": false,
-                "arg": false,
-                "args": false,
-                "prop": false,
-                "props": false,
-                "prev": false,
-                "dev": false,
-                "evt": false,
-                "src": false,
-                "ref": false
+        "unicorn/prevent-abbreviations": [
+            2,
+            {
+                "replacements": {
+                    "attr": false,
+                    "attrs": false,
+                    "arg": false,
+                    "args": false,
+                    "prop": false,
+                    "props": false,
+                    "prev": false,
+                    "dev": false,
+                    "evt": false,
+                    "src": false,
+                    "ref": false
+                }
             }
-        }],
+        ],
         "babel/new-cap": 1,
         "babel/no-invalid-this": 1,
         "babel/object-curly-spacing": 1,
@@ -471,6 +474,10 @@
         "func-style": [
             1,
             "declaration"
+        ],
+        "jsx-quotes": [
+            1,
+            "prefer-double"
         ],
         "id-length": [
             1,
