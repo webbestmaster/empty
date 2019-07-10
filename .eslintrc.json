@@ -12,7 +12,6 @@
         "plugin:import/warnings",
         "plugin:promise/recommended",
         "plugin:sonarjs/recommended",
-        "plugin:lodash/recommended",
         "plugin:unicorn/recommended"
     ],
     "globals": {
@@ -28,7 +27,6 @@
         "react",
         "promise",
         "sonarjs",
-        "lodash",
         "optimize-regex",
         "unicorn",
         "no-loops",
@@ -99,9 +97,6 @@
         ],
         "no-loops/no-loops": 2,
         "optimize-regex/optimize-regex": 1,
-        "lodash/prefer-lodash-method": 0,
-        "lodash/prefer-constant": 0,
-        "lodash/prefer-lodash-typecheck": 0,
         "no-use-extend-native/no-use-extend-native": 2,
         "flowtype/boolean-style": [
             2,
