@@ -272,7 +272,7 @@ const webpackConfig = {
                 ignore: ['www/**/*.scss.flow', 'www/**/*.css.flow', 'www/js/lib/**/*.*'],
             },
         }),
-        new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
+        // new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
     ],
 
     devServer: {
