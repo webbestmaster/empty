@@ -12,6 +12,8 @@ import {LoadComponent} from '../../lib/c-load-component';
 import {Locale} from '../../component/locale/c-locale';
 import {getLocalizedString} from '../../component/locale/locale-helper';
 
+import {Locale2} from '../../component/locale-2/c-locale-2';
+
 import homeStyle from './home.style.scss';
 
 type PropsType = ContextRouterType;
@@ -82,6 +84,10 @@ export class Home extends Component<void, null> {
 
         return (
             <div className={homeStyle.home__wrapper}>
+                <h1>
+                    <Locale2/>
+                </h1>
+
                 <button onClick={view.handleMouseOver} onKeyPress={view.handleMouseOver} type="button">
                     | the button |
                 </button>
