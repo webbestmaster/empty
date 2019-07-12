@@ -19,3 +19,6 @@ package-lock.json
 
 # report
 /flow-coverage
+
+# other
+.DS_Store
