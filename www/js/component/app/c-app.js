@@ -13,7 +13,7 @@ import {Login} from '../../page/login/c-login';
 import {userIsAuthenticated, userIsNotAuthenticated} from '../auth/auth-helper';
 import {PageNotFound} from '../../page/page-not-found/c-page-not-found';
 
-import {MyContextProvider} from '../locale-2/c-locale-2';
+import {LocaleProvider} from '../locale-2/c-locale-2';
 
 import {routes} from './routes';
 
@@ -25,7 +25,7 @@ export function App(): Node {
         // you can replace the extra <div> with any react component
         <ReduxStoreProvider>
             <>
-                <MyContextProvider>
+                <LocaleProvider>
                     <Auth key="auth"/>
                     <System key="system">
                         <BrowserRouter>
@@ -38,7 +38,7 @@ export function App(): Node {
                             </Switch>
                         </BrowserRouter>
                     </System>
-                </MyContextProvider>
+                </LocaleProvider>
             </>
         </ReduxStoreProvider>
         /* eslint-enable react/jsx-max-depth */

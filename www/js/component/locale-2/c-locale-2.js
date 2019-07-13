@@ -5,7 +5,7 @@ import type {Node} from 'react';
 
 export const MyContext = React.createContext({locale: ''});
 
-export class MyContextProvider extends Component {
+export class LocaleProvider extends Component {
     constructor(props) {
         super(props);
 
