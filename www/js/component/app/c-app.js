@@ -12,8 +12,7 @@ import {appConst} from '../../const';
 import {Login} from '../../page/login/c-login';
 import {userIsAuthenticated, userIsNotAuthenticated} from '../auth/auth-helper';
 import {PageNotFound} from '../../page/page-not-found/c-page-not-found';
-
-import {LocaleProvider} from '../locale-2/c-locale-2';
+import {LocaleProvider} from '../locale-2/locale-context';
 
 import {routes} from './routes';
 
@@ -24,22 +23,18 @@ export function App(): Node {
         /* eslint-disable react/jsx-max-depth */
         // you can replace the extra <div> with any react component
         <ReduxStoreProvider>
-            <>
-                <LocaleProvider>
-                    <Auth key="auth"/>
-                    <System key="system">
-                        <BrowserRouter>
-                            <Switch key="switch">
-                                <Route component={userIsNotAuthenticated(Login)} exact path={routes.login}/>
-
-                                <Route component={userIsAuthenticated(Home)} exact path={routes.index}/>
-
-                                <Route component={PageNotFound}/>
-                            </Switch>
-                        </BrowserRouter>
-                    </System>
-                </LocaleProvider>
-            </>
+            <LocaleProvider>
+                <Auth key="auth"/>
+                <System key="system">
+                    <BrowserRouter>
+                        <Switch key="switch">
+                            <Route component={userIsNotAuthenticated(Login)} exact path={routes.login}/>
+                            <Route component={userIsAuthenticated(Home)} exact path={routes.index}/>
+                            <Route component={PageNotFound}/>
+                        </Switch>
+                    </BrowserRouter>
+                </System>
+            </LocaleProvider>
         </ReduxStoreProvider>
         /* eslint-enable react/jsx-max-depth */
     );

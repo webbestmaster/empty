@@ -17,21 +17,16 @@ export const localeNameReference: {+[key: string]: LocaleNameType} = {
     zhTw: 'zh-TW',
 };
 
-export const allLocales: {+[key: LocaleNameType]: LangDataType} = {
+export const allLocalesData: {+[key: LocaleNameType]: LangDataType} = {
     [localeNameReference.enUs]: enUs,
     [localeNameReference.ruRu]: ruRu,
     [localeNameReference.zhCn]: zhCn,
     [localeNameReference.zhTw]: zhTw,
 };
 
-export const localeNameList: Array<LocaleNameType> = Object.keys(allLocales);
+export const localeNameList: Array<LocaleNameType> = Object.keys(allLocalesData);
 
 export const localeConst = {
-    action: {
-        type: {
-            setLocale: 'locale__set-locale',
-        },
-    },
     defaults: {
         localeName: localeNameReference.enUs,
     },

@@ -9,8 +9,8 @@ import React, {Component} from 'react';
 
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
 import {LoadComponent} from '../../lib/c-load-component';
-import {Locale} from '../../component/locale/c-locale';
-import {getLocalizedString} from '../../component/locale/locale-helper';
+// import {Locale} from '../../component/locale/c-locale';
+import {getLocalizedString} from '../../component/locale-2/locale-helper';
 
 import {Locale2} from '../../component/locale-2/c-locale-2';
 
@@ -84,10 +84,6 @@ export class Home extends Component<void, null> {
 
         return (
             <div className={homeStyle.home__wrapper}>
-                <h1>
-                    <Locale2/>
-                </h1>
-
                 <button onClick={view.handleMouseOver} onKeyPress={view.handleMouseOver} type="button">
                     | the button |
                 </button>
@@ -96,7 +92,7 @@ export class Home extends Component<void, null> {
                 <hr/>
                 <LoadComponent load={view.loadAsyncLoadTestComponent}/>
                 <hr/>
-                <Locale stringKey="META__LANGUAGE_NAME"/>
+                <Locale2 stringKey="META__LANGUAGE_NAME"/>
                 <hr/>
             </div>
         );

@@ -10,9 +10,17 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 
 import type {GlobalStateType} from '../../redux-store-provider/reducer';
-import type {LocaleType} from '../locale/reducer';
-import {localeNameReference} from '../locale/const';
 import {forceResize} from '../../lib/screen';
+
+import type {LocaleNameType} from '../locale-2/const';
+
+import {localeNameReference} from '../locale-2/const';
+
+import {LocaleContextConsumer} from '../locale-2/locale-context';
+
+import type {LocaleContextType} from '../locale-2/locale-context';
+
+import {getLocalizedString} from '../locale-2/locale-helper';
 
 import type {OnResizeType} from './action';
 import {onResize} from './action';
@@ -23,7 +31,6 @@ import {setIsGlobalScrollEnable} from './helper';
 
 type ReduxPropsType = {|
     +system: SystemType,
-    +locale: LocaleType,
 |};
 
 type ReduxActionType = {|
@@ -67,7 +74,7 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
 
     componentDidUpdate(prevProps: PropsType, prevState: StateType) {
         const view = this;
-        const {props, state} = view;
+        const {props} = view;
 
         if (props.system.scroll.isEnable !== prevProps.system.scroll.isEnable) {
             setIsGlobalScrollEnable(props.system.scroll.isEnable);
@@ -95,13 +102,12 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
         }
     };
 
-    getClassName(): string {
+    getClassName(localeName: LocaleNameType): string {
         const view = this;
-        const {props, state} = view;
+        const {props} = view;
 
         const screenProps = props.system.screen;
         const littleThenList = screenProps.littleThen;
-        const localeName = props.locale.name;
 
         return classNames({
             [style.landscape]: screenProps.isLandscape,
@@ -120,16 +126,21 @@ class System extends Component<ReduxPropsType, PassedPropsType, StateType> {
 
     render(): Node {
         const view = this;
-        const {props, state} = view;
+        const {props} = view;
 
-        return <div className={view.getClassName()}>{props.children}</div>;
+        return (
+            <LocaleContextConsumer>
+                {(localeContext: LocaleContextType): Node => {
+                    return <div className={view.getClassName(localeContext.name)}>{props.children}</div>;
+                }}
+            </LocaleContextConsumer>
+        );
     }
 }
 
 const ConnectedComponent = connect<ComponentType<System>, PassedPropsType, ReduxPropsType, ReduxActionType>(
     (state: GlobalStateType): ReduxPropsType => ({
         system: state.system,
-        locale: state.locale,
     }),
     reduxAction
 )(System);

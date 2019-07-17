@@ -1,24 +1,28 @@
-// @-f-l-o-w
+// @flow
 
-import React, {Component} from 'react';
+import React from 'react';
 import type {Node} from 'react';
 
-export const MyContext = React.createContext({locale: ''});
+import {getLocalizedString} from './locale-helper';
+import type {LangKeyType} from './translation/type';
+import {LocaleContextConsumer} from './locale-context';
+import type {LocaleContextType} from './locale-context';
 
-export class LocaleProvider extends Component {
-    constructor(props) {
-        super(props);
+export type ValueMapType = {
+    [key: string]: string | number,
+};
 
-        this.state = {};
-    }
+type Locale2PropsType = {|
+    +stringKey: LangKeyType,
+    +valueMap?: ValueMapType,
+|};
 
-    render(): Node {
-        return <MyContext.Provider value="ert">{this.props.children}</MyContext.Provider>;
-    }
-}
+export function Locale2(props: Locale2PropsType): Node {
+    const {stringKey, valueMap} = props;
 
-export class Locale2 extends Component {
-    render(): Node {
-        return <MyContext.Consumer>{(value: mixed): mixed => value}</MyContext.Consumer>;
-    }
+    return (
+        <LocaleContextConsumer>
+            {(localeContext: LocaleContextType): string => getLocalizedString(stringKey, localeContext.name, valueMap)}
+        </LocaleContextConsumer>
+    );
 }
