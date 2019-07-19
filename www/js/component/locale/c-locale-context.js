@@ -21,10 +21,10 @@ const defaultContextData = {
     setName: (localeName: LocaleNameType) => {},
 };
 
-const localeContext = React.createContext<LocaleContextType>(defaultContextData);
-const LocaleContextProvider = localeContext.Provider;
+const CLocaleContext = React.createContext<LocaleContextType>(defaultContextData);
+const LocaleContextProvider = CLocaleContext.Provider;
 
-export const LocaleContextConsumer = localeContext.Consumer;
+export const LocaleContextConsumer = CLocaleContext.Consumer;
 
 type PropsType = {|
     +children: Node,

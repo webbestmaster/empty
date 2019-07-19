@@ -6,10 +6,11 @@ import {hasProperty} from '../../lib/is';
 
 import type {LocaleNameType} from './const';
 import {allLocalesData, localeConst, localeNameList} from './const';
-
-import type {ValueMapType} from './c-locale-2';
-
 import type {LangKeyType} from './translation/type';
+
+export type ValueMapType = {
+    [key: string]: string | number,
+};
 
 export function getLocaleName(): LocaleNameType {
     const savedLocaleName = localStorage.getItem(localeConst.key.localStorage.localeName);

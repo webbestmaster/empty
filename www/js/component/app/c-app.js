@@ -5,14 +5,16 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import {ReduxStoreProvider} from '../../redux-store-provider/provider';
-import {System} from '../system/c-system';
 import {Auth} from '../auth/c-auth';
 import {Home} from '../../page/home/c-home';
 import {appConst} from '../../const';
 import {Login} from '../../page/login/c-login';
 import {userIsAuthenticated, userIsNotAuthenticated} from '../auth/auth-helper';
 import {PageNotFound} from '../../page/page-not-found/c-page-not-found';
-import {LocaleProvider} from '../locale-2/locale-context';
+import {LocaleProvider} from '../locale/c-locale-context';
+import {ScreenProvider} from '../screen/c-screen-context';
+
+import {MainWrapper} from '../main-wrapper/c-main-wrapper';
 
 import {routes} from './routes';
 
@@ -24,16 +26,18 @@ export function App(): Node {
         // you can replace the extra <div> with any react component
         <ReduxStoreProvider>
             <LocaleProvider>
-                <Auth key="auth"/>
-                <System key="system">
-                    <BrowserRouter>
-                        <Switch key="switch">
-                            <Route component={userIsNotAuthenticated(Login)} exact path={routes.login}/>
-                            <Route component={userIsAuthenticated(Home)} exact path={routes.index}/>
-                            <Route component={PageNotFound}/>
-                        </Switch>
-                    </BrowserRouter>
-                </System>
+                <ScreenProvider>
+                    <MainWrapper>
+                        <Auth key="auth"/>
+                        <BrowserRouter>
+                            <Switch key="switch">
+                                <Route component={userIsNotAuthenticated(Login)} exact path={routes.login}/>
+                                <Route component={userIsAuthenticated(Home)} exact path={routes.index}/>
+                                <Route component={PageNotFound}/>
+                            </Switch>
+                        </BrowserRouter>
+                    </MainWrapper>
+                </ScreenProvider>
             </LocaleProvider>
         </ReduxStoreProvider>
         /* eslint-enable react/jsx-max-depth */

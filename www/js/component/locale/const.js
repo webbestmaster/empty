@@ -1,6 +1,6 @@
 // @flow
 
-/* global window, PROJECT_ID */
+/* global PROJECT_ID */
 
 import type {LangDataType} from './translation/type';
 

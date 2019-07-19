@@ -7,6 +7,7 @@ export async function forceResize(): Promise<void> {
         requestAnimationFrame(() => {
             window.dispatchEvent(new Event('resize'));
             requestAnimationFrame(resolve);
+            console.log('resized');
         });
     });
 }
