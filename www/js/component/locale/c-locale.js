@@ -1,13 +1,13 @@
 // @flow
 
-import React from 'react';
 import type {Node} from 'react';
+import React from 'react';
 
+import type {ValueMapType} from './locale-helper';
 import {getLocalizedString} from './locale-helper';
 import type {LangKeyType} from './translation/type';
-import {LocaleContextConsumer} from './c-locale-context';
 import type {LocaleContextType} from './c-locale-context';
-import type {ValueMapType} from './locale-helper';
+import {LocaleContextConsumer} from './c-locale-context';
 
 type LocalePropsType = {|
     +stringKey: LangKeyType,

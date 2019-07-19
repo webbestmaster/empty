@@ -9,24 +9,14 @@ import React, {Component} from 'react';
 
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
 import {LoadComponent} from '../../lib/c-load-component';
-// import {Locale} from '../../component/locale/c-locale';
-import {getLocalizedString} from '../../component/locale/locale-helper';
-
 import {Locale} from '../../component/locale/c-locale';
 
 import homeStyle from './home.style.scss';
 
 type PropsType = ContextRouterType;
+type StateType = null;
 
-class Mega<S, N: number> {
-    constructor(message: S) {
-        console.log(message);
-    }
-}
-
-export class Home extends Component<void, null> {
-    state: null;
-
+export class Home extends Component<PropsType, StateType> {
     componentDidMount() {
 
         /*
@@ -59,8 +49,6 @@ export class Home extends Component<void, null> {
         console.log(this.props.match);
         */
     }
-
-    props: PropsType;
 
     handleMouseOver = () => {
         const view = this;

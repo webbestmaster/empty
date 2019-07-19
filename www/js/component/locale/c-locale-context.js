@@ -4,11 +4,11 @@
 
 /* eslint consistent-this: ["error", "view"] */
 
-import React, {Component} from 'react';
 import type {Node} from 'react';
+import React, {Component} from 'react';
 
-import {localeConst} from './const';
 import type {LocaleNameType} from './const';
+import {localeConst} from './const';
 import {getLocaleName} from './locale-helper';
 
 export type LocaleContextType = {|
@@ -47,11 +47,18 @@ export class LocaleProvider extends Component<PropsType, StateType> {
 
     setName = (localeName: LocaleNameType) => {
         const view = this;
+        const {state} = view;
+        const {providedData} = state;
 
         console.log('---> write to localStorage:', localeConst.key.localStorage.localeName, localeName);
         localStorage.setItem(localeConst.key.localStorage.localeName, localeName);
 
-        view.setState({name: localeName});
+        view.setState({
+            providedData: {
+                ...providedData,
+                name: localeName,
+            },
+        });
     };
 
     getProviderValue(): LocaleContextType {

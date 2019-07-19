@@ -2,15 +2,14 @@
 
 /* eslint consistent-this: ["error", "view"] */
 
-import React, {Component} from 'react';
 import type {Node} from 'react';
-
+import React from 'react';
 import classNames from 'classnames';
 
-import {LocaleContextConsumer} from '../locale/c-locale-context';
 import type {LocaleContextType} from '../locale/c-locale-context';
-import {ScreenContextConsumer} from '../screen/c-screen-context';
+import {LocaleContextConsumer} from '../locale/c-locale-context';
 import type {ScreenContextType} from '../screen/c-screen-context';
+import {ScreenContextConsumer} from '../screen/c-screen-context';
 import {localeNameReference} from '../locale/const';
 import {screenNameReference} from '../screen/screen-helper';
 
