@@ -56,7 +56,7 @@ const webpackConfig = {
         path: path.join(CWD, pathToDist),
         publicPath: '/',
         filename: IS_DEVELOPMENT ? '[name].js' : '[name].[hash:6].js',
-        chunkFilename: IS_DEVELOPMENT ? '[name].async-import.js' : '[name].[hash:6].async-import.js',
+        chunkFilename: IS_DEVELOPMENT ? '[name].chunk.js' : '[name].[hash:6].chunk.js',
     },
 
     devtool: IS_PRODUCTION ? false : 'source-map',
