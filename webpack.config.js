@@ -117,10 +117,7 @@ const webpackConfig = {
         rules: [
             {
                 test: /\.js$/,
-                // exclude: /node_modules/,
-                // query-string: query-string|strict-uri-encode
-                // pixi-viewport: pixi-viewport|yy-[\w]+
-                exclude: /node_modules(?!([/\\])(query-string|strict-uri-encode|pixi-viewport|yy-\w+))/,
+                exclude: /node_modules/,
                 loader: 'babel-loader',
             },
             {
