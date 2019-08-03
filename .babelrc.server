@@ -15,14 +15,14 @@
     "env": {
         "development": {
             "plugins": [
-                // warning: create extra files!!
+                // warning: create extra files in folder - ".no-commit" !!
                 [
                   "file-loader",
                   {
                     "name": "asset/[name]-[md5:hash:hex:7].[ext]",
                     "extensions": ["png", "jpg", "jpeg", "gif", "svg"],
                     "publicPath": "/static",
-                    "outputPath": "",
+                    "outputPath": ".no-commit",
                     "context": "",
                     "limit": 1
                   }
