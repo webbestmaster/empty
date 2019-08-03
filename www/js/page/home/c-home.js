@@ -6,10 +6,13 @@
 
 import type {Node} from 'react';
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
 import {LoadComponent} from '../../lib/c-load-component';
 import {Locale} from '../../component/locale/c-locale';
+
+import pathToImage from './image/java-script-logo.png';
 
 import homeStyle from './home.style.scss';
 
@@ -75,6 +78,10 @@ export class Home extends Component<PropsType, StateType> {
                 <button onClick={view.handleMouseOver} onKeyPress={view.handleMouseOver} type="button">
                     | the button |
                 </button>
+                <hr/>
+                <div>
+                    <Link to="/login">go to login</Link>
+                </div>
                 <br/>
                 <span>home page</span>
                 <hr/>
@@ -82,6 +89,8 @@ export class Home extends Component<PropsType, StateType> {
                 <hr/>
                 <Locale stringKey="META__LANGUAGE_NAME"/>
                 <hr/>
+                <img alt="" src={pathToImage}/>
+                <div className={homeStyle.image}/>
             </div>
         );
     }
