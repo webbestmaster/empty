@@ -10,7 +10,7 @@ import {StaticRouter, matchPath} from 'react-router-dom';
 
 import {InnerApp} from '../www/js/component/app/c-app';
 
-import {getIndexHtmlTemplate} from './helper';
+import {getIndexHtmlTemplate} from './static-files';
 
 http.createServer((request: IncomingMessage, response: ServerResponse) => {
     (async () => {
@@ -21,6 +21,8 @@ http.createServer((request: IncomingMessage, response: ServerResponse) => {
         );
 
         const htmlTemplate = getIndexHtmlTemplate();
+
+        response.writeHead(200, {'Content-Type': 'text/html'});
 
         response.write(htmlTemplate.replace('{content}', result));
         response.end();

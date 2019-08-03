@@ -69,7 +69,7 @@ export class Home extends Component<PropsType, StateType> {
         const view = this;
         const {props, state} = view;
 
-        console.log(props, state);
+        // console.log(props, state);
 
         return (
             <div className={homeStyle.home__wrapper}>
