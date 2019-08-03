@@ -124,17 +124,6 @@ const webpackConfig = {
                 test: fileRegExp,
                 use: [
                     {
-                        loader: 'base64-inline-loader',
-                        // - limit - The limit can be specified with a query parameter. (Defaults to no limit).
-                        // If the file is greater than the limit (in bytes) the file-loader is used and
-                        // all query parameters are passed to it.
-                        // - name - The name is a standard option.
-                        query: {
-                            limit: IS_PRODUCTION ? 1e3 : 1, // 1k bytes for production
-                            name: 'asset/[name]-[hash:6].[ext]',
-                        },
-                    },
-                    {
                         loader: 'image-webpack-loader',
                         options: {
                             mozjpeg: {
@@ -157,6 +146,17 @@ const webpackConfig = {
                             //     quality: 75,
                             //     method: 6
                             // }
+                        },
+                    },
+                    {
+                        loader: 'base64-inline-loader',
+                        // - limit - The limit can be specified with a query parameter. (Defaults to no limit).
+                        // If the file is greater than the limit (in bytes) the file-loader is used and
+                        // all query parameters are passed to it.
+                        // - name - The name is a standard option.
+                        query: {
+                            limit: IS_PRODUCTION ? 1e3 : 1, // 1k bytes for production
+                            name: 'asset/[name]-[md5:hash:hex:7].[ext]',
                         },
                     },
                 ],

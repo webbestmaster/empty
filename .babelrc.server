@@ -15,6 +15,18 @@
     "env": {
         "development": {
             "plugins": [
+                // warning: create extra files!!
+                [
+                  "file-loader",
+                  {
+                    "name": "asset/[name]-[md5:hash:hex:7].[ext]",
+                    "extensions": ["png", "jpg", "jpeg", "gif", "svg"],
+                    "publicPath": "/static",
+                    "outputPath": "",
+                    "context": "",
+                    "limit": 1
+                  }
+                ],
                 // user for mode other plugin's settings, see webpack
                 [
                     "css-modules-transform",

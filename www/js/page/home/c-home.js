@@ -10,7 +10,7 @@ import type {ContextRouterType} from '../../type/react-router-dom-v4';
 import {LoadComponent} from '../../lib/c-load-component';
 import {Locale} from '../../component/locale/c-locale';
 
-// import pathToImage from './image/java-script-logo.png';
+import pathToImage from './image/java-script-logo.png';
 
 import homeStyle from './home.style.scss';
 
@@ -58,7 +58,7 @@ export class Home extends Component<PropsType, StateType> {
                 <hr/>
                 <Locale stringKey="META__LANGUAGE_NAME"/>
                 <hr/>
-                {/* <img alt="" src={pathToImage}/>*/}
+                <img alt="" src={pathToImage}/>
                 <div className={homeStyle.image}/>
             </div>
         );
