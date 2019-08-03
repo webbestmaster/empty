@@ -16,6 +16,7 @@
   "scripts": {
     "start": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` webpack-dev-server --progress --no-inline",
     "start-hot": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` webpack-dev-server --progress --hot",
+    "start-server": "babel-node ./server/server.js  --config-file ./.babelrc.server",
     "build": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` NODE_ENV=production webpack --mode=production --progress",
     "webpack": "webpack --mode=development --progress",
     "check": "npm run eslint; npm run stylelint; npm run flow;",
@@ -56,6 +57,7 @@
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
+    "babel-plugin-css-modules-transform": "^1.6.2",
     "babel-plugin-flow-runtime": "^0.19.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "base64-inline-loader": "^1.1.1",

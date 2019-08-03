@@ -1,6 +1,6 @@
 // @flow
 
-/* global localStorage, document, window */
+/* global document */
 
 import type {ScreenContextType} from './c-screen-context';
 
@@ -45,17 +45,38 @@ function getLittleThenList(screenWidth: number): Array<ScreenWidthNameType> {
     return littleThenList;
 }
 
-export function getScreenState(): ScreenContextType {
-    const {clientWidth, clientHeight} = document.documentElement || {clientWidth: 800, clientHeight: 600};
+function getScreenSize(): {|+width: number, +height: number|} {
+    const defaultSize = {
+        width: 800,
+        height: 600,
+    };
 
-    const isLandscape = clientWidth > clientHeight; // use >, do not use >=, if width === height it is portrait
-    const screenName = getScreenName(clientWidth);
+    if (typeof document === 'undefined') {
+        return defaultSize;
+    }
+
+    const {documentElement} = document;
+
+    if (!documentElement) {
+        return defaultSize;
+    }
+
+    const {clientWidth: width, clientHeight: height} = documentElement;
+
+    return {width, height};
+}
+
+export function getScreenState(): ScreenContextType {
+    const {width, height} = getScreenSize();
+
+    const isLandscape = width > height; // use >, do not use >=, if width === height it is portrait
+    const screenName = getScreenName(width);
 
     return {
-        width: clientWidth,
-        height: clientHeight,
+        width,
+        height,
         name: screenName,
-        littleThenList: getLittleThenList(clientWidth),
+        littleThenList: getLittleThenList(width),
         isDesktop: screenName === screenNameReference.desktop,
         isTablet: screenName === screenNameReference.tablet,
         isMobile: screenName === screenNameReference.mobile,

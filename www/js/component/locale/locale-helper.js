@@ -1,6 +1,6 @@
 // @flow
 
-/* global localStorage, navigator, IS_PRODUCTION */
+/* global localStorage, navigator */
 
 import {hasProperty} from '../../lib/is';
 
@@ -13,6 +13,10 @@ export type ValueMapType = {
 };
 
 export function getLocaleName(): LocaleNameType {
+    if (typeof localStorage === 'undefined' || typeof navigator === 'undefined') {
+        return localeConst.defaults.localeName;
+    }
+
     const savedLocaleName = localStorage.getItem(localeConst.key.localStorage.localeName);
 
     let localeName: LocaleNameType = localeConst.defaults.localeName;
@@ -64,19 +68,6 @@ export function getLocalizedString(
     localeName: LocaleNameType,
     valueMap?: ValueMapType
 ): string {
-    // eslint-disable-next-line id-match
-    if (!IS_PRODUCTION) {
-        if (!stringKey) {
-            console.error('stringKey is not define', stringKey);
-            return 'TEXT';
-        }
-
-        if (!hasProperty(allLocalesData[localeConst.defaults.localeName], stringKey)) {
-            console.error('has no key stringKey', stringKey);
-            return stringKey;
-        }
-    }
-
     const resultString = allLocalesData[localeName][stringKey];
 
     return valueMap ? replacePlaceholderMap(resultString, valueMap) : resultString;

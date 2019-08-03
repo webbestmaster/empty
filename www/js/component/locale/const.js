@@ -1,7 +1,5 @@
 // @flow
 
-/* global PROJECT_ID */
-
 import type {LangDataType} from './translation/type';
 import {enUs} from './translation/en-us/data';
 import {ruRu} from './translation/ru-ru/data';
@@ -33,7 +31,7 @@ export const localeConst = {
     key: {
         localStorage: {
             // eslint-disable-next-line id-match
-            localeName: PROJECT_ID + '-locale-name-v.1.0',
+            localeName: 'my-locale-name-v.1.0', // PROJECT_ID + 'my-locale-name-v.1.0'
         },
     },
 };
