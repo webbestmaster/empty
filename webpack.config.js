@@ -54,7 +54,7 @@ const webpackConfig = {
     entry: ['./www/css/root.scss', './www/js/root.js'],
     output: {
         path: path.join(CWD, pathToDist),
-        publicPath: '/',
+        publicPath: IS_DEVELOPMENT ? '/' : '/static/',
         filename: IS_DEVELOPMENT ? '[name].js' : '[name].[hash:6].js',
         chunkFilename: IS_DEVELOPMENT ? '[name].chunk.js' : '[name].[hash:6].chunk.js',
     },

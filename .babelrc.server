@@ -19,7 +19,7 @@
                 [
                     "css-modules-transform",
                     {
-                        "generateScopedName": "[local]----[hash:6]",
+                        "generateScopedName": "[hash:6]",
                         "extensions": [
                             ".scss"
                         ]
