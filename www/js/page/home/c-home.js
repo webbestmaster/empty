@@ -19,36 +19,7 @@ type StateType = null;
 
 export class Home extends Component<PropsType, StateType> {
     componentDidMount() {
-
-        /*
-        const newModel = new MainModel<'prop', number>('prop', 1);
-
-        const onChangeProps = (oldValue: number | void, newValue: number | void) => {
-            console.log('newModel.attr');
-            console.log(oldValue, newValue);
-            console.log(newModel.attr);
-        };
-
-        newModel.onChange('prop', onChangeProps);
-
-        newModel.trigger('prop');
-        newModel.trigger('prop');
-        newModel.trigger('prop');
-
-        newModel.offChange('prop', onChangeProps);
-
-        // newModel.set({prop: 11});
-        newModel.set('prop', 12);
-        newModel.set('prop', 13);
-
-        console.log(newModel);
-
-        const mega = new Mega(1);
-
-        console.log(mega);
-
-        console.log(this.props.match);
-        */
+        console.log('---> Component Home did mount');
     }
 
     handleMouseOver = () => {
