@@ -39,12 +39,9 @@ staticFileList.forEach((pathToFile: string) => {
     });
 });
 
+app.get('/api/some-api-url', async (request: $Request, response: $Response) => {});
+
 app.get('*', async (request: $Request, response: $Response) => {
-    console.log('*');
-    console.log(request.url);
-
-    console.log('!!!!!!!*********');
-
     const result = ReactDOMServer.renderToString(
         <StaticRouter context={{}} location={request.url}>
             <InnerApp/>
@@ -55,10 +52,7 @@ app.get('*', async (request: $Request, response: $Response) => {
 
     const htmlTemplate = getIndexHtmlTemplate();
 
-    response.writeHead(200, {'Content-Type': 'text/html'});
-
-    response.write(htmlTemplate.replace('{content}', result));
-    response.end();
+    response.send(htmlTemplate.replace('{content}', result));
 });
 
 app.listen(PORT, () => {
