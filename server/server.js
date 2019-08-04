@@ -20,6 +20,7 @@ import type {ApiDataType} from '../www/js/component/need-end-point/c-need-end-po
 
 import {getIndexHtmlTemplate} from './static-files';
 import {defaultInitialData, InitialDataProvider} from './c-initial-data-context';
+import type {InitialDataType} from './c-initial-data-context';
 
 const PORT: number = 8282;
 const app: $Application = express();
@@ -49,7 +50,7 @@ app.get('/api/some-api-url', async (request: $Request, response: $Response) => {
 });
 
 app.get('*', async (request: $Request, response: $Response) => {
-    const initialData = {...defaultInitialData, apiData: {status: 'success from server'}};
+    const initialData: InitialDataType = {...defaultInitialData, apiData: {status: 'success from server'}};
     const result = ReactDOMServer.renderToString(
         <StaticRouter context={{}} location={request.url}>
             <script dangerouslySetInnerHTML={{__html: `window.initialData = ${JSON.stringify(initialData)}`}}/>
