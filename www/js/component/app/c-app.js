@@ -1,5 +1,7 @@
 // @flow
 
+/* global window */
+
 /* eslint-disable react/jsx-max-depth, react/no-multi-comp */
 
 import type {Node} from 'react';
@@ -13,6 +15,9 @@ import {PageNotFound} from '../../page/page-not-found/c-page-not-found';
 import {LocaleProvider} from '../locale/c-locale-context';
 import {ScreenProvider} from '../screen/c-screen-context';
 import {MainWrapper} from '../main-wrapper/c-main-wrapper';
+import {defaultInitialData, InitialDataProvider} from '../../../../server/c-initial-data-context';
+
+import type {InitialDataType} from '../../../../server/c-initial-data-context';
 
 import {routes} from './routes';
 
@@ -21,23 +26,27 @@ import {routes} from './routes';
 export function App(): Node {
     return (
         <BrowserRouter>
-            <InnerApp/>
+            <InnerApp initialData={window.initialData || defaultInitialData}/>
         </BrowserRouter>
     );
 }
 
-export function InnerApp(): Node {
+export function InnerApp(props: {|+initialData: InitialDataType|}): Node {
+    const {initialData} = props;
+
     return (
-        <LocaleProvider>
-            <ScreenProvider>
-                <MainWrapper>
-                    <Switch key="switch">
-                        <Route component={Login} exact path={routes.login}/>
-                        <Route component={Home} exact path={routes.index}/>
-                        <Route component={PageNotFound}/>
-                    </Switch>
-                </MainWrapper>
-            </ScreenProvider>
-        </LocaleProvider>
+        <InitialDataProvider value={initialData}>
+            <LocaleProvider>
+                <ScreenProvider>
+                    <MainWrapper>
+                        <Switch key="switch">
+                            <Route component={Login} exact path={routes.login}/>
+                            <Route component={Home} exact path={routes.index}/>
+                            <Route component={PageNotFound}/>
+                        </Switch>
+                    </MainWrapper>
+                </ScreenProvider>
+            </LocaleProvider>
+        </InitialDataProvider>
     );
 }

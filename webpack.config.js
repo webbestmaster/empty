@@ -97,6 +97,8 @@ const webpackConfig = {
             }
             : {
                 minimizer: [
+
+                    /*
                     new TerserPlugin({
                         terserOptions: {
                             output: {
@@ -110,6 +112,7 @@ const webpackConfig = {
                         },
                     }),
                     new OptimizeCSSAssetsPlugin({}),
+*/
                 ],
             }
     ),
@@ -298,15 +301,13 @@ const webpackConfig = {
         // inline: false,
         // hot: true,
         // hotOnly: false,
-        /*
-            disableHostCheck: true,
-            proxy: {
-                '/proxi-api': {
-                    target: 'https://www.the-external-server.com/',
-                    changeOrigin: true, // for this option only: see documentations here https://github.com/chimurai/http-proxy-middleware#http-proxy-middleware-options
-                },
+        disableHostCheck: true,
+        proxy: {
+            '/api/': {
+                target: 'http://localhost:8282/',
+                changeOrigin: true, // for this option only: see documentations here https://github.com/chimurai/http-proxy-middleware#http-proxy-middleware-options
             },
-        */
+        },
     },
 };
 

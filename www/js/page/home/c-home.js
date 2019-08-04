@@ -10,12 +10,15 @@ import type {ContextRouterType} from '../../type/react-router-dom-v4';
 import {LoadComponent} from '../../lib/c-load-component';
 import {Locale} from '../../component/locale/c-locale';
 
-import pathToImage from './image/java-script-logo.png';
-
-import homeStyle from './home.style.scss';
+import {NeedEndPoint} from '../../component/need-end-point/c-need-end-point';
 
 type PropsType = ContextRouterType;
 type StateType = null;
+import {InitialDataConsumer} from '../../../../server/c-initial-data-context';
+import type {InitialDataType} from '../../../../server/c-initial-data-context';
+
+import homeStyle from './home.style.scss';
+import pathToImage from './image/java-script-logo.png';
 
 export class Home extends Component<PropsType, StateType> {
     componentDidMount() {
@@ -54,6 +57,11 @@ export class Home extends Component<PropsType, StateType> {
                 <br/>
                 <span>home page</span>
                 <hr/>
+                <InitialDataConsumer>
+                    {(defaultInitial: InitialDataType): Node => {
+                        return <NeedEndPoint apiData={defaultInitial.apiData}/>;
+                    }}
+                </InitialDataConsumer>
                 <LoadComponent load={view.loadAsyncLoadTestComponent}/>
                 <hr/>
                 <Locale stringKey="META__LANGUAGE_NAME"/>

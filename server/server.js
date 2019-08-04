@@ -2,7 +2,7 @@
 
 /* global process, __dirname */
 
-/* eslint no-process-env: 0, id-match: 0, optimize-regex/optimize-regex: 0 */
+/* eslint no-process-env: 0, id-match: 0, optimize-regex/optimize-regex: 0, react/no-danger: 0 */
 
 import type {IncomingMessage, ServerResponse} from 'http';
 
@@ -16,7 +16,10 @@ import express, {type $Application, type $Request, type $Response} from 'express
 
 import {InnerApp} from '../www/js/component/app/c-app';
 
+import type {ApiDataType} from '../www/js/component/need-end-point/c-need-end-point';
+
 import {getIndexHtmlTemplate} from './static-files';
+import {defaultInitialData, InitialDataProvider} from './c-initial-data-context';
 
 const PORT: number = 8282;
 const app: $Application = express();
@@ -39,12 +42,18 @@ staticFileList.forEach((pathToFile: string) => {
     });
 });
 
-app.get('/api/some-api-url', async (request: $Request, response: $Response) => {});
+app.get('/api/some-api-url', async (request: $Request, response: $Response) => {
+    const apiData: ApiDataType = {status: 'success'};
+
+    response.json(apiData);
+});
 
 app.get('*', async (request: $Request, response: $Response) => {
+    const initialData = {...defaultInitialData, apiData: {status: 'success from server'}};
     const result = ReactDOMServer.renderToString(
         <StaticRouter context={{}} location={request.url}>
-            <InnerApp/>
+            <script dangerouslySetInnerHTML={{__html: `window.initialData = ${JSON.stringify(initialData)}`}}/>
+            <InnerApp initialData={initialData}/>
         </StaticRouter>
     );
 

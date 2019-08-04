@@ -48,6 +48,10 @@ export function isNotFunction(value: mixed): boolean %checks {
     return typeof value !== 'function';
 }
 
+export function isError(value: mixed): boolean %checks {
+    return value instanceof Error;
+}
+
 export function hasProperty(object: mixed, propertyName: string): boolean %checks {
     return Reflect.apply(Object.prototype.hasOwnProperty, object, [propertyName]);
 }
