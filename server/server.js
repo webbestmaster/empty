@@ -21,6 +21,8 @@ import {getIndexHtmlTemplate} from './static-files';
 const PORT: number = 8282;
 const app: $Application = express();
 
+app.disable('x-powered-by');
+
 const CWD = __dirname;
 
 app.get('/static/*', (request: $Request, response: $Response) => {
