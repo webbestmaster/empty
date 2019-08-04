@@ -9,6 +9,7 @@ import type {IncomingMessage, ServerResponse} from 'http';
 import path from 'path';
 
 import React from 'react';
+import compression from 'compression';
 import ReactDOMServer from 'react-dom/server';
 import {StaticRouter, matchPath} from 'react-router-dom';
 
@@ -24,6 +25,8 @@ import type {InitialDataType} from './c-initial-data-context';
 
 const PORT: number = 8282;
 const app: $Application = express();
+
+app.use(compression());
 
 app.disable('x-powered-by');
 
@@ -53,8 +56,8 @@ app.get('*', async (request: $Request, response: $Response) => {
     const initialData: InitialDataType = {...defaultInitialData, apiData: {status: 'success from server'}};
     const result = ReactDOMServer.renderToString(
         <StaticRouter context={{}} location={request.url}>
-            <script dangerouslySetInnerHTML={{__html: `window.initialData = ${JSON.stringify(initialData)}`}}/>
             <InnerApp initialData={initialData}/>
+            <script dangerouslySetInnerHTML={{__html: `window.initialData = ${JSON.stringify(initialData)}`}}/>
         </StaticRouter>
     );
 

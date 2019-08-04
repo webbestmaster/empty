@@ -97,8 +97,6 @@ const webpackConfig = {
             }
             : {
                 minimizer: [
-
-                    /*
                     new TerserPlugin({
                         terserOptions: {
                             output: {
@@ -112,7 +110,6 @@ const webpackConfig = {
                         },
                     }),
                     new OptimizeCSSAssetsPlugin({}),
-*/
                 ],
             }
     ),
