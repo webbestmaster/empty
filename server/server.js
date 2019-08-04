@@ -29,10 +29,12 @@ app.get('/static/*', (request: $Request, response: $Response) => {
     response.sendFile(path.join(CWD, '/../dist/', request.params['0']));
 });
 
-app.get('/favicon.ico', (request: $Request, response: $Response) => {
-    console.log('/favicon.ico');
-    console.log(request.url);
-    response.sendFile(path.join(CWD, '/../dist/favicon.ico'));
+const staticFileList = ['/favicon.ico', '/robots.txt', '/sitemap.xml'];
+
+staticFileList.forEach((pathToFile: string) => {
+    app.get(pathToFile, (request: $Request, response: $Response) => {
+        response.sendFile(path.join(CWD, '/../dist' + pathToFile));
+    });
 });
 
 app.get('*', async (request: $Request, response: $Response) => {

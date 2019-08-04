@@ -16,7 +16,8 @@
   "scripts": {
     "start": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` webpack-dev-server --progress --no-inline",
     "start-hot": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` webpack-dev-server --progress --hot",
-    "start-server": "babel-node ./server/server.js  --config-file ./.babelrc.server",
+    "start-server": "babel-node ./server/server.js  --config-file ./server/.babelrc",
+    "start-server-prod": "NODE_ENV=production babel-node ./server/server.js  --config-file ./server/.babelrc",
     "build": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` NODE_ENV=production webpack --mode=production --progress",
     "webpack": "webpack --mode=development --progress",
     "check": "npm run eslint; npm run stylelint; npm run flow;",
@@ -44,7 +45,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
     "@babel/plugin-proposal-throw-expressions": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",

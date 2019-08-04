@@ -261,7 +261,23 @@ const webpackConfig = {
             chunkFilename: IS_DEVELOPMENT ? '[id].css' : '[id].[hash:6].css',
         }),
         new ScriptExtHtmlWebpackPlugin({defaultAttribute: 'defer'}),
-        new CopyWebpackPlugin([{from: './www/favicon.ico', to: './favicon.ico'}], {debug: false}),
+        new CopyWebpackPlugin(
+            [
+                {
+                    from: './www/favicon.ico',
+                    to: './favicon.ico',
+                },
+                {
+                    from: './www/robots.txt',
+                    to: './robots.txt',
+                },
+                {
+                    from: './www/sitemap.xml',
+                    to: './sitemap.xml',
+                },
+            ],
+            {debug: false}
+        ),
         new UnusedFilesWebpackPlugin({
             patterns: ['www/**/*.*'],
             globOptions: {
