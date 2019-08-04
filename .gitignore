@@ -22,4 +22,4 @@ package-lock.json
 
 # other
 .DS_Store
-.no-commit/
+#__delete_and_no_commit__

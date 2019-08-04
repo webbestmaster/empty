@@ -10,39 +10,39 @@
         "babel-plugin-transform-class-properties",
         "@babel/plugin-proposal-export-namespace-from",
         "@babel/plugin-proposal-throw-expressions",
-        "@babel/plugin-syntax-dynamic-import"
+        "@babel/plugin-syntax-dynamic-import",
+        // warning: create extra files in folder - "__delete_and_no_commit__" !!
+        [
+            "file-loader",
+            {
+                "name": "asset/[name]-[md5:hash:hex:7].[ext]",
+                "extensions": [
+                    "png",
+                    "jpg",
+                    "jpeg",
+                    "gif",
+                    "svg"
+                ],
+                "publicPath": "/static",
+                "outputPath": "__delete_and_no_commit__",
+                "context": "",
+                "limit": 1
+            }
+        ],
+        // user for mode other plugin's settings, see webpack
+        [
+            "css-modules-transform",
+            {
+                "generateScopedName": "[hash:6]",
+                "extensions": [
+                    ".scss"
+                ]
+            }
+        ]
     ],
     "env": {
         "development": {
             "plugins": [
-                // warning: create extra files in folder - ".no-commit" !!
-                [
-                    "file-loader",
-                    {
-                        "name": "asset/[name]-[md5:hash:hex:7].[ext]",
-                        "extensions": [
-                            "png",
-                            "jpg",
-                            "jpeg",
-                            "gif",
-                            "svg"
-                        ],
-                        "publicPath": "/static",
-                        "outputPath": ".no-commit",
-                        "context": "",
-                        "limit": 1
-                    }
-                ],
-                // user for mode other plugin's settings, see webpack
-                [
-                    "css-modules-transform",
-                    {
-                        "generateScopedName": "[hash:6]",
-                        "extensions": [
-                            ".scss"
-                        ]
-                    }
-                ],
 //                [
 //                    "@babel/plugin-proposal-decorators",
 //                    {
@@ -59,49 +59,7 @@
             ]
         },
         "production": {
-            "plugins": [
-                // warning: create extra files in folder - ".no-commit" !!
-                [
-                    "file-loader",
-                    {
-                        "name": "asset/[name]-[md5:hash:hex:7].[ext]",
-                        "extensions": [
-                            "png",
-                            "jpg",
-                            "jpeg",
-                            "gif",
-                            "svg"
-                        ],
-                        "publicPath": "/static",
-                        "outputPath": ".no-commit",
-                        "context": "",
-                        "limit": 1
-                    }
-                ],
-                // user for mode other plugin's settings, see webpack
-                [
-                    "css-modules-transform",
-                    {
-                        "generateScopedName": "[hash:6]",
-                        "extensions": [
-                            ".scss"
-                        ]
-                    }
-                ]
-//                [
-//                    "@babel/plugin-proposal-decorators",
-//                    {
-//                        "legacy": true
-//                    }
-//                ]
-//                [
-//                    "babel-plugin-flow-runtime",
-//                    {
-//                        "assert": true,
-//                        "annotate": true
-//                    }
-//                ]
-            ]
+            "plugins": []
         }
     }
 }
