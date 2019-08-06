@@ -8,5 +8,16 @@
             "source": "/static/asset/:segment",
             "destination": "/asset/:segment"
         }
-    ]
+    ],
+    "proxy": {
+        "api": {
+            "description": "in server http://localhost:8282/api/some-api-url // in code http://localhost:8080/__/proxy/api/some-api-url",
+            "origin": "http://localhost:8282/api",
+            "headers": {
+                "Accept": "application/json"
+            },
+            "cookies": false,
+            "timeout": 30
+        }
+    }
 }

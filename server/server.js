@@ -10,6 +10,7 @@ import path from 'path';
 
 import React from 'react';
 import compression from 'compression';
+import cors from 'cors';
 import ReactDOMServer from 'react-dom/server';
 import {StaticRouter, matchPath} from 'react-router-dom';
 
@@ -25,6 +26,8 @@ import type {InitialDataType} from './c-initial-data-context';
 
 const PORT: number = 8282;
 const app: $Application = express();
+
+app.use(cors());
 
 app.use(compression());
 
