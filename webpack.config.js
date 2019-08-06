@@ -50,6 +50,27 @@ const alias = duplicateList.reduce((accumulator, packageName) => {
     return {...accumulator, [packageName]: path.resolve(CWD, `node_modules/${packageName}`)};
 }, {});
 
+const styleLoader = {
+    loader: 'style-loader',
+    options: {
+        // sourceMap: IS_DEVELOPMENT,
+        // singleton: true,
+        attributes: {
+            'class': 'my-css-module',
+        },
+    },
+};
+
+const postCssLoader = {
+    loader: 'postcss-loader',
+    options: {
+        sourceMap: true,
+        config: {
+            path: './postcss.config.js',
+        },
+    },
+};
+
 const webpackConfig = {
     entry: ['./www/css/root.scss', './www/js/root.js'],
     output: {
@@ -164,18 +185,7 @@ const webpackConfig = {
             {
                 test: /\.scss$/,
                 use: [
-                    IS_PRODUCTION
-                        ? MiniCssExtractPlugin.loader
-                        : {
-                            loader: 'style-loader',
-                            options: {
-                                sourceMap: IS_DEVELOPMENT,
-                                singleton: true,
-                                attrs: {
-                                    'class': 'my-scss-module',
-                                },
-                            },
-                        },
+                    IS_PRODUCTION ? MiniCssExtractPlugin.loader : styleLoader,
                     'css-modules-flow-types-loader',
                     {
                         loader: 'css-loader',
@@ -186,33 +196,14 @@ const webpackConfig = {
                             },
                         },
                     },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            sourceMap: true,
-                            config: {
-                                path: './postcss.config.js',
-                            },
-                        },
-                    },
+                    postCssLoader,
                     {loader: 'sass-loader', options: {sourceMap: IS_DEVELOPMENT}},
                 ],
             },
             {
                 test: /\.css$/,
                 use: [
-                    IS_PRODUCTION
-                        ? MiniCssExtractPlugin.loader
-                        : {
-                            loader: 'style-loader',
-                            options: {
-                                sourceMap: IS_DEVELOPMENT,
-                                singleton: true,
-                                attrs: {
-                                    'class': 'my-css-module',
-                                },
-                            },
-                        },
+                    IS_PRODUCTION ? MiniCssExtractPlugin.loader : styleLoader,
                     'css-modules-flow-types-loader',
                     {
                         loader: 'css-loader',
@@ -223,15 +214,7 @@ const webpackConfig = {
                             },
                         },
                     },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            sourceMap: true,
-                            config: {
-                                path: './postcss.config.js',
-                            },
-                        },
-                    },
+                    postCssLoader,
                 ],
             },
         ],
