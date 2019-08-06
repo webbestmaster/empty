@@ -272,6 +272,7 @@ const webpackConfig = {
     ],
 
     devServer: {
+        writeToDisk: true,
         contentBase: path.join(CWD, pathToDist),
         host: '0.0.0.0',
         port: 8080,
