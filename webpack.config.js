@@ -22,6 +22,7 @@ const DEVELOPMENT = 'development';
 const PRODUCTION = 'production';
 
 const NODE_ENV = process.env.NODE_ENV || DEVELOPMENT;
+const IS_BUILD_SERVER = process.env.IS_BUILD_SERVER === 'YES';
 
 const IS_DEVELOPMENT = NODE_ENV === DEVELOPMENT;
 const IS_PRODUCTION = NODE_ENV === PRODUCTION;
@@ -77,7 +78,7 @@ const webpackConfig = {
     entry: ['./www/css/root.scss', './www/js/root.js'],
     output: {
         path: path.join(CWD, pathToDist),
-        publicPath: IS_DEVELOPMENT ? '/' : pathToStaticFileFolder,
+        publicPath: IS_DEVELOPMENT || IS_BUILD_SERVER ? '/' : pathToStaticFileFolder,
         filename: IS_DEVELOPMENT ? '[name].js' : '[name].[hash:6].js',
         chunkFilename: IS_DEVELOPMENT ? '[name].chunk.js' : '[name].[hash:6].chunk.js',
     },

@@ -16,7 +16,7 @@
   "scripts": {
     "start": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` webpack-dev-server --progress --no-inline",
     "start-hot": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` webpack-dev-server --progress --hot",
-    "start-build": "NODE_ENV=production webpack-dev-server --config ./webpack.config.build-server.js --mode=production",
+    "start-build": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` NODE_ENV=production IS_BUILD_SERVER=YES webpack-dev-server --mode=production --progress",
     "start-server": "babel-node ./server/server.js  --config-file ./server/.babelrc",
     "start-server-prod": "NODE_ENV=production babel-node ./server/server.js  --config-file ./server/.babelrc",
     "build": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` NODE_ENV=production webpack --mode=production --progress",
