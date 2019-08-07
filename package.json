@@ -14,6 +14,7 @@
   "author": "",
   "license": "MIT",
   "scripts": {
+    "try-me": "NODE_ENV=production webpack-dev-server --config ./webpack.dev-server.js --mode=production",
     "start": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` webpack-dev-server --progress --no-inline",
     "start-hot": "cross-env BRANCH_NAME=`git symbolic-ref --short HEAD` webpack-dev-server --progress --hot",
     "start-server": "babel-node ./server/server.js  --config-file ./server/.babelrc",
