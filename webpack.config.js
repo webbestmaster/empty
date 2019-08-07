@@ -281,7 +281,7 @@ const webpackConfig = {
         historyApiFallback: {
             disableDotRule: true,
         },
-        writeToDisk: false,
+        writeToDisk: IS_BUILD_SERVER,
         // inline: false,
         // hot: true,
         // hotOnly: false,
