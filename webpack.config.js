@@ -16,6 +16,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const {UnusedFilesWebpackPlugin} = require('unused-files-webpack-plugin');
 
+const {pathToStaticFileFolder} = require('./application.config');
+
 const DEVELOPMENT = 'development';
 const PRODUCTION = 'production';
 
@@ -75,7 +77,7 @@ const webpackConfig = {
     entry: ['./www/css/root.scss', './www/js/root.js'],
     output: {
         path: path.join(CWD, pathToDist),
-        publicPath: IS_DEVELOPMENT ? '/' : '/static/',
+        publicPath: IS_DEVELOPMENT ? '/' : pathToStaticFileFolder,
         filename: IS_DEVELOPMENT ? '[name].js' : '[name].[hash:6].js',
         chunkFilename: IS_DEVELOPMENT ? '[name].chunk.js' : '[name].[hash:6].chunk.js',
     },

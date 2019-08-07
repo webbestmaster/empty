@@ -1,0 +1,3 @@
+1 - try to fix /__/proxy/...
+2 - separate /static/ in to variable ++
+2 - separate port 8080 and 8282 in to variable

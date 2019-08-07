@@ -1,6 +1,7 @@
 {
     "redirects": [
         {
+            "description": "see application.config.js -> 'module.exports.pathToStaticFileFolder = '/static/';'",
             "source": "/static/:segment",
             "destination": "/:segment"
         },

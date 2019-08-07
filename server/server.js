@@ -5,7 +5,6 @@
 /* eslint no-process-env: 0, id-match: 0, optimize-regex/optimize-regex: 0, react/no-danger: 0 */
 
 import type {IncomingMessage, ServerResponse} from 'http';
-
 import path from 'path';
 
 import React from 'react';
@@ -13,16 +12,14 @@ import compression from 'compression';
 import cors from 'cors';
 import ReactDOMServer from 'react-dom/server';
 import {StaticRouter, matchPath} from 'react-router-dom';
-
 import express, {type $Application, type $Request, type $Response} from 'express';
 
 import {InnerApp} from '../www/js/component/app/c-app';
-
+import {pathToStaticFileFolder} from '../webpack.config';
 import type {ApiDataType} from '../www/js/component/need-end-point/c-need-end-point';
 
 import {getIndexHtmlTemplate} from './static-files';
-import {defaultInitialData, InitialDataProvider} from './c-initial-data-context';
-import type {InitialDataType} from './c-initial-data-context';
+import {defaultInitialData, InitialDataProvider, type InitialDataType} from './c-initial-data-context';
 
 const PORT: number = 8282;
 const app: $Application = express();
@@ -35,8 +32,8 @@ app.disable('x-powered-by');
 
 const CWD = __dirname;
 
-app.get('/static/*', (request: $Request, response: $Response) => {
-    console.log('/static/*');
+app.get(pathToStaticFileFolder + '*', (request: $Request, response: $Response) => {
+    console.log(pathToStaticFileFolder + '*');
     console.log(request.url);
     response.sendFile(path.join(CWD, '/../dist/', request.params['0']));
 });
