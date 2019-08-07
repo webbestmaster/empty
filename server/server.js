@@ -16,12 +16,12 @@ import express, {type $Application, type $Request, type $Response} from 'express
 
 import type {ApiDataType} from '../www/js/component/need-end-point/c-need-end-point';
 import {InnerApp} from '../www/js/component/app/c-app';
-import {pathToStaticFileFolder} from '../application.config';
+import {pathToStaticFileFolder, serverPort} from '../application.config';
 
 import {getIndexHtmlTemplate} from './static-files';
 import {defaultInitialData, InitialDataProvider, type InitialDataType} from './c-initial-data-context';
 
-const PORT: number = 8282;
+const PORT: number = serverPort;
 const app: $Application = express();
 
 app.use(cors());

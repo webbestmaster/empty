@@ -16,7 +16,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const {UnusedFilesWebpackPlugin} = require('unused-files-webpack-plugin');
 
-const {pathToStaticFileFolder} = require('./application.config');
+const {pathToStaticFileFolder, serverPort} = require('./application.config');
 
 const DEVELOPMENT = 'development';
 const PRODUCTION = 'production';
@@ -274,20 +274,20 @@ const webpackConfig = {
     ],
 
     devServer: {
-        writeToDisk: false,
-        contentBase: path.join(CWD, pathToDist),
         host: '0.0.0.0',
         port: 8080,
+        contentBase: path.join(CWD, pathToDist),
         historyApiFallback: {
             disableDotRule: true,
         },
+        writeToDisk: false,
         // inline: false,
         // hot: true,
         // hotOnly: false,
         disableHostCheck: true,
         proxy: {
             '/api/': {
-                target: 'http://localhost:8282/',
+                target: 'http://localhost:' + serverPort + '/',
                 changeOrigin: true, // for this option only: see documentations here https://github.com/chimurai/http-proxy-middleware#http-proxy-middleware-options
             },
         },

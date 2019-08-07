@@ -49,7 +49,7 @@ export class NeedEndPoint extends Component<PropsType, StateType> {
             return;
         }
 
-        const apiData = await fetchX<ApiDataType>('http://localhost:8282/api/some-api-url');
+        const apiData = await fetchX<ApiDataType>('/api/some-api-url');
 
         if (isError(apiData)) {
             return;
