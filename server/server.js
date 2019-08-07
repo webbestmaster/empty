@@ -14,9 +14,9 @@ import ReactDOMServer from 'react-dom/server';
 import {StaticRouter, matchPath} from 'react-router-dom';
 import express, {type $Application, type $Request, type $Response} from 'express';
 
-import {InnerApp} from '../www/js/component/app/c-app';
-import {pathToStaticFileFolder} from '../webpack.config';
 import type {ApiDataType} from '../www/js/component/need-end-point/c-need-end-point';
+import {InnerApp} from '../www/js/component/app/c-app';
+import {pathToStaticFileFolder} from '../application.config';
 
 import {getIndexHtmlTemplate} from './static-files';
 import {defaultInitialData, InitialDataProvider, type InitialDataType} from './c-initial-data-context';
