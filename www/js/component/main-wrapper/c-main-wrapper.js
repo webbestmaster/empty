@@ -7,8 +7,8 @@ import React from 'react';
 import classNames from 'classnames';
 
 import type {LocaleContextType} from '../locale/c-locale-context';
+import type {ScreenContextType} from '../screen/screen-helper';
 import {LocaleContextConsumer} from '../locale/c-locale-context';
-import type {ScreenContextType} from '../screen/c-screen-context';
 import {ScreenContextConsumer} from '../screen/c-screen-context';
 import {localeNameReference} from '../locale/const';
 import {screenNameReference} from '../screen/screen-helper';

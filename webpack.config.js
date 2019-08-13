@@ -15,6 +15,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const {UnusedFilesWebpackPlugin} = require('unused-files-webpack-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 const {pathToStaticFileFolder, serverPort} = require('./application.config');
 
@@ -226,6 +227,9 @@ const webpackConfig = {
         alias,
     },
     plugins: [
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+        }),
         new DuplicatePackageCheckerPlugin(),
         new CleanWebpackPlugin(),
         new webpack.DefinePlugin(definePluginParams),

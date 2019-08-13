@@ -7,20 +7,8 @@
 import type {Node} from 'react';
 import React, {Component} from 'react';
 
-import type {ScreenWidthNameType} from './screen-helper';
 import {getScreenState} from './screen-helper';
-
-export type ScreenContextType = {|
-    +width: number,
-    +height: number,
-    +name: ScreenWidthNameType,
-    +isDesktop: boolean,
-    +isTablet: boolean,
-    +isMobile: boolean,
-    +littleThenList: Array<ScreenWidthNameType>,
-    +isLandscape: boolean,
-    +isPortrait: boolean,
-|};
+import type {ScreenContextType} from './screen-helper';
 
 const defaultContextData = getScreenState();
 
