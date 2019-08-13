@@ -1,0 +1,75 @@
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const {UnusedFilesWebpackPlugin} = require('unused-files-webpack-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
+
+const {isProduction, isDevelopment} = require('./../config');
+
+// const date = new Date();
+
+const definePluginParams = {
+    // BUILD_DATE: JSON.stringify(date.getTime()),
+    // BUILD_DATE_H: JSON.stringify(date.toString()),
+    // BRANCH_NAME: JSON.stringify(process.env.BRANCH_NAME), // eslint-disable-line no-process-env
+    // NODE_ENV: JSON.stringify(NODE_ENV),
+    // IS_PRODUCTION: JSON.stringify(isProduction),
+    // PROJECT_ID: JSON.stringify('my-best-project')
+    // IS_DEVELOPMENT: JSON.stringify(IS_DEVELOPMENT)
+};
+
+module.exports.plugins = [
+    new CircularDependencyPlugin({
+        exclude: /node_modules/,
+    }),
+    new DuplicatePackageCheckerPlugin(),
+    new CleanWebpackPlugin(),
+    new webpack.DefinePlugin(definePluginParams),
+    new HtmlWebpackPlugin({
+        template: './www/index.html',
+        minify: {
+            collapseWhitespace: isProduction,
+            removeComments: isProduction,
+            minifyCSS: isProduction,
+            minifyJS: isProduction,
+        },
+        hash: true,
+        filename: './index.html',
+    }),
+    new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: isDevelopment ? '[name].css' : '[name].[hash:6].css',
+        chunkFilename: isDevelopment ? '[id].css' : '[id].[hash:6].css',
+    }),
+    new ScriptExtHtmlWebpackPlugin({defaultAttribute: 'defer'}),
+    new CopyWebpackPlugin(
+        [
+            {
+                from: './www/favicon.ico',
+                to: './favicon.ico',
+            },
+            {
+                from: './www/robots.txt',
+                to: './robots.txt',
+            },
+            {
+                from: './www/sitemap.xml',
+                to: './sitemap.xml',
+            },
+        ],
+        {debug: false}
+    ),
+    new UnusedFilesWebpackPlugin({
+        patterns: ['www/**/*.*'],
+        globOptions: {
+            // TODO: remove 'www/js/lib/**/*.*' for prod version
+            ignore: ['www/**/*.scss.flow', 'www/**/*.css.flow', 'www/js/lib/**/*.*'],
+        },
+    }),
+    // new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
+];
