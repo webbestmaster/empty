@@ -4,21 +4,12 @@ const {isProduction, isDevelopment, fileRegExp} = require('./../../config');
 
 const styleLoader = {
     loader: 'style-loader',
-    options: {
-        attributes: {
-            'class': 'my-css-module',
-        },
-    },
+    options: {attributes: {'class': 'my-css-module'}},
 };
 
 const postCssLoader = {
     loader: 'postcss-loader',
-    options: {
-        sourceMap: true,
-        config: {
-            path: './postcss.config.js',
-        },
-    },
+    options: {sourceMap: true},
 };
 
 const cssLoader = isProduction ? MiniCssExtractPlugin.loader : styleLoader;
@@ -59,10 +50,6 @@ module.exports.rules = [
             },
             {
                 loader: 'base64-inline-loader',
-                // - limit - The limit can be specified with a query parameter. (Defaults to no limit).
-                // If the file is greater than the limit (in bytes) the file-loader is used and
-                // all query parameters are passed to it.
-                // - name - The name is a standard option.
                 query: {
                     limit: isProduction ? 1e3 : 1, // 1k bytes for production
                     name: 'asset/[name]-[md5:hash:hex:7].[ext]',
