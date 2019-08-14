@@ -40,13 +40,13 @@ module.exports.plugins = [
         hash: true,
         filename: './index.html',
     }),
+    new ScriptExtHtmlWebpackPlugin({defaultAttribute: 'defer'}),
     new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
         filename: isDevelopment ? '[name].css' : '[name].[hash:6].css',
         chunkFilename: isDevelopment ? '[id].css' : '[id].[hash:6].css',
     }),
-    new ScriptExtHtmlWebpackPlugin({defaultAttribute: 'defer'}),
     new CopyWebpackPlugin(
         [
             {
