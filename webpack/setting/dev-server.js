@@ -1,10 +1,10 @@
 const path = require('path');
 
-const {cwd, pathToDist, serverPort, isBuildServer} = require('./../config');
+const {cwd, pathToDist, ssrServerPort, isBuildServer, webpackDevServerPort} = require('./../config');
 
 module.exports.devServer = {
-    host: '0.0.0.0',
-    port: 8080,
+    host: 'localhost',
+    port: webpackDevServerPort,
     contentBase: path.join(cwd, pathToDist),
     historyApiFallback: {
         disableDotRule: true,
@@ -16,7 +16,7 @@ module.exports.devServer = {
     disableHostCheck: true,
     proxy: {
         '/api/': {
-            target: 'http://localhost:' + serverPort + '/',
+            target: 'http://localhost:' + ssrServerPort + '/',
             changeOrigin: true, // for this option only: see documentations here https://github.com/chimurai/http-proxy-middleware#http-proxy-middleware-options
         },
     },

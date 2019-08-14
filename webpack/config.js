@@ -23,4 +23,5 @@ module.exports.pathToDist = '/dist';
 
 module.exports.pathToStaticFileFolder = '/static/';
 
-module.exports.serverPort = 8282;
+module.exports.webpackDevServerPort = 8080;
+module.exports.ssrServerPort = 8282;
