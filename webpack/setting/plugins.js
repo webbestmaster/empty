@@ -12,7 +12,7 @@ const {isProduction, isDevelopment} = require('./../config');
 
 // const date = new Date();
 
-const definePluginParams = {
+const definePluginParameters = {
     // BUILD_DATE: JSON.stringify(date.getTime()),
     // BUILD_DATE_H: JSON.stringify(date.toString()),
     // BRANCH_NAME: JSON.stringify(process.env.BRANCH_NAME), // eslint-disable-line no-process-env
@@ -28,7 +28,7 @@ module.exports.plugins = [
     }),
     new DuplicatePackageCheckerPlugin(),
     new CleanWebpackPlugin(),
-    new webpack.DefinePlugin(definePluginParams),
+    new webpack.DefinePlugin(definePluginParameters),
     new HtmlWebpackPlugin({
         template: './www/index.html',
         minify: {
@@ -67,8 +67,7 @@ module.exports.plugins = [
     new UnusedFilesWebpackPlugin({
         patterns: ['www/**/*.*'],
         globOptions: {
-            // TODO: remove 'www/js/lib/**/*.*' for prod version
-            ignore: ['www/**/*.scss.flow', 'www/**/*.css.flow', 'www/js/lib/**/*.*'],
+            ignore: ['www/**/*.scss.flow', 'www/**/*.css.flow'],
         },
     }),
     // new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
