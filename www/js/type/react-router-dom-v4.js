@@ -25,7 +25,7 @@ export type LocationShapeType = {
 export type HistoryActionType = 'PUSH' | 'REPLACE' | 'POP';
 
 export type RouterHistoryType = {
-    length: number | void,
+    length: number,
     location: LocationType,
     action: HistoryActionType,
     listen(callback: (location: LocationType, action: HistoryActionType) => void): () => void,
@@ -51,7 +51,7 @@ export type MatchType = {
 export type ContextRouterType = {|
     history: RouterHistoryType,
     location: LocationType,
-    match: MatchType,
+    match: MatchType | null,
     staticContext?: StaticRouterContextType,
 |};
 

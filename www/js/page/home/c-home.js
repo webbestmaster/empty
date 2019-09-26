@@ -15,7 +15,7 @@ import {NeedEndPoint} from '../../component/need-end-point/c-need-end-point';
 import homeStyle from './home.style.scss';
 import pathToImage from './image/java-script-logo.png';
 
-type PropsType = ContextRouterType;
+type PropsType = {};
 type StateType = null;
 
 export class Home extends Component<PropsType, StateType> {

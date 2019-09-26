@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
 
-type PropsType = ContextRouterType;
+type PropsType = {};
 type StateType = null;
 
 // eslint-disable-next-line react/prefer-stateless-function
