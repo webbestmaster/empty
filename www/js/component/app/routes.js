@@ -8,12 +8,7 @@ import {Login} from '../../page/login/c-login';
 import {AboutUs} from '../../page/about-us/c-about-us';
 import {Contact} from '../../page/contact/c-contact';
 
-export type RouteItemType = {|
-    +path: string,
-    +name: string,
-    // eslint-disable-next-line id-match
-    +component: React$ComponentType<*>,
-|};
+import type {RouteItemType} from './helper';
 
 export const routeItemList: Array<RouteItemType> = [
     {

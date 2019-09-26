@@ -6,7 +6,12 @@ import type {Node} from 'react';
 import React from 'react';
 import {Link, Route} from 'react-router-dom';
 
-import type {RouteItemType} from './routes';
+export type RouteItemType = {|
+    +path: string,
+    +name: string,
+    // eslint-disable-next-line id-match
+    +component: React$ComponentType<*>,
+|};
 
 export function redderRoute(routeItem: RouteItemType): Node {
     const {path, name, component} = routeItem;

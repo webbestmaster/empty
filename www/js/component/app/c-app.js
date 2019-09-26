@@ -16,7 +16,7 @@ import type {InitialDataType} from '../../../../server/src/c-initial-data-contex
 import {defaultInitialData, InitialDataProvider} from '../../../../server/src/c-initial-data-context';
 
 import {routeItemList} from './routes';
-import {redderRoute} from './helper';
+import {redderLink, redderRoute} from './helper';
 
 export function App(): Node {
     return (
@@ -34,6 +34,7 @@ export function InnerApp(props: {|+initialData: InitialDataType|}): Node {
             <LocaleProvider>
                 <ScreenProvider>
                     <MainWrapper>
+                        <nav>{routeItemList.map(redderLink)}</nav>
                         <Switch key="switch">
                             {routeItemList.map(redderRoute)}
                             <Route component={PageNotFound}/>
