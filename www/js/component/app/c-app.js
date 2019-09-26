@@ -16,9 +16,7 @@ import {defaultInitialData, InitialDataProvider} from '../../../../server/src/c-
 import type {InitialDataType} from '../../../../server/src/c-initial-data-context';
 
 import {routeItemList} from './routes';
-import type {RouteItemType} from './routes';
-
-// console.log(appConst);
+import {redderRoute} from './helper';
 
 export function App(): Node {
     return (
@@ -26,12 +24,6 @@ export function App(): Node {
             <InnerApp initialData={window.initialData || defaultInitialData}/>
         </BrowserRouter>
     );
-}
-
-function redderRoute(routeItem: RouteItemType): Node {
-    const {path, component} = routeItem;
-
-    return <Route component={component} exact path={path}/>;
 }
 
 export function InnerApp(props: {|+initialData: InitialDataType|}): Node {
