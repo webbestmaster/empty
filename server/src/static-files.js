@@ -1,11 +1,17 @@
 // @flow
 
 import fileSystem from 'fs';
+import path from 'path';
+
+import {pathToDist} from '../../webpack/config';
 
 let indexHtmlTemplate: string = '{content}';
 
 // $FlowFixMe
-fileSystem.readFile('./dist/index.html', 'utf8', function readIndexHtmlCallBack(error: Error | null, data: mixed) {
+fileSystem.readFile(path.join('.', pathToDist, 'index.html'), 'utf8', function readIndexHtmlCallBack(
+    error: Error | null,
+    data: mixed
+) {
     if (error instanceof Error) {
         console.error('Can not read www/index.html !!!');
         return;

@@ -14,8 +14,8 @@ import {NeedEndPoint} from '../../component/need-end-point/c-need-end-point';
 
 type PropsType = ContextRouterType;
 type StateType = null;
-import {InitialDataConsumer} from '../../../../server/c-initial-data-context';
-import type {InitialDataType} from '../../../../server/c-initial-data-context';
+import {InitialDataConsumer} from '../../../../server/src/c-initial-data-context';
+import type {InitialDataType} from '../../../../server/src/c-initial-data-context';
 
 import homeStyle from './home.style.scss';
 import pathToImage from './image/java-script-logo.png';

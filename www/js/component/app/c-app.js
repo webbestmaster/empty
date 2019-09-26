@@ -15,9 +15,9 @@ import {PageNotFound} from '../../page/page-not-found/c-page-not-found';
 import {LocaleProvider} from '../locale/c-locale-context';
 import {ScreenProvider} from '../screen/c-screen-context';
 import {MainWrapper} from '../main-wrapper/c-main-wrapper';
-import {defaultInitialData, InitialDataProvider} from '../../../../server/c-initial-data-context';
+import {defaultInitialData, InitialDataProvider} from '../../../../server/src/c-initial-data-context';
 
-import type {InitialDataType} from '../../../../server/c-initial-data-context';
+import type {InitialDataType} from '../../../../server/src/c-initial-data-context';
 
 import {routes} from './routes';
 

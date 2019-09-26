@@ -1,6 +1,6 @@
 // @flow
 
-/* global process, __dirname */
+/* global process */
 
 /* eslint no-process-env: 0, id-match: 0, optimize-regex/optimize-regex: 0, react/no-danger: 0 */
 
@@ -14,9 +14,9 @@ import ReactDOMServer from 'react-dom/server';
 import {StaticRouter, matchPath} from 'react-router-dom';
 import express, {type $Application, type $Request, type $Response} from 'express';
 
-import type {ApiDataType} from '../www/js/component/need-end-point/c-need-end-point';
-import {InnerApp} from '../www/js/component/app/c-app';
-import {pathToStaticFileFolder, ssrServerPort} from '../webpack/config';
+import type {ApiDataType} from '../../www/js/component/need-end-point/c-need-end-point';
+import {InnerApp} from '../../www/js/component/app/c-app';
+import {pathToStaticFileFolder, ssrServerPort, pathToDist} from '../../webpack/config';
 
 import {getIndexHtmlTemplate} from './static-files';
 import {defaultInitialData, InitialDataProvider, type InitialDataType} from './c-initial-data-context';
@@ -30,19 +30,19 @@ app.use(compression());
 
 app.disable('x-powered-by');
 
-const CWD = __dirname;
+const CWD = process.cwd();
 
 app.get(pathToStaticFileFolder + '*', (request: $Request, response: $Response) => {
     console.log(pathToStaticFileFolder + '*');
     console.log(request.url);
-    response.sendFile(path.join(CWD, '/../dist/', request.params['0']));
+    response.sendFile(path.join(CWD, pathToDist, request.params['0']));
 });
 
 const staticFileList = ['/favicon.ico', '/robots.txt', '/sitemap.xml'];
 
 staticFileList.forEach((pathToFile: string) => {
     app.get(pathToFile, (request: $Request, response: $Response) => {
-        response.sendFile(path.join(CWD, '/../dist' + pathToFile));
+        response.sendFile(path.join(CWD, pathToDist + pathToFile));
     });
 });
 
