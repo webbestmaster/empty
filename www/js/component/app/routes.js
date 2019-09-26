@@ -7,9 +7,8 @@ import {Home} from '../../page/home/c-home';
 import {Login} from '../../page/login/c-login';
 import {AboutUs} from '../../page/about-us/c-about-us';
 import {Contact} from '../../page/contact/c-contact';
-import {PageNotFound} from '../../page/page-not-found/c-page-not-found';
 
-import type {RouteItemType} from './helper';
+import type {RouteItemType} from './render-route-helper';
 
 export const routeItemList: Array<RouteItemType> = [
     {
@@ -32,9 +31,4 @@ export const routeItemList: Array<RouteItemType> = [
         name: 'Contact',
         component: Contact,
     },
-    // {
-    //     path: undefined,
-    //     name: '404 - Page Not Found',
-    //     component: PageNotFound,
-    // },
 ];

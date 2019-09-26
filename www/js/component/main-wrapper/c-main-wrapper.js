@@ -13,6 +13,8 @@ import {screenNameReference} from '../screen/screen-helper';
 import {ScreenContextConsumer} from '../screen/c-screen-context';
 import {localeNameReference} from '../locale/const';
 
+import mainWrapperStyle from './main-wrapper.style.scss';
+
 const mainWrapperClassName = {
     desktop: 'desktop',
     landscape: 'landscape',
@@ -51,6 +53,7 @@ export function MainWrapper(props: PropsType): Node {
 
 function getClassName(localeContextData: LocaleContextType, screenContextData: ScreenContextType): string {
     return classNames({
+        [mainWrapperStyle.main_wrapper]: true,
         [mainWrapperClassName.landscape]: screenContextData.isLandscape,
         [mainWrapperClassName.portrait]: screenContextData.isPortrait,
         [mainWrapperClassName.desktop]: screenContextData.isDesktop,

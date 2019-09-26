@@ -5,7 +5,6 @@
 import type {Node} from 'react';
 import React, {Component} from 'react';
 
-import type {ContextRouterType} from '../../type/react-router-dom-v4';
 import type {InitialDataType} from '../../../../server/src/c-initial-data-context';
 import {InitialDataConsumer} from '../../../../server/src/c-initial-data-context';
 import {LoadComponent} from '../../lib/c-load-component';

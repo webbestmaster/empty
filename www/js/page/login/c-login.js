@@ -5,8 +5,6 @@
 import type {Node} from 'react';
 import React, {Component} from 'react';
 
-import type {ContextRouterType} from '../../type/react-router-dom-v4';
-
 type PropsType = {};
 type StateType = null;
 

@@ -16,7 +16,7 @@ import type {InitialDataType} from '../../../../server/src/c-initial-data-contex
 import {defaultInitialData, InitialDataProvider} from '../../../../server/src/c-initial-data-context';
 
 import {routeItemList} from './routes';
-import {redderEmptyRoute, redderLink, redderRoute} from './helper';
+import {redderEmptyRoute, redderLink, redderRoute} from './render-route-helper';
 
 export function App(): Node {
     return (
@@ -33,16 +33,14 @@ export function InnerApp(props: {|+initialData: InitialDataType|}): Node {
         <InitialDataProvider value={initialData}>
             <LocaleProvider>
                 <ScreenProvider>
-                    <div className="container">
-                        <MainWrapper>
-                            <nav>{routeItemList.map(redderLink)}</nav>
-                            {routeItemList.map(redderRoute)}
-                            <Switch>
-                                {routeItemList.map(redderEmptyRoute)}
-                                <Route component={PageNotFound}/>
-                            </Switch>
-                        </MainWrapper>
-                    </div>
+                    <MainWrapper>
+                        <nav>{routeItemList.map(redderLink)}</nav>
+                        {routeItemList.map(redderRoute)}
+                        <Switch>
+                            {routeItemList.map(redderEmptyRoute)}
+                            <Route component={PageNotFound}/>
+                        </Switch>
+                    </MainWrapper>
                 </ScreenProvider>
             </LocaleProvider>
         </InitialDataProvider>
