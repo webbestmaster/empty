@@ -7,8 +7,8 @@
 import type {Node} from 'react';
 import React, {Component} from 'react';
 
-import {getScreenState} from './screen-helper';
 import type {ScreenContextType} from './screen-helper';
+import {getScreenState} from './screen-helper';
 
 const defaultContextData = getScreenState();
 

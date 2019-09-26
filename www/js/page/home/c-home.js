@@ -4,21 +4,21 @@
 
 import type {Node} from 'react';
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
+import type {InitialDataType} from '../../../../server/src/c-initial-data-context';
+import {InitialDataConsumer} from '../../../../server/src/c-initial-data-context';
 import {LoadComponent} from '../../lib/c-load-component';
 import {Locale} from '../../component/locale/c-locale';
-
 import {NeedEndPoint} from '../../component/need-end-point/c-need-end-point';
-
-type PropsType = ContextRouterType;
-type StateType = null;
-import {InitialDataConsumer} from '../../../../server/src/c-initial-data-context';
-import type {InitialDataType} from '../../../../server/src/c-initial-data-context';
+import {routeItemList} from '../../component/app/routes';
+import {redderLink} from '../../component/app/helper';
 
 import homeStyle from './home.style.scss';
 import pathToImage from './image/java-script-logo.png';
+
+type PropsType = ContextRouterType;
+type StateType = null;
 
 export class Home extends Component<PropsType, StateType> {
     componentDidMount() {
@@ -51,9 +51,7 @@ export class Home extends Component<PropsType, StateType> {
                     | the button |
                 </button>
                 <hr/>
-                <div>
-                    <Link to="/login">go to login</Link>
-                </div>
+                <div>{routeItemList.map(redderLink)}</div>
                 <br/>
                 <span>home page</span>
                 <hr/>

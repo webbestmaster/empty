@@ -2,8 +2,6 @@
 
 /* global localStorage, navigator */
 
-import {hasProperty} from '../../lib/is';
-
 import type {LocaleNameType} from './const';
 import {allLocalesData, localeConst, localeNameList} from './const';
 import type {LangKeyType} from './translation/type';

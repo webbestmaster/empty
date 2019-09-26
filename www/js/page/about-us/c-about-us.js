@@ -9,8 +9,8 @@ type PropsType = ContextRouterType;
 type StateType = null;
 
 // eslint-disable-next-line react/prefer-stateless-function
-export class PageNotFound extends Component<PropsType, StateType> {
+export class AboutUs extends Component<PropsType, StateType> {
     render(): Node {
-        return <h1>Page Not Found, Sorry :(</h1>;
+        return <h1>About Us: we are the champions my friend!</h1>;
     }
 }
