@@ -76,7 +76,9 @@ declare module 'react-router-dom' {
     declare export type HistoryAction = 'PUSH' | 'REPLACE' | 'POP';
 
     declare export type RouterHistory = {
-        length: number,
+        // length: number,
+        // length: number => length: number | void, need to fix ssr router
+        length: number | void,
         location: Location,
         action: HistoryAction,
         listen(callback: (location: Location, action: HistoryAction) => void): () => void,
