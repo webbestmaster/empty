@@ -19,7 +19,7 @@ module.exports.fileRegExp = /\.(png|jpg|jpeg|gif|svg|otf|ttf|woff2?)$/;
 
 module.exports.pathToDist = '/dist';
 
-module.exports.pathToStaticFileFolder = '/static/';
+module.exports.pathToStaticFileFolder = '/static';
 
 module.exports.webpackDevServerPort = 8080;
 module.exports.ssrServerPort = 8081;

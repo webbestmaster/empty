@@ -4,6 +4,7 @@ import fileSystem from 'fs';
 import path from 'path';
 
 import {pathToDist} from '../../webpack/config';
+import {isError, isString} from '../../www/js/lib/is';
 
 let indexHtmlTemplate: string = '{content}';
 
@@ -12,12 +13,12 @@ fileSystem.readFile(path.join('.', pathToDist, 'index.html'), 'utf8', function r
     error: Error | null,
     data: mixed
 ) {
-    if (error instanceof Error) {
-        console.error('Can not read www/index.html !!!');
+    if (isError(error)) {
+        console.error(`Can not read ${pathToDist}/index.html !!!`);
         return;
     }
 
-    if (typeof data === 'string') {
+    if (isString(data)) {
         indexHtmlTemplate = data;
         return;
     }

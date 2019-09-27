@@ -11,15 +11,15 @@ import React from 'react';
 import compression from 'compression';
 import cors from 'cors';
 import ReactDOMServer from 'react-dom/server';
-import {StaticRouter, matchPath} from 'react-router-dom';
+import {StaticRouter} from 'react-router-dom';
 import express, {type $Application, type $Request, type $Response} from 'express';
 
 import type {ApiDataType} from '../../www/js/component/need-end-point/c-need-end-point';
 import {InnerApp} from '../../www/js/component/app/c-app';
-import {pathToStaticFileFolder, ssrServerPort, pathToDist} from '../../webpack/config';
+import {pathToDist, pathToStaticFileFolder, ssrServerPort} from '../../webpack/config';
 
 import {getIndexHtmlTemplate} from './static-files';
-import {defaultInitialData, InitialDataProvider, type InitialDataType} from './c-initial-data-context';
+import {defaultInitialData, type InitialDataType} from './c-initial-data-context';
 
 const PORT: number = ssrServerPort;
 const app: $Application = express();
@@ -32,8 +32,8 @@ app.disable('x-powered-by');
 
 const CWD = process.cwd();
 
-app.get(pathToStaticFileFolder + '*', (request: $Request, response: $Response) => {
-    console.log(pathToStaticFileFolder + '*');
+app.get(pathToStaticFileFolder + '/*', (request: $Request, response: $Response) => {
+    console.log(pathToStaticFileFolder + '/*');
     console.log(request.url);
     response.sendFile(path.join(CWD, pathToDist, request.params['0']));
 });
