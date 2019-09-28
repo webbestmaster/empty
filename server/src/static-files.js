@@ -6,7 +6,9 @@ import path from 'path';
 import {pathToDist} from '../../webpack/config';
 import {isError, isString} from '../../www/js/lib/is';
 
-let indexHtmlTemplate: string = '{content}';
+import {stringForReplace} from './config';
+
+let indexHtmlTemplate: string = stringForReplace;
 
 // $FlowFixMe
 fileSystem.readFile(path.join('.', pathToDist, 'index.html'), 'utf8', function readIndexHtmlCallBack(
