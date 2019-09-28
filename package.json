@@ -35,14 +35,17 @@
     "remove-extra-files": "find . -name __delete_and_no_commit__ -prune -exec rm -rf {} \\;",
     "zip": "zip -9 --exclude=*node_modules* -r my-project_`git symbolic-ref --short HEAD`-`date +%Y-%m-%d-%H-%M-%S` ./",
     "pre-commit-hook": "npm run eslint && npm run stylelint && npm run flow",
-    "postinstall": "cp ./dev/git/hooks/* ./.git/hooks/; ./server/install.sh;",
+    "postinstall": "cp ./dev/git/hooks/* ./.git/hooks/;",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-router-dom": "^5.1.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "react": "^16.10.0",
+    "react-dom": "^16.10.0",
+    "react-router-dom": "^5.1.1",
     "react-transition-group": "^4.3.0"
   },
   "devDependencies": {
@@ -106,7 +109,7 @@
     "stylelint-config-sass-guidelines": "^6.1.0",
     "stylelint-config-standard": "^19.0.0",
     "stylelint-scss": "^3.11.1",
-    "terser-webpack-plugin": "^2.1.0",
+    "terser-webpack-plugin": "^2.1.1",
     "unused-files-webpack-plugin": "^3.4.0",
     "webpack": "^4.41.0",
     "webpack-bundle-analyzer": "^3.5.2",
