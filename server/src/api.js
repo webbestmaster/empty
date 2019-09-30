@@ -10,4 +10,10 @@ export function addApiIntoApplication(app: $Application) {
 
         response.json(apiData);
     });
+
+    app.post('/api/login', async (request: $Request, response: $Response) => {
+        console.log('---> /api/login');
+
+        response.json({login: true});
+    });
 }
