@@ -8,27 +8,27 @@ import {Login} from '../../page/login/c-login';
 import {AboutUs} from '../../page/about-us/c-about-us';
 import {Contact} from '../../page/contact/c-contact';
 
-import type {RouteItemType} from './render-route-helper';
+import type {RedirectItemType, RouteItemType} from './render-route-helper';
 
-export const routeItemList: Array<RouteItemType> = [
-    {
+export const routeItemMap: {[key: string]: RouteItemType | RedirectItemType} = {
+    home: {
         path: '/',
-        name: 'Home',
         component: Home,
+        type: 'route',
     },
-    {
+    login: {
         path: '/login',
-        name: 'Login',
         component: Login,
+        type: 'route',
     },
-    {
+    aboutUs: {
         path: '/about-us',
-        name: 'About Us',
         component: AboutUs,
+        type: 'route',
     },
-    {
+    contact: {
         path: '/contact',
-        name: 'Contact',
         component: Contact,
+        type: 'route',
     },
-];
+};

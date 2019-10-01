@@ -15,7 +15,7 @@ import {MainWrapper} from '../main-wrapper/c-main-wrapper';
 import type {InitialDataType} from '../../../../server/src/c-initial-data-context';
 import {defaultInitialData, InitialDataProvider} from '../../../../server/src/c-initial-data-context';
 
-import {routeItemList} from './routes';
+import {routeItemMap} from './routes';
 import {redderEmptyRoute, redderLink, redderRoute} from './render-route-helper';
 
 export function App(): Node {
@@ -34,10 +34,10 @@ export function InnerApp(props: {|+initialData: InitialDataType|}): Node {
             <LocaleProvider>
                 <ScreenProvider>
                     <MainWrapper>
-                        <nav>{routeItemList.map(redderLink)}</nav>
-                        {routeItemList.map(redderRoute)}
+                        {Object.keys(routeItemMap).map((key: string): Node => redderRoute(routeItemMap[key]))}
+
                         <Switch>
-                            {routeItemList.map(redderEmptyRoute)}
+                            {Object.keys(routeItemMap).map((key: string): Node => redderEmptyRoute(routeItemMap[key]))}
                             <Route component={PageNotFound}/>
                         </Switch>
                     </MainWrapper>

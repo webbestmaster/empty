@@ -4,7 +4,7 @@
 
 import type {Node} from 'react';
 import React from 'react';
-import {Link, Route} from 'react-router-dom';
+import {Link, Route, Redirect} from 'react-router-dom';
 import {CSSTransition} from 'react-transition-group';
 
 import type {ContextRouterType} from '../../type/react-router-dom-v4';
@@ -13,9 +13,15 @@ import pageWrapperStyle from '../page-wrapper/page-wrapper.style.scss';
 
 export type RouteItemType = {|
     +path: string,
-    +name: string,
     // eslint-disable-next-line id-match
     +component: React$ComponentType<*>,
+    +type: 'route',
+|};
+
+export type RedirectItemType = {|
+    +from: string,
+    +path: string,
+    +type: 'redirect',
 |};
 
 const cssTransitionClassNameMap = {
@@ -25,8 +31,22 @@ const cssTransitionClassNameMap = {
     exitActive: pageWrapperStyle.transition_exit_active,
 };
 
-export function redderRoute(routeItem: RouteItemType): Node {
-    const {path, component: PageComponent} = routeItem;
+function isRoute(routeItem: RouteItemType | RedirectItemType): boolean %checks {
+    return routeItem.type === 'route';
+}
+
+function isRedirect(routeItem: RouteItemType | RedirectItemType): boolean %checks {
+    return routeItem.type === 'redirect';
+}
+
+export function redderRoute(routeItem: RouteItemType | RedirectItemType): Node {
+    const {path} = routeItem;
+
+    if (isRedirect(routeItem)) {
+        return <Redirect from={routeItem.from} key={routeItem.from + path} to={path}/>;
+    }
+
+    const {component: PageComponent} = routeItem;
 
     return (
         <Route exact key={path} path={path}>
@@ -51,18 +71,22 @@ export function redderRoute(routeItem: RouteItemType): Node {
     );
 }
 
-export function redderEmptyRoute(routeItem: RouteItemType): Node {
+export function redderEmptyRoute(routeItem: RouteItemType | RedirectItemType): Node {
     const {path} = routeItem;
+
+    if (isRedirect(routeItem)) {
+        return <Redirect from={routeItem.from} key={routeItem.from + path} to={path}/>;
+    }
 
     return <Route exact key={path} path={path}/>;
 }
 
 export function redderLink(routeItem: RouteItemType): Node {
-    const {path, name} = routeItem;
+    const {path} = routeItem;
 
     return (
         <Link key={path} to={path}>
-            {name}
+            {path}
         </Link>
     );
 }
