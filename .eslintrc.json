@@ -79,6 +79,7 @@
         // deprecated
         "jsx-a11y/label-has-for": 0,
         "jsx-a11y/no-access-key": 0,
+        "jsx-a11y/no-autofocus": 0,
         "filenames/no-index": 2,
         "import/no-useless-path-segments": 2,
         "import/no-default-export": 2,
