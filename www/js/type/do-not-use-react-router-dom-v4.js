@@ -1,3 +1,4 @@
+/*
 // @flow
 
 // NOTE: Below are duplicated from react-router. If updating these, please
@@ -70,3 +71,4 @@ export type MatchPathOptionsType = {
     sensitive?: boolean,
     strict?: boolean,
 };
+*/

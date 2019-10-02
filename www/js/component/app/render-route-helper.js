@@ -7,7 +7,9 @@ import React from 'react';
 import {Link, Route, Redirect} from 'react-router-dom';
 import {CSSTransition} from 'react-transition-group';
 
-import type {ContextRouterType} from '../../type/react-router-dom-v4';
+// import type {ContextRouterType} from '../../type/react-router-dom-v4';
+import type {ContextRouter} from 'react-router-dom';
+
 import {PageWrapper} from '../page-wrapper/c-page-wrapper';
 import pageWrapperStyle from '../page-wrapper/page-wrapper.style.scss';
 
@@ -50,7 +52,7 @@ export function redderRoute(routeItem: RouteItemType | RedirectItemType): Node {
 
     return (
         <Route exact key={path} path={path}>
-            {(contextRouterData: ContextRouterType): Node => {
+            {(contextRouterData: ContextRouter): Node => {
                 const {match} = contextRouterData;
 
                 return (
