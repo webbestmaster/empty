@@ -1,74 +1,57 @@
-/*
 // @flow
-
-// NOTE: Below are duplicated from react-router. If updating these, please
-// update the react-router and react-router-native types as well.
-
-export type StaticRouterContextType = {
-    url?: string,
-};
 
 export type LocationType = {
     pathname: string,
     search: string,
     hash: string,
-    state?: {},
+    state?: mixed,
     key?: string,
+    ...,
 };
 
 export type LocationShapeType = {
     pathname?: string,
     search?: string,
     hash?: string,
-    state?: {},
+    state?: mixed,
+    ...,
 };
 
 export type HistoryActionType = 'PUSH' | 'REPLACE' | 'POP';
 
 export type RouterHistoryType = {
-    length: number | void,
+    length: number | void, // WARNING: in original file -> "length: number",
     location: LocationType,
     action: HistoryActionType,
     listen(callback: (location: LocationType, action: HistoryActionType) => void): () => void,
-    push(path: string | LocationShapeType, state?: {}): void,
-    replace(path: string | LocationShapeType, state?: {}): void,
+    push(path: string | LocationShapeType, state?: mixed): void,
+    replace(path: string | LocationShapeType, state?: mixed): void,
     go(n: number): void,
     goBack(): void,
     goForward(): void,
     canGo?: (n: number) => boolean,
-    block(callback: (location: LocationType, action: HistoryActionType) => boolean): void,
+    block(callback: string | ((location: LocationType, action: HistoryActionType) => ?string)): () => void,
     // createMemoryHistory
     index?: number,
     entries?: Array<LocationType>,
+    ...,
 };
 
 export type MatchType = {
-    params: {[key: string]: ?string},
+    params: {[key: string]: ?string, ...},
     isExact: boolean,
     path: string,
     url: string,
+    ...,
 };
+
+export type StaticRouterContextType = {url?: string, ...};
 
 export type ContextRouterType = {|
     history: RouterHistoryType,
     location: LocationType,
-    match: MatchType | null,
+    match: MatchType | null, // WARNING: in original file -> "match: MatchType",
     staticContext?: StaticRouterContextType,
 |};
 
-declare type ContextRouterVoidType = {
-    history: RouterHistoryType | void,
-    location: LocationType | void,
-    match: MatchType | void,
-    staticContext?: StaticRouterContextType | void,
-};
-
 export type GetUserConfirmationType = (message: string, callback: (confirmed: boolean) => void) => void;
-
-export type MatchPathOptionsType = {
-    path?: string,
-    exact?: boolean,
-    sensitive?: boolean,
-    strict?: boolean,
-};
-*/

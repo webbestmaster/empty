@@ -4,12 +4,10 @@
 
 import type {Node} from 'react';
 import React from 'react';
-import {Link, Route, Redirect} from 'react-router-dom';
 import {CSSTransition} from 'react-transition-group';
+import {Link, Route, Redirect} from 'react-router-dom';
 
-// import type {ContextRouterType} from '../../type/react-router-dom-v4';
-import type {ContextRouter} from 'react-router-dom';
-
+import type {MatchType} from '../../type/react-router-dom-v5-type-extract';
 import {PageWrapper} from '../page-wrapper/c-page-wrapper';
 import pageWrapperStyle from '../page-wrapper/page-wrapper.style.scss';
 
@@ -52,7 +50,7 @@ export function redderRoute(routeItem: RouteItemType | RedirectItemType): Node {
 
     return (
         <Route exact key={path} path={path}>
-            {(contextRouterData: ContextRouter): Node => {
+            {(contextRouterData: {match: MatchType | null}): Node => {
                 const {match} = contextRouterData;
 
                 return (
