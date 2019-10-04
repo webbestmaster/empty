@@ -19,6 +19,6 @@ export class PageWrapper extends Component<PropsType, StateType> {
         const view = this;
         const {props} = view;
 
-        return <div className={pageWrapperStyle.page_wrapper}>{props.children}</div>;
+        return <main className={pageWrapperStyle.page_wrapper}>{props.children}</main>;
     }
 }
