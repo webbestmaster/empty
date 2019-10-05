@@ -20,6 +20,9 @@ package-lock.json
 # report
 /flow-coverage
 
+# data base
+/db
+
 # other
 .DS_Store
 __delete_and_no_commit__
