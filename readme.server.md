@@ -2,9 +2,11 @@
 
 ```
 - express
-- express-session
-- compression
-- cors
+    - express-session
+    - compression
+    - cors
+
+- mongodb
 ```
 
 ### Server scripts:
@@ -45,3 +47,10 @@ Clean folder db/data if needed.
 or
 
 > ~/soft/mongo/bin/mongorestore --port=27017 --archive=db/backup/001.zip
+
+2.5. Some commands in mongodb console (~/soft/mongo/bin/mongo):
+> show databases // show all data bases name  
+> use \<data base name\> // switched to db \<data base name\>  
+> show collections // show all collection in current db  
+> db.getCollectionNames() // the same: show collections  
+> db.\<collection name\>.find() // show all documents of collection

@@ -14,6 +14,7 @@ import ReactDOMServer from 'react-dom/server';
 import {StaticRouter} from 'react-router-dom';
 import express, {type $Application, type $Request, type $Response} from 'express';
 import session from 'express-session';
+import {smth} from "./data-base";
 
 import {InnerApp} from '../../www/js/component/app/c-app';
 import {pathToDist, pathToStaticFileFolder, ssrServerPort} from '../../webpack/config';
