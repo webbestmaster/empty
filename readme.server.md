@@ -34,3 +34,4 @@
 
 2.4. Restore backup
 
+> ~/soft/mongo/bin/mongorestore db/backup/001 --port=27017
