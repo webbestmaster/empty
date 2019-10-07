@@ -35,7 +35,7 @@
     "remove-extra-files": "find . -name __delete_and_no_commit__ -prune -exec rm -rf {} \\;",
     "zip": "zip -9 --exclude=*node_modules* -r my-project_`git symbolic-ref --short HEAD`-`date +%Y-%m-%d-%H-%M-%S` ./",
     "pre-commit-hook": "npm run eslint && npm run stylelint && npm run flow",
-    "postinstall": "cp ./dev/git/hooks/* ./.git/hooks/;",
+    "postinstall": "npx cpx ./dev/git/hooks/* ./.git/hooks/;",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
