@@ -14,8 +14,8 @@ declare module 'mongodb' {
         actionResult: MongoCollectionActionResultType | null,
     ) => mixed;
 
-    declare export class MongoCollection<ItemTheType> {
-        insertMany: (itemList: Array<ItemTheType>, callBack: MongoCollectionActionCallBackType) => mixed,
+    declare export class MongoCollection<ItemType> {
+        insertMany: (itemList: Array<ItemType>, callBack: MongoCollectionActionCallBackType) => mixed,
     }
 
     declare export class MongoDataBase {
