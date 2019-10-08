@@ -1,5 +1,3 @@
-/* global process */
-
 const path = require('path');
 
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer'); // eslint-disable-line no-unused-vars
@@ -12,8 +10,6 @@ const {
     cwd,
     isBuildServer,
 } = require('./webpack/config');
-
-console.log(`> branch: ${process.env.BRANCH_NAME}`); // eslint-disable-line no-process-env
 
 const webpackConfig = {
     entry: ['./www/css/root.scss', './www/js/root.js'],

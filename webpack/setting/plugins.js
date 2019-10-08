@@ -15,7 +15,6 @@ const {isProduction, isDevelopment} = require('./../config');
 const definePluginParameters = {
     // BUILD_DATE: JSON.stringify(date.getTime()),
     // BUILD_DATE_H: JSON.stringify(date.toString()),
-    // BRANCH_NAME: JSON.stringify(process.env.BRANCH_NAME), // eslint-disable-line no-process-env
     // NODE_ENV: JSON.stringify(NODE_ENV),
     // IS_PRODUCTION: JSON.stringify(isProduction),
     // PROJECT_ID: JSON.stringify('my-best-project')

@@ -18,8 +18,6 @@ window.appData = {
     // eslint-disable-next-line id-match
     BUILD_DATE_H,
     // eslint-disable-next-line id-match
-    BRANCH_NAME,
-    // eslint-disable-next-line id-match
     IS_PRODUCTION,
     // eslint-disable-next-line id-match
     PROJECT_ID,
