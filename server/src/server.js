@@ -24,6 +24,7 @@ import {getIndexHtmlTemplate} from './static-files';
 import {defaultInitialData, type InitialDataType} from './c-initial-data-context';
 import {staticFilesList, stringForReplace} from './config';
 import {addApiIntoApplication} from './api';
+import type {RouterStaticContextType} from './c-initial-data-context';
 
 const PORT: number = ssrServerPort;
 const CWD = process.cwd();
@@ -84,14 +85,17 @@ addApiIntoApplication(app);
 // *.html
 app.get('*', async (request: $Request, response: $Response) => {
     const initialData: InitialDataType = {...defaultInitialData, apiData: {status: 'success from server'}};
+    const staticContext: RouterStaticContextType = {is404: false};
     const result = ReactDOMServer.renderToString(
-        <StaticRouter context={{}} location={request.url}>
+        <StaticRouter context={staticContext} location={request.url}>
             <InnerApp initialData={initialData}/>
             <script dangerouslySetInnerHTML={{__html: `window.initialData = ${JSON.stringify(initialData)}`}}/>
         </StaticRouter>
     );
 
-    // check result for 404 here
+    if (staticContext.is404 === true) {
+        response.status(404);
+    }
 
     const htmlTemplate = getIndexHtmlTemplate();
 
