@@ -8,6 +8,14 @@ declare module 'cors' {
     declare export default function cors(): string;
 }
 
+declare module 'body-parser' {
+    declare type BodyParser = {
+        urlencoded: (setting: {extended: boolean}) => () => string,
+    };
+
+    declare export default BodyParser;
+}
+
 declare module 'express-session' {
     declare export type ExpressSessionOptionType = {
         +name: string,

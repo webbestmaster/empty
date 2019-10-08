@@ -5,17 +5,14 @@ declare module 'mongodb' {
 
     declare type MongoCollectionActionOperationType = {};
 
-    declare type MongoCollectionActionResultType = {
+    declare export type MongoCollectionActionResultType = {
         ops: Array<MongoCollectionActionOperationType>,
     };
 
-    declare type MongoCollectionActionCallBackType = (
-        actionError: Error | null,
-        actionResult: MongoCollectionActionResultType | null,
-    ) => mixed;
-
     declare export class MongoCollection<ItemType> {
-        insertMany: (itemList: Array<ItemType>, callBack: MongoCollectionActionCallBackType) => mixed,
+        insertMany: (itemList: Array<ItemType>) => Promise<MongoCollectionActionResultType>,
+        insertOne: (item: ItemType) => Promise<MongoCollectionActionResultType>,
+        findOne: (item: $Shape<ItemType>) => Promise<ItemType | null>,
     }
 
     declare export class MongoDataBase {

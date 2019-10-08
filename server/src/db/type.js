@@ -3,8 +3,9 @@
 export type MongoUserRoleType = 'user' | 'admin';
 
 export type MongoUserType = {|
-    id: string,
-    role: MongoUserRoleType,
-    login: string,
-    password: string,
+    +_id?: mixed,
+    +id: string,
+    +role: MongoUserRoleType,
+    +login: string,
+    +password: string,
 |};

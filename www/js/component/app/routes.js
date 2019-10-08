@@ -7,6 +7,7 @@ import {Home} from '../../page/home/c-home';
 import {Login} from '../../page/login/c-login';
 import {AboutUs} from '../../page/about-us/c-about-us';
 import {Contact} from '../../page/contact/c-contact';
+import {Register} from '../../page/register/c-register';
 
 import type {RedirectItemType, RouteItemType} from './render-route-helper';
 
@@ -19,6 +20,11 @@ export const routeItemMap: {[key: string]: RouteItemType | RedirectItemType} = {
     login: {
         path: '/login',
         component: Login,
+        type: 'route',
+    },
+    register: {
+        path: '/register',
+        component: Register,
         type: 'route',
     },
     aboutUs: {

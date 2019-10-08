@@ -3,6 +3,7 @@
 ```
 - express
     - express-session
+    - body-parser
     - compression
     - cors
 

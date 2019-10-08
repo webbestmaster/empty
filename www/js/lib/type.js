@@ -6,8 +6,8 @@
 // 2 - next line throw error in runtime if type is wrong
 // > const checkedFormData: CheckType = typeConverter<CheckType>(formData);
 
-export function typeConverter<NeededType>(someObject: {}): NeededType {
-    return JSON.parse(JSON.stringify(someObject));
+export function typeConverter<NeededType>(someObject: mixed): NeededType {
+    return JSON.parse(String(JSON.stringify(someObject)));
 }
 
 export type NullableType<SomeType> = SomeType | null;
