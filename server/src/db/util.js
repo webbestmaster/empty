@@ -35,8 +35,12 @@ export async function getDataBase(url: string, name: string): Promise<MongoDataB
     return getDataBaseCache[name];
 }
 
-export async function getCollection<ItemType>(name: string): Promise<MongoCollection<ItemType>> {
-    const dataBase = await getDataBase(dataBaseConst.url.href, dataBaseConst.name);
+export async function getCollection<ItemType>(
+    dataBaseHref: string,
+    dataBaseName: string,
+    collectionName: string
+): Promise<MongoCollection<ItemType>> {
+    const dataBase = await getDataBase(dataBaseHref, dataBaseName);
 
-    return dataBase.collection<ItemType>(name);
+    return dataBase.collection<ItemType>(collectionName);
 }
