@@ -18,13 +18,14 @@ import session from 'express-session';
 
 import {InnerApp} from '../../www/js/component/app/c-app';
 import {pathToDist, pathToStaticFileFolder, ssrServerPort} from '../../webpack/config';
-import {hasProperty} from '../../www/js/lib/is';
+import {hasProperty, isObject} from '../../www/js/lib/is';
 
 import {getIndexHtmlTemplate} from './static-files';
 import {defaultInitialData, type InitialDataType} from './c-initial-data-context';
 import {staticFilesList, stringForReplace} from './config';
 import {addApiIntoApplication} from './api';
 import type {RouterStaticContextType} from './c-initial-data-context';
+import {getSession} from './util/session';
 
 const PORT: number = ssrServerPort;
 const CWD = process.cwd();
@@ -56,16 +57,18 @@ staticFilesList.forEach((pathToFile: string) => {
 });
 
 app.use((request: $Request, response: $Response, next: () => mixed) => {
-    // $FlowFixMe
-    const userSession = hasProperty(request, 'session') ? request.session : {};
+    const userSession = getSession(request);
 
-    if (!hasProperty(userSession, 'views')) {
-        Object.assign(userSession, {views: {}});
-    }
+    const pathname: string = String(request.url);
 
-    const pathname = request.url;
+    const {views} = userSession;
 
-    Object.assign(userSession.views, {[pathname]: (userSession.views[pathname] || 0) + 1});
+    const currentViews = isObject(views) ? views : {};
+
+    userSession.views = {
+        ...currentViews,
+        [pathname]: (Number(currentViews[pathname]) || 0) + 1,
+    };
 
     console.log(userSession);
 

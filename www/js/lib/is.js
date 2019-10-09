@@ -25,7 +25,7 @@ export function isNotBoolean(value: mixed): boolean %checks {
 }
 
 export function isNumber(value: mixed): boolean %checks {
-    return typeof value === 'number';
+    return typeof value === 'number' && !Number.isNaN(value);
 }
 
 export function isNotNumber(value: mixed): boolean %checks {
@@ -41,15 +41,27 @@ export function isNotString(value: mixed): boolean %checks {
 }
 
 export function isFunction(value: mixed): boolean %checks {
-    return typeof value === 'function';
+    return value instanceof Function;
 }
 
 export function isNotFunction(value: mixed): boolean %checks {
-    return typeof value !== 'function';
+    return !(value instanceof Function);
 }
 
 export function isError(value: mixed): boolean %checks {
     return value instanceof Error;
+}
+
+export function isNotError(value: mixed): boolean %checks {
+    return !(value instanceof Error);
+}
+
+export function isObject(value: mixed): boolean %checks {
+    return value instanceof Object;
+}
+
+export function isNotObject(value: mixed): boolean %checks {
+    return !(value instanceof Object);
 }
 
 export function hasProperty(object: mixed, propertyName: string): boolean %checks {

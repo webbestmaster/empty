@@ -7,7 +7,8 @@
 // > const checkedFormData: CheckType = typeConverter<CheckType>(formData);
 
 export function typeConverter<NeededType>(someObject: mixed): NeededType {
-    return JSON.parse(String(JSON.stringify(someObject)));
+    // $FlowFixMe
+    return someObject;
 }
 
 export type NullableType<SomeType> = SomeType | null;

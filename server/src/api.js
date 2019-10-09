@@ -5,7 +5,7 @@ import {type $Application, type $Request, type $Response} from 'express';
 import type {ApiDataType} from '../../www/js/component/need-end-point/c-need-end-point';
 import {typeConverter} from '../../www/js/lib/type';
 
-import {hasProperty} from '../../www/js/lib/is';
+import {getSession} from './util/session';
 
 import {getCollection} from './db/util';
 import type {MongoUserType} from './db/type';
@@ -59,10 +59,9 @@ export function addApiIntoApplication(app: $Application) {
             return;
         }
 
-        // $FlowFixMe
-        const userSession = hasProperty(request, 'session') ? request.session : {};
+        const userSession = getSession(request);
 
-        Object.assign(userSession, {login});
+        userSession.login = login;
 
         console.log('--- user ---');
         console.log(user);
