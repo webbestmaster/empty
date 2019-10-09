@@ -12,6 +12,7 @@
         "max-nesting-depth": 2,
         "selector-class-pattern": "^[a-z\\-\\d_]+$",
         "selector-max-universal": 0,
+        "selector-nested-pattern": "^((\\.)|(&\\.)|(&:))[a-z][a-z\\-\\d_]+$",
         "selector-pseudo-class-blacklist": ["not"]
     }
 }
