@@ -11,6 +11,7 @@
         "selector-pseudo-element-colon-notation": "single",
         "max-nesting-depth": 2,
         "selector-class-pattern": "^[a-z\\-\\d_]+$",
+        "selector-combinator-blacklist": [">", "+", "~", "*"],
         "selector-max-universal": 0,
         "selector-nested-pattern": "^((\\.)|(&\\.)|(&:))[a-z][a-z\\-\\d_]+$",
         "selector-pseudo-class-blacklist": ["not"]
