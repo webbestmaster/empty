@@ -1,5 +1,5 @@
 // @flow
 
-export const stringForReplace = '{content}';
+export const stringForReplace: string = '{content}';
 
-export const staticFilesList = ['/favicon.ico', '/robots.txt', '/sitemap.xml'];
+export const staticFilesList: Array<string> = ['/favicon.ico', '/robots.txt', '/sitemap.xml', '/manifest.json'];

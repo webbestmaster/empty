@@ -21,6 +21,8 @@ const definePluginParameters = {
     // IS_DEVELOPMENT: JSON.stringify(IS_DEVELOPMENT)
 };
 
+const staticFilesList = ['/favicon.ico', '/robots.txt', '/sitemap.xml', '/manifest.json'];
+
 module.exports.plugins = [
     new CircularDependencyPlugin({
         exclude: /node_modules/,
@@ -46,23 +48,7 @@ module.exports.plugins = [
         filename: isDevelopment ? '[name].css' : '[name].[hash:6].css',
         chunkFilename: isDevelopment ? '[id].css' : '[id].[hash:6].css',
     }),
-    new CopyWebpackPlugin(
-        [
-            {
-                from: './www/favicon.ico',
-                to: './favicon.ico',
-            },
-            {
-                from: './www/robots.txt',
-                to: './robots.txt',
-            },
-            {
-                from: './www/sitemap.xml',
-                to: './sitemap.xml',
-            },
-        ],
-        {debug: false}
-    ),
+    new CopyWebpackPlugin(staticFilesList.map(pathToFle => ({from: `./www${pathToFle}`, to: `.${pathToFle}`}))),
     new UnusedFilesWebpackPlugin({
         patterns: ['www/**/*.*'],
         globOptions: {
