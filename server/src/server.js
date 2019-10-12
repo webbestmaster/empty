@@ -86,6 +86,13 @@ app.get(pathToStaticFileFolder + '/*', (request: $Request, response: $Response) 
     response.sendFile(path.join(CWD, pathToDist, request.params['0']));
 });
 
+// service worker
+app.get('/sw.js', (request: $Request, response: $Response) => {
+    console.log(pathToStaticFileFolder + '/*');
+    console.log(request.url);
+    response.sendFile(path.join(CWD, pathToDist, 'asset/sw.js'));
+});
+
 // api
 addApiIntoApplication(app);
 
@@ -109,7 +116,7 @@ app.get('*', async (request: $Request, response: $Response) => {
     response.send(htmlTemplate.replace(stringForReplace, result));
 });
 
-if (process.env.NODE_ENV === 'production' || 1) {
+if (process.env.NODE_ENV === 'production') {
     // $FlowFixMe
     https.createServer(sslCredentials, app).listen(PORT, () => {
         console.info(`Server listening on port ${PORT} - production`);

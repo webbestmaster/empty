@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
+    <script>
+        function registerServiceWorker() {
+            // регистрирует скрипт sw в поддерживаемых браузерах
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(() => {
+                    console.log('Service Worker registered successfully.');
+                }).catch(error => {
+                    console.log('Service Worker registration failed:', error);
+                    console.log(error);
+                });
+            }
+        }
+        registerServiceWorker();
+    </script>
+
     <title>{title}</title>
     <meta charset="UTF-8"/>
     <meta name="description" content="this is my site"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-starturl" content="/">
 
     <link rel="apple-touch-icon" sizes="57x57" href="/static/asset/icon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/static/asset/icon/apple-icon-60x60.png">
