@@ -15,7 +15,7 @@
         [
             "file-loader",
             {
-                "name": "asset/[name]-[md5:hash:hex:7].[ext]",
+                "name": "file/[name]-[md5:hash:hex:7].[ext]",
                 "extensions": [
                     "png",
                     "jpg",
