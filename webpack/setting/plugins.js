@@ -21,7 +21,7 @@ const definePluginParameters = {
     // IS_DEVELOPMENT: JSON.stringify(IS_DEVELOPMENT)
 };
 
-const staticFilesList = ['/favicon.ico', '/robots.txt', '/sitemap.xml', '/manifest.json', '/icon/'];
+const staticFilesList = ['/favicon.ico', '/robots.txt', '/sitemap.xml', '/manifest.json', '/asset'];
 
 module.exports.plugins = [
     new CircularDependencyPlugin({
@@ -52,7 +52,7 @@ module.exports.plugins = [
     new UnusedFilesWebpackPlugin({
         patterns: ['www/**/*.*'],
         globOptions: {
-            ignore: ['www/**/*.scss.flow', 'www/**/*.css.flow'],
+            ignore: ['www/**/*.scss.flow', 'www/**/*.css.flow', 'www/asset/**/*'],
         },
     }),
     // new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
