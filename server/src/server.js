@@ -5,6 +5,7 @@
 /* eslint no-process-env: 0, id-match: 0, optimize-regex/optimize-regex: 0, react/no-danger: 0 */
 
 import type {IncomingMessage, ServerResponse} from 'http';
+import https from 'https';
 import path from 'path';
 
 import React from 'react';
@@ -19,6 +20,7 @@ import session from 'express-session';
 import {InnerApp} from '../../www/js/component/app/c-app';
 import {pathToDist, pathToStaticFileFolder, ssrServerPort} from '../../webpack/config';
 import {hasProperty, isObject} from '../../www/js/lib/is';
+import {sslCredentials} from '../../ssl/ssl.js';
 
 import {getIndexHtmlTemplate} from './static-files';
 import {defaultInitialData, type InitialDataType} from './c-initial-data-context';
@@ -31,6 +33,8 @@ const PORT: number = ssrServerPort;
 const CWD = process.cwd();
 
 const app: $Application = express();
+
+// const app = express.createServer(sslCredentials);
 
 app.use(cors());
 app.use(compression());
@@ -105,6 +109,13 @@ app.get('*', async (request: $Request, response: $Response) => {
     response.send(htmlTemplate.replace(stringForReplace, result));
 });
 
-app.listen(PORT, () => {
-    console.info(`Server listening on port ${PORT}`);
-});
+if (process.env.NODE_ENV === 'production' || 1) {
+    // $FlowFixMe
+    https.createServer(sslCredentials, app).listen(PORT, () => {
+        console.info(`Server listening on port ${PORT} - production`);
+    });
+} else {
+    app.listen(PORT, () => {
+        console.info(`Server listening on port ${PORT} - development`);
+    });
+}
