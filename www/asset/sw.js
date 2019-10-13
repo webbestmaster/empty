@@ -1,51 +1,65 @@
-// sw.js
+// @flow
 
-/* global self, caches */
+/* global self, caches, fetch */
 
-const cacheName = 'my-pwa-cache-v.0021';
+/* eslint-disable spaced-comment, arrow-parens, flowtype/require-parameter-type, flowtype/require-return-type */
 
-self.addEventListener('install', evt => {
-    evt.waitUntil(
-        // после установки service worker
-        // открыть новый кэш
-        caches.open(cacheName).then(cache => {
-            // добавляем все URL ресурсов, которые хотим закэшировать ЗАРАНЕЕ!!!
-            return cache.addAll([
-                '/',
-                // '/static/',
-                // '/index.html',
-                // '/about.html',
-                // '/images/doggo.jpg',
-                // '/styles/main.min.css',
-                // '/scripts/main.min.js',
-            ]);
-        })
-    );
-});
+/*::
+type ServiceWorkerEvent = {
+    ...Event,
+    waitUntil: (waitFor: Promise<mixed>) => mixed,
+    respondWith: (respondFor: Promise<mixed>) => mixed,
+    request: Request,
+};
+*/
 
-self.addEventListener('fetch', function (event) {
-    // add logic to cache or not here
-    if (event.request.url.includes('/static1111111/') || event.request.url === 'http://localhost:8081/') {
-        const updateCache = function (request) {
-            return caches.open(cacheName).then(function (cache) {
-                return fetch(request).then(function (response) {
-                    console.log(response.url);
-                    console.log('[PWA Builder] add page to offline ' + response.url);
-                    return cache.put(request, response);
-                });
-            });
-        };
+const cacheName = 'my-pwa-cache-v.0033';
 
-        event.waitUntil(updateCache(event.request));
-        event.respondWith(
-            fetch(event.request).catch(function (error) {
-                console.log('[PWA Builder] Network request Failed. Serving content from cache: ' + error);
-                return caches.open(cacheName).then(function (cache) {
-                    return cache.match(event.request).then(function (matching) {
-                        return !matching || matching.status == 404 ? Promise.reject('no-match') : matching;
-                    });
-                });
-            })
-        );
+async function makePreCache() {
+    const cache = await caches.open(cacheName);
+
+    await cache.addAll(['/']);
+}
+
+function installCallBack(evt /*:: : ServiceWorkerEvent */) {
+    evt.waitUntil(makePreCache());
+}
+
+self.addEventListener('install', installCallBack);
+
+async function updateCache(evt /*:: : ServiceWorkerEvent */) {
+    const {request} = evt;
+    const cache = await caches.open(cacheName);
+    const response = await fetch(request);
+
+    console.log('[PWA Builder] add page to offline ' + response.url);
+
+    await cache.put(request, response);
+}
+
+async function fetchRespondWith(evt /*:: : ServiceWorkerEvent */) {
+    return fetch(evt.request).catch(async (error /*:: : Error */) /*:: : Promise<mixed> */ => {
+        console.log('[PWA Builder] Network request Failed. Serving content from cache: ' + error.message);
+        const cache = await caches.open(cacheName);
+        const matching = await cache.match(evt.request);
+
+        if (!matching || String(matching.status) === '404') {
+            console.log('---> matching is wrong', matching);
+            throw new Error('no-match');
+        }
+
+        return matching;
+    });
+}
+
+async function fetchCallBack(evt /*:: : ServiceWorkerEvent */) {
+    const {request} = evt;
+    const {url} = request;
+
+    if (url.includes('/static/') || url === 'http://localhost:8081/') {
+        evt.waitUntil(updateCache(evt));
+        evt.respondWith(fetchRespondWith(evt));
     }
-});
+}
+
+self.addEventListener('fetch', fetchCallBack);

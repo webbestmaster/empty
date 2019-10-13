@@ -37,8 +37,6 @@ module.exports.optimization = isDevelopment
     }
     : {
         minimizer: [
-
-            /*
             new TerserPlugin({
                 terserOptions: {
                     output: {
@@ -52,6 +50,5 @@ module.exports.optimization = isDevelopment
                 },
             }),
             new OptimizeCSSAssetsPlugin({}),
-*/
         ],
     };

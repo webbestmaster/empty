@@ -76,3 +76,7 @@ $ sudo apt-get install build-essential
 $ sudo apt-get install gcc
 $ sudo apt-get install --no-install-recommends -y gcc make libpng-dev
 ```
+
+## Favicon generator for PWA
+
+https://www.favicon-generator.org
