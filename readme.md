@@ -78,5 +78,16 @@ $ sudo apt-get install --no-install-recommends -y gcc make libpng-dev
 ```
 
 ## Favicon generator for PWA
-
 https://www.favicon-generator.org
+
+## Static server
+
+### Install
+```bash
+sudo npm i static-server
+```
+
+### Run
+```bash
+static-server --port 8888 --not-found ./index.html
+```
