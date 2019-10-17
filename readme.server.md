@@ -55,3 +55,11 @@ or
 > show collections // show all collection in current db  
 > db.getCollectionNames() // the same: show collections  
 > db.\<collection name\>.find() // show all documents of collection
+
+### How to download backup
+
+Execute this from your local machine:
+
+```bash
+$ scp deploy@188.166.70.236:~/<file-name>.zip ~/<file-name>.zip
+```
