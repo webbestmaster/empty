@@ -37,7 +37,7 @@
 
 or
 
-> ~/soft/mongo/bin/mongodump --port=27017 --archive=db/backup/001.zip
+> ~/soft/mongo/bin/mongodump --port=27017 --archive=db/backup/db-dump-0001.zip
 
 2.4. Restore backup
 
