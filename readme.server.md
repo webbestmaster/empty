@@ -24,37 +24,37 @@
 2. Mongodb \
 2.1. Run
 
-> ~/soft/mongo/bin/mongod --config ./mongodb.config
+> $ ~/soft/mongo/bin/mongod --config ./mongodb.config
 
 2.2. Stop mongodb
 
-> ps -ax | grep -i mongod // 24409 ttys000 0:00.00 grep mongod \
-> kill \<PID\>
+> $ ps -ax | grep -i mongod // 24409 ttys000 0:00.00 grep mongod \
+> $ kill \<PID\>
 
 2.3. Make backup
 
-> ~/soft/mongo/bin/mongodump --port=27017 --out=db/backup/001
+> $ ~/soft/mongo/bin/mongodump --port=27017 --out=db/backup/001
 
 or
 
-> ~/soft/mongo/bin/mongodump --port=27017 --archive=db/backup/db-dump-0001.zip
+> $ ~/soft/mongo/bin/mongodump --port=27017 --archive=db/backup/db-dump-\`date +%Y-%m-%d-%H-%M-%S\`.zip
 
 2.4. Restore backup
 
 Clean folder db/data if needed.
 
-> ~/soft/mongo/bin/mongorestore db/backup/001 --port=27017
+> $ ~/soft/mongo/bin/mongorestore db/backup/001 --port=27017
 
 or
 
-> ~/soft/mongo/bin/mongorestore --port=27017 --archive=db/backup/001.zip
+> $ ~/soft/mongo/bin/mongorestore --port=27017 --archive=db/backup/001.zip
 
 2.5. Some commands in mongodb console (~/soft/mongo/bin/mongo):
-> show databases // show all data bases name  
-> use \<data base name\> // switched to db \<data base name\>  
-> show collections // show all collection in current db  
-> db.getCollectionNames() // the same: show collections  
-> db.\<collection name\>.find() // show all documents of collection
+> $ show databases // show all data bases name  
+> $ use \<data base name\> // switched to db \<data base name\>  
+> $ show collections // show all collection in current db  
+> $ db.getCollectionNames() // the same: show collections  
+> $ db.\<collection name\>.find() // show all documents of collection
 
 ### How to download backup
 
