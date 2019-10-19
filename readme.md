@@ -84,10 +84,11 @@ https://www.favicon-generator.org
 
 ### Install
 ```bash
-sudo npm i static-server
+$ sudo npm i static-server
 ```
 
 ### Run
 ```bash
-static-server --port 8888 --not-found ./index.html
+$ cd dist
+$ static-server --port 8888 --not-found ./index.html
 ```
