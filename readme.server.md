@@ -50,7 +50,7 @@ or
 > $ ~/soft/mongo/bin/mongorestore --port=27017 --archive=db/backup/001.zip
 
 2.5. Some commands in mongodb console/client (~/soft/mongo/bin/mongo):
-> $ ~/soft/mongo/bin/mongo // run client  
+> $ ~/soft/mongo/bin/mongo --port=27017 --host=127.0.0.1 // run client  
 > $ show databases // show all data bases name  
 > $ use \<data base name\> // switched to db \<data base name\>  
 > $ show collections // show all collection in current db  
