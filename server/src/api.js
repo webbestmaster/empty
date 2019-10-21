@@ -23,11 +23,7 @@ export function addApiIntoApplication(app: $Application) {
 
         const {login, password} = typeConverter<{login: string, password: string}>(request.body);
 
-        const userCollection = await getCollection<MongoUserType>(
-            dataBaseConst.url.href,
-            dataBaseConst.name,
-            dataBaseConst.collection.user
-        );
+        const userCollection = await getCollection<MongoUserType>(dataBaseConst.name, dataBaseConst.collection.user);
 
         const newUser: MongoUserType = {
             login,
@@ -46,11 +42,7 @@ export function addApiIntoApplication(app: $Application) {
 
         const {login, password} = typeConverter<{login: string, password: string}>(request.body);
 
-        const userCollection = await getCollection<MongoUserType>(
-            dataBaseConst.url.href,
-            dataBaseConst.name,
-            dataBaseConst.collection.user
-        );
+        const userCollection = await getCollection<MongoUserType>(dataBaseConst.name, dataBaseConst.collection.user);
 
         const user = await userCollection.findOne({login, password});
 

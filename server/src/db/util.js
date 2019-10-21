@@ -10,24 +10,27 @@ import {dataBaseConst} from './const';
 
 const getDataBaseCache: {[key: string]: Promise<MongoDataBase>} = {};
 
-export async function getDataBase(url: string, name: string): Promise<MongoDataBase> {
+export async function getDataBase(name: string): Promise<MongoDataBase> {
     if (hasProperty(getDataBaseCache, name)) {
         console.log('getDataBase: MongoDataBase get from cache, name:', name);
         return getDataBaseCache[name];
     }
 
     getDataBaseCache[name] = new Promise<MongoDataBase>((resolve: MongoDataBase => mixed) => {
-        MongoClient.connect(url, (clientError: NullableType<Error>, client: NullableType<MongoClient>) => {
-            if (clientError instanceof Error) {
-                throw new TypeError('Can not connect to mongo server: ' + url);
-            }
+        MongoClient.connect(
+            dataBaseConst.url,
+            (clientError: NullableType<Error>, client: NullableType<MongoClient>) => {
+                if (clientError instanceof Error) {
+                    throw new TypeError('Can not connect to mongo server');
+                }
 
-            if (client === null) {
-                throw new Error('Mongo client is not define');
-            }
+                if (client === null) {
+                    throw new Error('Mongo client is not define');
+                }
 
-            resolve(client.db(name));
-        });
+                resolve(client.db(name));
+            }
+        );
     });
 
     console.log('getDataBase: MongoDataBase defined');
@@ -36,11 +39,10 @@ export async function getDataBase(url: string, name: string): Promise<MongoDataB
 }
 
 export async function getCollection<ItemType>(
-    dataBaseHref: string,
     dataBaseName: string,
     collectionName: string
 ): Promise<MongoCollection<ItemType>> {
-    const dataBase = await getDataBase(dataBaseHref, dataBaseName);
+    const dataBase = await getDataBase(dataBaseName);
 
     return dataBase.collection<ItemType>(collectionName);
 }
