@@ -56,6 +56,7 @@ or
 > $ show collections // show all collection in current db  
 > $ db.getCollectionNames() // the same: show collections  
 > $ db.\<collection name\>.find() // show all documents of collection
+> $ db.shutdownServer() // shutdown server
 
 ### How to download backup
 
