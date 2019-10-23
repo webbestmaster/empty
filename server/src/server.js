@@ -17,7 +17,7 @@ import {StaticRouter} from 'react-router-dom';
 import express, {type $Application, type $Request, type $Response} from 'express';
 import session from 'express-session';
 
-import {InnerApp} from '../../www/js/component/app/c-app';
+import {InnerApp} from '../../www/js/component/app/c-inner-app';
 import {pathToDist, pathToStaticFileFolder, ssrServerPort} from '../../webpack/config';
 import {hasProperty, isObject} from '../../www/js/lib/is';
 import {sslCredentials} from '../../ssl/ssl.js';
