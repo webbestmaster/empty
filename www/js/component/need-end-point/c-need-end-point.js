@@ -39,8 +39,6 @@ export class NeedEndPoint extends Component<PropsType, StateType> {
         };
     }
 
-    state: StateType;
-
     async componentDidMount() {
         const view = this;
 
@@ -56,8 +54,6 @@ export class NeedEndPoint extends Component<PropsType, StateType> {
 
         view.setState({apiData});
     }
-
-    props: PropsType;
 
     render(): Node {
         const view = this;

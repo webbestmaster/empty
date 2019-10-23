@@ -26,15 +26,11 @@ export class LoadComponent extends Component<PropsType, StateType> {
         };
     }
 
-    state: StateType;
-
     async componentDidMount() {
         const view = this;
 
         await view.load();
     }
-
-    props: PropsType;
 
     async load() {
         const view = this;
