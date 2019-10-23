@@ -12,7 +12,7 @@ import {defaultInitialData, InitialDataProvider} from '../../../../server/src/c-
 
 import {routeItemMap} from './routes';
 import {redderEmptyRoute, redderLink, redderRoute} from './render-route-helper';
-import {WrapperList} from './c-wrapper-list';
+import {renderWrapperList} from './wrapper-list';
 
 const wrapperList = [LocaleProvider, ScreenProvider, MainWrapper];
 
@@ -21,14 +21,17 @@ export function InnerApp(props: {|+initialData: InitialDataType|}): Node {
 
     return (
         <InitialDataProvider value={initialData}>
-            <WrapperList wrapperList={wrapperList}>
-                {Object.keys(routeItemMap).map((key: string): Node => redderRoute(routeItemMap[key]))}
+            {renderWrapperList(
+                wrapperList,
+                <>
+                    {Object.keys(routeItemMap).map((key: string): Node => redderRoute(routeItemMap[key]))}
 
-                <Switch>
-                    {Object.keys(routeItemMap).map((key: string): Node => redderEmptyRoute(routeItemMap[key]))}
-                    <Route component={PageNotFound}/>
-                </Switch>
-            </WrapperList>
+                    <Switch>
+                        {Object.keys(routeItemMap).map((key: string): Node => redderEmptyRoute(routeItemMap[key]))}
+                        <Route component={PageNotFound}/>
+                    </Switch>
+                </>
+            )}
         </InitialDataProvider>
     );
 }
