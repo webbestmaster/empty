@@ -21,17 +21,13 @@ export function InnerApp(props: {|+initialData: InitialDataType|}): Node {
 
     return (
         <InitialDataProvider value={initialData}>
-            {renderWrapperList(
-                wrapperList,
-                <>
-                    {Object.keys(routeItemMap).map((key: string): Node => redderRoute(routeItemMap[key]))}
-
-                    <Switch>
-                        {Object.keys(routeItemMap).map((key: string): Node => redderEmptyRoute(routeItemMap[key]))}
-                        <Route component={PageNotFound}/>
-                    </Switch>
-                </>
-            )}
+            {renderWrapperList(wrapperList, [
+                Object.keys(routeItemMap).map((key: string): Node => redderRoute(routeItemMap[key])),
+                <Switch key="switch">
+                    {Object.keys(routeItemMap).map((key: string): Node => redderEmptyRoute(routeItemMap[key]))}
+                    <Route component={PageNotFound}/>
+                </Switch>,
+            ])}
         </InitialDataProvider>
     );
 }
