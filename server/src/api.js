@@ -6,16 +6,30 @@ import type {ApiDataType} from '../../www/js/component/need-end-point/c-need-end
 import {typeConverter} from '../../www/js/lib/type';
 
 import {getSession} from './util/session';
-
 import {getCollection} from './db/util';
 import type {MongoUserType} from './db/type';
 import {dataBaseConst} from './db/const';
+import {getTime} from './util/time';
+
+const streamOptionsArray = {transform: (item: {}): string => JSON.stringify(item) + ','};
 
 export function addApiIntoApplication(app: $Application) {
     app.get('/api/some-api-url', async (request: $Request, response: $Response) => {
         const apiData: ApiDataType = {status: 'success'};
 
         response.json(apiData);
+    });
+
+    app.get('/api/get-user-list', async (request: $Request, response: $Response) => {
+        console.log('---> /api/get-user-list');
+
+        const userCollection = await getCollection<MongoUserType>(dataBaseConst.name, dataBaseConst.collection.user);
+
+        // TODO: try to remove "await", because work without it
+        (await userCollection)
+            .find({})
+            .stream(streamOptionsArray)
+            .pipe(response.type('json'));
     });
 
     app.post('/api/register', async (request: $Request, response: $Response) => {
@@ -25,11 +39,17 @@ export function addApiIntoApplication(app: $Application) {
 
         const userCollection = await getCollection<MongoUserType>(dataBaseConst.name, dataBaseConst.collection.user);
 
+        const date = getTime();
+
         const newUser: MongoUserType = {
             login,
             password,
             role: 'user',
-            id: String(Math.random()),
+            id: String(date + Math.random()),
+            rating: 0,
+            register: {
+                date,
+            },
         };
 
         await userCollection.insertOne(newUser);
